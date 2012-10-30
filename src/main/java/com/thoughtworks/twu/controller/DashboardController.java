@@ -10,14 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController {
+public class DashboardController {
     private UserService userService;
 
 
 
-    @RequestMapping("/createAccount")
-    public ModelAndView homepage() {
-        ModelAndView modelAndView = new ModelAndView("createAccount");
+    @RequestMapping(value= "/dashboard", method=RequestMethod.POST)
+    public ModelAndView dashboardpage() {
+        ModelAndView modelAndView = new ModelAndView("dashboard");
+
 
         return modelAndView;
     }

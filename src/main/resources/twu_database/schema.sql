@@ -1,14 +1,11 @@
-create table user (
-    id int not null,
-    name varchar(80) null,
-    constraint pk_user primary key (id)
+
+create table if not exists UserTable(
+  email varchar(25) primary key,
+  name varchar(25),
+  password varchar(25),
+  phoneNumber varchar(15)
 );
 
-create table task (
-    id int not null,
-    name varchar(80) null,
-    description varchar(300) null,
-    points int null,
-    code varchar(10) null,
-    constraint pk_task primary key (id)
-);
+
+
+

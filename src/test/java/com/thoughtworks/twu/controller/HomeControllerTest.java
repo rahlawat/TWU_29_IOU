@@ -43,8 +43,8 @@ public class HomeControllerTest {
         User user = (validUser) ? new User(username) : null;
         when(mockUserService.getUser(username)).thenReturn(user);
 
-        com.thoughtworks.twu.controller.HomeController homeController = new HomeController(mockUserService);
-        return homeController.homepage(username);
+        com.thoughtworks.twu.controller.HomeController homeController = new HomeController();
+        return homeController.homepage();
     }
 
 }
