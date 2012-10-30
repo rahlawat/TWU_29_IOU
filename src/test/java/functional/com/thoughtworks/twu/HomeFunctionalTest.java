@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -26,7 +27,7 @@ public class HomeFunctionalTest {
         WebElement link = webDriver.findElement(By.tagName("a"));
 
         assertThat(link.getText(), is("Try me"));
-        assertThat(link.getAttribute("href"), is("http://localhost:9876/twu/?username=bill"));
+        assertThat(link.getAttribute("href"), is("http://localhost:8080/twu/?username=bill"));
 
         webDriver.get(link.getAttribute("href"));
         WebElement h1 = webDriver.findElement(By.tagName("h1"));
