@@ -25,6 +25,7 @@ public class HomeFunctionalTest {
     @Test
     public void shouldShowTryMeLink() {
         webDriver.get("http://localhost:9130/twu");
+
         WebElement link = webDriver.findElement(By.tagName("a"));
 
         assertThat(link.getText(), is("Try me"));
