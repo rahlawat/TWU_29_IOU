@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 
 import static org.hamcrest.CoreMatchers.is;
@@ -18,16 +19,16 @@ public class HomeFunctionalTest {
 
     @Before
     public void setUp() {
-        webDriver = new FirefoxDriver();
+        webDriver = new HtmlUnitDriver();
     }
 
     @Test
     public void shouldShowTryMeLink() {
-        webDriver.get("http://localhost:8080/twu");
+        webDriver.get("http://localhost:9130/twu");
         WebElement link = webDriver.findElement(By.tagName("a"));
 
         assertThat(link.getText(), is("Try me"));
-        assertThat(link.getAttribute("href"), is("http://localhost:8080/twu/?username=bill"));
+        assertThat(link.getAttribute("href"), is("http://localhost:9130/twu/?username=bill"));
 
         webDriver.get(link.getAttribute("href"));
         WebElement h1 = webDriver.findElement(By.tagName("h1"));

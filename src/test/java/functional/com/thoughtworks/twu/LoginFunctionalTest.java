@@ -22,19 +22,19 @@ public class LoginFunctionalTest {
 
     @Before
     public void setUp() {
-        webDriver = new FirefoxDriver();
+        webDriver = new HtmlUnitDriver();
     }
 
     @Test
     public void shouldShowTheEmailInputBox() {
-        webDriver.get("http://localhost:8080/twu/login");
+        webDriver.get("http://localhost:9130/twu/login");
        List<WebElement> emailItems =  webDriver.findElements(By.name("email"));
         assertEquals(1,emailItems.size());
     }
 
     @Test
     public void shouldShowThePasswordInputBox() {
-        webDriver.get("http://localhost:8080/twu/login");
+        webDriver.get("http://localhost:9130/twu/login");
         List<WebElement> passwordItems =  webDriver.findElements(By.name("password"));
         assertEquals(1, passwordItems.size());
     }
