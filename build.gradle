@@ -3,6 +3,11 @@ apply plugin: 'jetty'
 apply plugin: 'war'
 apply plugin: 'idea'
 
+war {
+    // set war output file name
+    archiveName = "IOU.war"
+}
+
 repositories {
     mavenCentral()
 }
