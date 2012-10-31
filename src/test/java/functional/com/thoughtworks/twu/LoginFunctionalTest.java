@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.List;
 
@@ -38,6 +38,7 @@ public class LoginFunctionalTest {
         List<WebElement> passwordItems =  webDriver.findElements(By.name("password"));
         assertEquals(1, passwordItems.size());
     }
+
 
 
 
