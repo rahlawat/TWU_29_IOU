@@ -13,12 +13,19 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
     private UserService userService;
 
+    @Autowired
+    public HomeController(UserService userService) {
+        this.userService = userService;
+    }
 
-
-    @RequestMapping("/createAccount")
-    public ModelAndView homepage() {
-        ModelAndView modelAndView = new ModelAndView("createAccount");
-
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ModelAndView homepage(@RequestParam(value = "username", defaultValue = "") String username) {
+        ModelAndView modelAndView = new ModelAndView("example/home");
+        if (!username.isEmpty()) {
+            User user = userService.getUser(username);
+            modelAndView.addObject("user", user)
+                    .addObject("username", username);
+        }
         return modelAndView;
     }
 }
