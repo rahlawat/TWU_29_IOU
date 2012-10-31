@@ -11,15 +11,5 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DashboardController {
-    private UserService userService;
-
-
-
-    @RequestMapping(value= "/dashboard", method=RequestMethod.POST)
-    public ModelAndView dashboardpage() {
-        ModelAndView modelAndView = new ModelAndView("dashboard");
-
-
-        return modelAndView;
-    }
+  
 }
