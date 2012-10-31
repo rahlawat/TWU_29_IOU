@@ -15,15 +15,15 @@ public class UserMapperIntegrationTest extends IntegrationTest {
 
 
     @Test
-    public  void shouldChooseUserByUserEmail() {
-        String email = "yding@thoughtworks.com";
-        addUserToRepository();
-        User user = userMapper.getUser(email);
-        assertThat(user.getName(), equalTo("Yue"));
+    public  void shouldChooseUserByUserName() {
+        String bill = "Bill";
+        addUserToRepository(bill);
+        User user = userMapper.getUser(bill);
+        assertThat(user.getName(), equalTo("Bill"));
     }
 
-    private void addUserToRepository() {
-        userMapper.insertUser(new User("Yue","yding@thoughtworks.com","123","13991871507"));
+    private void addUserToRepository(String name) {
+        userMapper.insertUser(new User(111, name));
     }
-
+    
 }
