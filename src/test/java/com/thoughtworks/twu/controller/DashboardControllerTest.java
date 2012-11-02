@@ -1,4 +1,3 @@
-
 package com.thoughtworks.twu.controller;
 
 import com.thoughtworks.twu.service.UserService;
@@ -17,16 +16,15 @@ public class DashboardControllerTest {
     public void shouldDisplayDashboardPage() throws Exception {
         ModelAndView modelAndView = dashboardPageModelAndView();
 
-        View view =  modelAndView.getView();
+        View view = modelAndView.getView();
 
         ModelAndView modelAndViewTest = new ModelAndView("/dashboard");
         assertThat(view, equalTo(modelAndViewTest.getView()));
     }
 
     private ModelAndView dashboardPageModelAndView() throws IOException {
-        UserService mockUserService = mock(UserService.class);
 
-        com.thoughtworks.twu.controller.DashboardController dashboardController = new DashboardController(mockUserService);
+        com.thoughtworks.twu.controller.DashboardController dashboardController = new DashboardController();
         return dashboardController.dashboardPage("Dashboard");
     }
 }

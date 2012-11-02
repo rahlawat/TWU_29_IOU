@@ -16,16 +16,15 @@ public class BillControllerTest {
     public void shouldDisplayBillPage() throws Exception {
         ModelAndView modelAndView = billPageModelAndView();
 
-        View view =  modelAndView.getView();
+        View view = modelAndView.getView();
 
         ModelAndView modelAndViewTest = new ModelAndView("/add-bill");
         assertThat(view, equalTo(modelAndViewTest.getView()));
     }
 
     private ModelAndView billPageModelAndView() throws IOException {
-        UserService mockUserService = mock(UserService.class);
 
-        com.thoughtworks.twu.controller.BillController billController = new BillController(mockUserService);
+        com.thoughtworks.twu.controller.BillController billController = new BillController();
         return billController.billPage("Bill");
     }
 

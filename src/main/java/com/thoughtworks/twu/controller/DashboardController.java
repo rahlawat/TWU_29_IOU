@@ -11,11 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DashboardController {
-    private UserService userService;
 
-    @Autowired
-    public DashboardController(UserService userService) {
-        this.userService = userService;
+    public DashboardController() {
     }
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)

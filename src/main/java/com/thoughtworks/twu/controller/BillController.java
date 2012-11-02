@@ -11,11 +11,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class BillController {
-    private UserService userService;
 
-    @Autowired
-    public BillController(UserService userService) {
-        this.userService = userService;
+    public BillController() {
     }
 
     @RequestMapping("/add-bill")
