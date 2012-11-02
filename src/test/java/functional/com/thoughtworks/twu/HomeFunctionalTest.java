@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -23,7 +25,6 @@ public class HomeFunctionalTest {
     @Test
     public void shouldShowTryMeLink() {
         webDriver.get("http://localhost:9130/twu");
-
         WebElement link = webDriver.findElement(By.tagName("a"));
 
         assertThat(link.getText(), is("Try me"));

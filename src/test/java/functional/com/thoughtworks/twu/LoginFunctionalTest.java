@@ -1,13 +1,12 @@
 package functional.com.thoughtworks.twu;
 
-import com.google.common.cache.CacheBuilderSpec;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.List;
@@ -28,18 +27,16 @@ public class LoginFunctionalTest {
     @Test
     public void shouldShowTheEmailInputBox() {
         webDriver.get("http://localhost:9130/twu/login");
-       List<WebElement> emailItems =  webDriver.findElements(By.name("email"));
-        assertEquals(1,emailItems.size());
+        List<WebElement> emailItems = webDriver.findElements(By.name("email"));
+        assertEquals(1, emailItems.size());
     }
 
     @Test
     public void shouldShowThePasswordInputBox() {
         webDriver.get("http://localhost:9130/twu/login");
-        List<WebElement> passwordItems =  webDriver.findElements(By.name("password"));
+        List<WebElement> passwordItems = webDriver.findElements(By.name("password"));
         assertEquals(1, passwordItems.size());
     }
-
-
 
 
     @Test
@@ -54,15 +51,7 @@ public class LoginFunctionalTest {
         assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/checkLogin"));
 
 
-
     }
-
-
-
-
-
-
-
 
 
     @After
@@ -72,3 +61,4 @@ public class LoginFunctionalTest {
 
 
 }
+
