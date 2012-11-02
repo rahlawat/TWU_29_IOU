@@ -19,17 +19,17 @@ public class LoginController {
         return new ModelAndView("login");
     }
 
-
-
     @RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
 
     public String checkCredentials(@RequestParam("email") String email,
                                    @RequestParam("password") String password) {
 
-        if(email.isEmpty() || password.isEmpty())
+        if (email.isEmpty() || password.isEmpty())
             return "redirect:/login";
         return "";
 
 
     }
+
+
 }
