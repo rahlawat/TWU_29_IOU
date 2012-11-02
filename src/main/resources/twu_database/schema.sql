@@ -12,3 +12,8 @@ create table task (
     code varchar(10) null,
     constraint pk_task primary key (id)
 );
+
+create table bill(
+   description varchar(80) not null,
+   amount int not null
+);

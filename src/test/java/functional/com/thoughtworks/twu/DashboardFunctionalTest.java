@@ -7,10 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class BillFunctionalTest {
+public class DashboardFunctionalTest {
     private WebDriver webDriver;
 
     @Before
@@ -20,15 +21,10 @@ public class BillFunctionalTest {
 
     @Test
     public void shouldRedirectToDashBoardOnSaveClick() {
-        webDriver.get("http://localhost:9130/twu/add-bill");
-        WebElement description = webDriver.findElement(By.name("descriptionItem"));
-        description.sendKeys("Dinner");
-
-        WebElement amount = webDriver.findElement(By.name("amountItem"));
-        amount.sendKeys("2000");
-        webDriver.findElement(By.name("backToDashboard")).click();
-       String url =  webDriver.getCurrentUrl();
-        assertThat(url, is("http://localhost:9130/twu/dashboard"));
+        webDriver.get("http://localhost:9130/twu/dashboard");
+        webDriver.findElement(By.name("addBill")).click();
+        String url =  webDriver.getCurrentUrl();
+        assertThat(url, is("http://localhost:9130/twu/add-bill"));
     }
 
     @After

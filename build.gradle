@@ -38,7 +38,11 @@ dependencies {
 }
 
 jettyRun {
+<<<<<<< HEAD
     httpPort = 9130
+=======
+    httpPort= 9130
+>>>>>>> Added and tested dashboard controller as well bill controller. functional test runs in a browser.
     contextPath = 'twu'
 }
 
