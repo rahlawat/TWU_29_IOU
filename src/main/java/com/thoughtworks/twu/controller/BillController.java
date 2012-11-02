@@ -19,4 +19,9 @@ public class BillController {
     public ModelAndView billPage(@RequestParam(value = "Bill", defaultValue = "") String addBill) {
         return new ModelAndView("/add-bill");
     }
+
+    @RequestMapping(value = "/dashboard", method = RequestMethod.POST)
+    public ModelAndView backToDashboard() {
+        return new ModelAndView("/dashboard");
+    }
 }

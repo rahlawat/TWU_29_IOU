@@ -1,6 +1,5 @@
 package com.thoughtworks.twu.controller;
 
-import com.thoughtworks.twu.service.UserService;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
@@ -25,6 +24,6 @@ public class DashboardControllerTest {
     private ModelAndView dashboardPageModelAndView() throws IOException {
 
         com.thoughtworks.twu.controller.DashboardController dashboardController = new DashboardController();
-        return dashboardController.dashboardPage("Dashboard");
+        return dashboardController.dashboardPage();
     }
 }

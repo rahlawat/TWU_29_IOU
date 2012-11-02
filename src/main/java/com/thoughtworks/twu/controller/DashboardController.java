@@ -16,12 +16,8 @@ public class DashboardController {
     }
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-    public ModelAndView dashboardPage(String dashboard) {
+    public ModelAndView dashboardPage() {
         return new ModelAndView("/dashboard");
     }
 
-    @RequestMapping(value = "/dashboard", method = RequestMethod.POST)
-    public ModelAndView backToDashboard(@RequestParam(value = "Back", defaultValue = "") String back) {
-        return new ModelAndView("/dashboard");
-    }
 }
