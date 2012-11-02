@@ -17,3 +17,11 @@ create table bill(
    description varchar(80) not null,
    amount int not null
 );
+
+
+create table UserTable (
+  email varchar(50) primary key,
+  username varchar(25),
+  password varchar(25),
+  phoneNumber varchar(25)
+);

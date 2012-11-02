@@ -29,4 +29,11 @@ public class LoginControllerTest {
         Assert.assertThat(loginController.checkCredentials("email@email", ""), is("redirect:/login"));
     }
 
+    @Test
+    public void shouldRedirectToDashboardOnValidCredentials() {
+        LoginController loginController = new LoginController();
+        Assert.assertThat(loginController.checkCredentials("sajacobs@thoughtworks.com", "1234"), is("redirect:/dashboard"));
+
+    }
+
 }
