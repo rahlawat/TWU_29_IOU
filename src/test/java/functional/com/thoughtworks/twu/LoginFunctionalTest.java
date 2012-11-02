@@ -42,6 +42,20 @@ public class LoginFunctionalTest {
 
 
 
+    @Test
+    public void shouldSendToCredentialCheckerUponSubmit() {
+        webDriver.get("http://localhost:9130/twu/login");
+
+        webDriver.findElement(By.name("email")).sendKeys("BlahBlah@gmail.com");
+        webDriver.findElement(By.name("password")).sendKeys("password");
+
+        webDriver.findElement(By.id("loginForm")).submit();
+
+        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/checkLogin"));
+
+
+
+    }
 
 
 
