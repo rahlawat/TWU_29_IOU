@@ -38,9 +38,9 @@ public class LoginFunctionalTest {
         assertEquals(1, passwordItems.size());
     }
 
-
+    //Have temporarily changed to dashboard instead of Credential checker
     @Test
-    public void shouldSendToCredentialCheckerUponSubmit() {
+    public void shouldSendToDashBoardOnGoodCredentialsCheckerUponSubmit() {
         webDriver.get("http://localhost:9130/twu/login");
 
         webDriver.findElement(By.name("email")).sendKeys("BlahBlah@gmail.com");
@@ -48,7 +48,7 @@ public class LoginFunctionalTest {
 
         webDriver.findElement(By.id("loginForm")).submit();
 
-        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/checkLogin"));
+        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/dashboard"));
 
 
     }
