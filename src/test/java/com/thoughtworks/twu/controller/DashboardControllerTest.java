@@ -15,7 +15,7 @@ import static org.mockito.Mockito.mock;
 public class DashboardControllerTest {
     @Test
     public void shouldDisplayDashboardPage() throws Exception {
-        ModelAndView modelAndView = dashBoardPageModelAndView();
+        ModelAndView modelAndView = dashboardPageModelAndView();
 
         View view =  modelAndView.getView();
 
@@ -23,7 +23,7 @@ public class DashboardControllerTest {
         assertThat(view, equalTo(modelAndViewTest.getView()));
     }
 
-    private ModelAndView dashBoardPageModelAndView() throws IOException {
+    private ModelAndView dashboardPageModelAndView() throws IOException {
         UserService mockUserService = mock(UserService.class);
 
         com.thoughtworks.twu.controller.DashboardController dashboardController = new DashboardController(mockUserService);
