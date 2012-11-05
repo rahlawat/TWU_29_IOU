@@ -29,65 +29,6 @@ public class CreateAccountFunctionalTest {
     }
 
     @Test
-    public void shouldHaveLabelForName()
-    {
-       WebElement nameLabel = webDriver.findElement(By.name("name_label"));
-        assertThat(nameLabel.getText(),is("Name *:"));
-    }
-    @Test
-    public void shouldHave1NameField()
-    {
-        List<WebElement> nameBox=webDriver.findElements(By.name("name_text"));
-        assertThat(nameBox.size(), is(1));
-
-    }
-    @Test
-    public void shouldHaveLabelForEmail()
-    {
-        WebElement emailLabel = webDriver.findElement(By.name("email_label"));
-        assertThat(emailLabel.getText(),is("E-mail Address *:"));
-    }
-    @Test
-    public void shouldHave1EmailField()
-    {
-        List<WebElement> emailBox=webDriver.findElements(By.name("email_text"));
-        assertThat(emailBox.size(), is(1));
-
-    }
-    @Test
-    public void shouldHaveLabelForPassword()
-    {
-        WebElement passwordLabel = webDriver.findElement(By.name("password_label"));
-        assertThat(passwordLabel.getText(),is("Password *:"));
-    }
-    @Test
-    public void shouldHave1PasswordField()
-    {
-        List<WebElement> passwordBox=webDriver.findElements(By.name("password_text"));
-        assertThat(passwordBox.size(), is(1));
-
-    }
-    @Test
-    public void shouldHaveLabelForPhoneNumber()
-    {
-        WebElement phoneNumberLabel = webDriver.findElement(By.name("phone_number_label"));
-        assertThat(phoneNumberLabel.getText(),is("Phone Number:"));
-    }
-    @Test
-    public void shouldHave1PhoneNumberField()
-    {
-        List<WebElement> passwordBox=webDriver.findElements(By.name("phone_number_text"));
-        assertThat(passwordBox.size(), is(1));
-
-    }
-    @Test
-    public void shouldHaveSubmitButton()
-    {
-        WebElement submitButton = webDriver.findElement(By.name("create_account_button"));
-        assertThat(submitButton.getAttribute("value"),is("Create Account"));
-    }
-
-    @Test
     public void shouldSubmit()
     {
         WebElement submitButton = webDriver.findElement(By.name("create_account_button"));

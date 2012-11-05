@@ -73,9 +73,10 @@ functionalTest.doFirst {
 functionalTest.doLast {
     jettyStop.execute()
 }
-
 task loadData << {
-    runScript("src/main/resources/database/schema.sql",
+    runScript("src/main/resources/twu_database/schema.sql",
+            "jdbc:mysql://localhost:3306", "root", "1234")
+    runScript("src/main/resources/twu_database/import.sql",
             "jdbc:mysql://localhost:3306", "root", "1234")
 }
 
@@ -89,3 +90,4 @@ def runScript(scriptName, url, user, password) {
             onerror: 'continue'
     )
 }
+

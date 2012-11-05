@@ -6,8 +6,5 @@ import org.apache.ibatis.annotations.Select;
 
 public interface LoginMapper {
     @Select("select email, username, password, phoneNumber from UserTable where email = #{email}")
-    public LoginUser getUser(String email);
-
-
-
+    public LoginUser getUserByEmail(String email);
 }

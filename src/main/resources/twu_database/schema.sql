@@ -1,4 +1,5 @@
 create database if not exists IOUdb;
+
 use IOUdb;
 
 drop table if exists UserTable;
@@ -10,7 +11,7 @@ create table if not exists UserTable(
   phoneNumber varchar(15)
 );
 
-create table task (
+create table if not exists Task (
     id int not null,
     name varchar(80) null,
     description varchar(300) null,
@@ -19,15 +20,7 @@ create table task (
     constraint pk_task primary key (id)
 );
 
-create table bill(
+create table if not exists bill(
    description varchar(80) not null,
    amount int not null
-);
-
-
-create table UserTable (
-  email varchar(50) primary key,
-  username varchar(25),
-  password varchar(25),
-  phoneNumber varchar(25)
 );

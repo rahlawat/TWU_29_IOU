@@ -14,7 +14,7 @@
 
             <tr>
                 <td> <label for="email_text" id="email_label" name="email_label"> E-mail Address *: </td>
-                <td> </label><input type="text" id="email_text" name="email_text"/> </td>
+                <td> </label><input type="email" id="email_text" name="email_text"/> </td>
             </tr>
 
             <tr>
