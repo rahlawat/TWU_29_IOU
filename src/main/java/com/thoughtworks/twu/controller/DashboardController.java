@@ -16,7 +16,7 @@ public class DashboardController {
     }
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-    public ModelAndView dashboardPage(@RequestParam(value ="sessionID", defaultValue = "") String sessionID) {
+    public ModelAndView dashboardPage() {
 
         return new ModelAndView("/dashboard");
     }
