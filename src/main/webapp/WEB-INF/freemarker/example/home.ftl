@@ -6,7 +6,7 @@
 
 <body>
     <#if user??>
-        <h1>Hallo ${user.name}</a>
+        <h1>Hallo ${user.username}</a>
     <#else>
         <#if username??>
             <h1>Sorry, didn't find a user called "${username}"</h1>

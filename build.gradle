@@ -12,8 +12,13 @@ war {
 repositories {
     mavenCentral()
 }
+configurations
+        {
+            sql
+        }
 
 dependencies {
+
     compile 'org.mybatis:mybatis:3.1.1',
             'org.mybatis:mybatis-spring:1.1.1',
             'javax.servlet:servlet-api:2.5',
@@ -26,16 +31,22 @@ dependencies {
             'org.freemarker:freemarker:2.3.19',
             'ch.qos.logback:logback-classic:1.0.0',
             'commons-lang:commons-lang:2.6',
-            'hsqldb:hsqldb:1.8.0.10'
+            'hsqldb:hsqldb:1.8.0.10',
+            'mysql:mysql-connector-java:5.1.6'
 
 
     testCompile 'junit:junit:4.10',
             'org.springframework:spring-test:3.1.1.RELEASE',
             'org.mockito:mockito-all:1.9.0',
             'org.testng:testng:6.1.1',
-            'org.seleniumhq.selenium:selenium-java:2.25.0',
-            'org.seleniumhq.selenium:selenium-firefox-driver:2.25.0'
+            'org.seleniumhq.selenium:selenium-java:2.23.0',
+            'org.seleniumhq.selenium:selenium-firefox-driver:2.23.0',
+            'mysql:mysql-connector-java:5.1.6'
+
+    sql 'mysql:mysql-connector-java:5.1.6'
 }
+
+
 
 jettyRun {
     httpPort= 9130
@@ -47,7 +58,7 @@ test {
 }
 
 task functionalTest(type: Test, dependsOn: "test") {
-   include '**/functional/com/thoughtworks/**/*.*'
+    include '**/functional/com/thoughtworks/**/*.*'
 }
 
 functionalTest.doFirst {
@@ -61,4 +72,20 @@ functionalTest.doFirst {
 
 functionalTest.doLast {
     jettyStop.execute()
+}
+
+task loadData << {
+    runScript("src/main/resources/database/schema.sql",
+            "jdbc:mysql://localhost:3306", "root", "1234")
+}
+
+def runScript(scriptName, url, user, password) {
+    ant.sql(classpath: configurations.sql.asPath, src: scriptName,
+            driver: 'com.mysql.jdbc.Driver',
+            print: true,
+            url: url,
+            userid: user,
+            password: password,
+            onerror: 'continue'
+    )
 }

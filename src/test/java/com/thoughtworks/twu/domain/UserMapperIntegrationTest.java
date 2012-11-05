@@ -2,6 +2,7 @@ package com.thoughtworks.twu.domain;
 
 
 import com.thoughtworks.twu.persistence.UserMapper;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,16 +15,23 @@ public class UserMapperIntegrationTest extends IntegrationTest {
     private UserMapper userMapper;
 
 
-    @Test
-    public  void shouldChooseUserByUserName() {
-        String bill = "Bill";
-        addUserToRepository(bill);
-        User user = userMapper.getUser(bill);
-        assertThat(user.getName(), equalTo("Bill"));
+    @Before
+    public void setUp()
+    {
+
     }
 
-    private void addUserToRepository(String name) {
-        userMapper.insertUser(new User(111, name));
+    @Test
+
+    public  void shouldChooseUserByUserEmail() {
+        String email = "yding@thoughtworks.com";
+        User expectedUser = new User("yding@thoughtworks.com", "Yue", "123","13991871507");
+
+        userMapper.insertUser(expectedUser);
+
+        User receivedUser = userMapper.getUserByEmail(email);
+
+        assertThat(receivedUser, equalTo(expectedUser));
     }
     
 }

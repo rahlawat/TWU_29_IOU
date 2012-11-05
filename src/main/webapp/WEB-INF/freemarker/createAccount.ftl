@@ -1,22 +1,38 @@
 <html>
-<head>
-<title> IOU </title>
-</head>
-<body>
-<form name="account_form" action="http://localhost:8080/twu/dashboard" method="POST">
+    <head>
+        <title> IOU </title>
+    </head>
+    <body>
 
-    <table>
-        <tr> <td> <label for="name_text" id="name_label"> Name *: </label> </td> <td> <input type="text" id="name_text" /> </td> </tr>
+        <form name="account_form" action="http://localhost:9130/twu/dashboard" method="POST">
 
-        <tr> <td> <label for="email_text" id="email_label"> E-mail Address *: </td> <td> </label><input type="text" id="email_text" /> </td> </tr>
+        <table>
+            <tr>
+                <td> <label for="name_text" id="name_label" name="name_label"> Name *: </label> </td>
+                <td> <input type="text" id="name_text" name="name_text"/> </td>
+            </tr>
 
-        <tr> <td> <label for="password_text" id="password_label"> Password *: </label> </td> <td> <input type="password" id="password_text" />  </td> </tr>
+            <tr>
+                <td> <label for="email_text" id="email_label" name="email_label"> E-mail Address *: </td>
+                <td> </label><input type="text" id="email_text" name="email_text"/> </td>
+            </tr>
 
-        <tr> <td> <label for="phone_number_text" id="phone_number_label"> Phone Number: </label> </td> <td> <input type="text" id="phone_number_text" /> </td> </tr>
+            <tr>
+                <td> <label for="password_text" id="password_label" name="password_label"> Password *: </label> </td>
+                <td> <input type="password" id="password_text" name="password_text"/>  </td>
+            </tr>
 
-        <tr> <td> <input type="submit" value="Create Account"/> </td></tr>
-   </table>
-</form>
+            <tr>
+                <td> <label for="phone_number_text" id="phone_number_label" name="phone_number_label"> Phone Number: </label> </td>
+                <td> <input type="text" id="phone_number_text" name="phone_number_text"/> </td>
+            </tr>
 
-</body>
+            <tr>
+                <td> <input type="submit" name="create_account_button" id="create_account_button" value="Create Account"/> </td>
+            </tr>
+        </table>
+
+        </form>
+
+    </body>
 </html>

@@ -1,7 +1,13 @@
-create table user (
-    id int not null,
-    name varchar(80) null,
-    constraint pk_user primary key (id)
+create database if not exists IOUdb;
+use IOUdb;
+
+drop table if exists UserTable;
+
+create table if not exists UserTable(
+  email varchar(25) primary key,
+  username varchar(25),
+  password varchar(25),
+  phoneNumber varchar(15)
 );
 
 create table task (

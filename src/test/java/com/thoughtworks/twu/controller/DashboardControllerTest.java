@@ -22,7 +22,6 @@ public class DashboardControllerTest {
     }
 
     private ModelAndView dashboardPageModelAndView() throws IOException {
-
         com.thoughtworks.twu.controller.DashboardController dashboardController = new DashboardController();
         return dashboardController.dashboardPage();
     }
