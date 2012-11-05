@@ -24,6 +24,7 @@ public class LoginController {
         if (email.isEmpty() || password.isEmpty())
             return "redirect:/login";
 
+
         return "redirect:/dashboard";
 
 
