@@ -17,7 +17,9 @@ public class LoginMapperTest extends IntegrationTest {
     @Test
     public void shouldReturnUserGivenEmail() {
         String email="sajacobs@thoughtworks.com";
+
         LoginUser user = loginMapper.getUserByEmail(email);
         assertThat(user.getUsername(), equalTo("Sam Jacobs"));
+
     }
 }

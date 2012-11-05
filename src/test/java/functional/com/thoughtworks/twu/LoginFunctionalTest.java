@@ -11,9 +11,11 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.List;
 
+import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.contains;
 
 public class LoginFunctionalTest {
 
@@ -38,17 +40,44 @@ public class LoginFunctionalTest {
         assertEquals(1, passwordItems.size());
     }
 
-    //Have temporarily changed to dashboard instead of Credential checker
+
     @Test
     public void shouldSendToDashBoardOnGoodCredentialsCheckerUponSubmit() {
         webDriver.get("http://localhost:9130/twu/login");
 
-        webDriver.findElement(By.name("email")).sendKeys("BlahBlah@gmail.com");
+        webDriver.findElement(By.name("email")).sendKeys("sajacobs@thoughtworks.com");
+        webDriver.findElement(By.name("password")).sendKeys("1234");
+
+        webDriver.findElement(By.id("loginForm")).submit();
+
+       assertTrue(webDriver.getCurrentUrl().contains("http://localhost:9130/twu/dashboard"));
+
+    }
+
+    @Test
+    public void shouldSendToLoginOnMissingEmail() {
+        webDriver.get("http://localhost:9130/twu/login");
+
+        webDriver.findElement(By.name("email")).sendKeys("");
         webDriver.findElement(By.name("password")).sendKeys("password");
 
         webDriver.findElement(By.id("loginForm")).submit();
 
-        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/dashboard"));
+        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/login"));
+
+
+    }
+
+    @Test
+    public void shouldSendToLoginOnMissingPassword() {
+        webDriver.get("http://localhost:9130/twu/login");
+
+        webDriver.findElement(By.name("email")).sendKeys("adsfsadfsadf");
+        webDriver.findElement(By.name("password")).sendKeys("");
+
+        webDriver.findElement(By.id("loginForm")).submit();
+
+        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/login"));
 
 
     }
