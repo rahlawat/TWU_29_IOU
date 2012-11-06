@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script language="javascript" src="javascript/my-friends-list.js"></script>
+        <script type="text/javascript" src="javascript/my-friends-list.js"></script>
 
     </head>
     <body>
@@ -16,7 +16,7 @@
                     <th>Friends Added</th>
                 </tr>
                 <tr>
-                    <td>abc@gmail.com</td>
+                    <td></td>
                 </tr>
             </table>
             <br>
