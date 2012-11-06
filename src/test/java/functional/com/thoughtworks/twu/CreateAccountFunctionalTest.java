@@ -32,17 +32,18 @@ public class CreateAccountFunctionalTest {
     public void shouldCreateAccount()
     {
         WebElement submitButton = webDriver.findElement(By.name("create_account_button"));
-        WebElement nameElement=webDriver.findElement(By.name("username"));
-        nameElement.sendKeys("Yue");
+
         WebElement emailElement=webDriver.findElement(By.name("email"));
         emailElement.sendKeys("Yue@gmail.com");
+
+        WebElement nameElement=webDriver.findElement(By.name("username"));
+        nameElement.sendKeys("Yue");
+
         WebElement passwordElement=webDriver.findElement(By.name("password"));
-        passwordElement.sendKeys("Yue");
+        passwordElement.sendKeys("yue123");
+
         WebElement phoneNumberElement=webDriver.findElement(By.name("phoneNumber"));
-        phoneNumberElement.sendKeys("1111");
-
-
-
+        phoneNumberElement.sendKeys("");
 
         submitButton.submit();
 

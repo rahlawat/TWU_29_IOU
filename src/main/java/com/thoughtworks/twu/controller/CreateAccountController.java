@@ -13,6 +13,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class CreateAccountController {
     private UserService userService;
 
+    @Autowired
+    public CreateAccountController(UserService userService) {
+        this.userService = userService;
+    }
+
+    public CreateAccountController() {
+
+    }
+
 
 
     @RequestMapping("/createAccount")
@@ -22,15 +31,29 @@ public class CreateAccountController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/checkCreateAccount", method = RequestMethod.POST)
+    @RequestMapping(value = "/checkFields", method = RequestMethod.POST)
     public String checkFields(@RequestParam("email") String email,
-                              @RequestParam("name") String name,
+                              @RequestParam("username") String username,
                               @RequestParam("password") String password,
                               @RequestParam("phoneNumber") String phoneNumber) {
 
-        if (email.isEmpty() || name.isEmpty() || password.isEmpty())
+        if (email.isEmpty() || username.isEmpty() || password.isEmpty())
             return "redirect:/createAccount";
 
-        return "redirect:/dashboard";
+        User user = new User(email, username, password, phoneNumber);
+
+        if (saveAccount(user))
+            return "redirect:/dashboard";
+
+        return "redirect:/checkFields";
+    }
+
+    public boolean saveAccount(User user){
+        try{
+            userService.insertUser(user);
+            return true;
+        } catch (Exception ex){
+            return false;
+        }
     }
 }

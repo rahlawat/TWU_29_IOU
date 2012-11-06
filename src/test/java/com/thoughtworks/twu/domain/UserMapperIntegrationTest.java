@@ -25,7 +25,7 @@ public class UserMapperIntegrationTest extends IntegrationTest {
 
     public  void shouldChooseUserByUserEmail() {
         String email = "yding@thoughtworks.com";
-        User expectedUser = new User("yding@thoughtworks.com", "Yue", "123","13991871507");
+        User expectedUser = new User("yding@thoughtworks.com", "Yue", "yue123","13991871507");
 
         userMapper.insertUser(expectedUser);
 

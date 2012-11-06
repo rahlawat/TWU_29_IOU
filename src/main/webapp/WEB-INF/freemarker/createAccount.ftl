@@ -4,7 +4,7 @@
     </head>
     <body>
 
-        <form name="account_form" action="http://localhost:9130/twu/dashboard" method="POST">
+        <form name="account_form" action="checkFields" method="POST">
 
         <table>
 
