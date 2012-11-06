@@ -56,7 +56,7 @@ public class LoginController {
     }
 
     private boolean validUser(String email, String password) {
-        LoginUser loginUser = loginService.getUser(email);
+        LoginUser loginUser = loginService.getUserByEmail(email);
         return loginUser != null && loginUser.getPassword().equals(password);
 
     }

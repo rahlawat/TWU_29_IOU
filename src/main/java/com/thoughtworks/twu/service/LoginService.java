@@ -15,8 +15,8 @@ public class LoginService {
         this.loginMapper = loginMapper;
     }
 
-    public LoginUser getUser(String email) {
-        return loginMapper.getUser(email);
+    public LoginUser getUserByEmail(String email) {
+        return loginMapper.getUserByEmail(email);
     }
 
 

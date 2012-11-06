@@ -3,19 +3,14 @@ package com.thoughtworks.twu.controller;
 
 import com.thoughtworks.twu.domain.LoginUser;
 import com.thoughtworks.twu.service.LoginService;
-import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockMultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotNull;
@@ -71,7 +66,7 @@ public class LoginControllerTest {
     private ModelAndView loginModelAndView(String email, String username, String password, String phone, boolean validUser) throws IOException {
         LoginService mockLoginService = mock(LoginService.class);
         LoginUser user = (validUser) ? new LoginUser(email, username, password, phone) : null;
-        when(mockLoginService.getUser(email)).thenReturn(user);
+        when(mockLoginService.getUserByEmail(email)).thenReturn(user);
 
         LoginController loginController = new LoginController(mockLoginService);
         return loginController.checkCredentials(email, password, new MockHttpServletRequest());
