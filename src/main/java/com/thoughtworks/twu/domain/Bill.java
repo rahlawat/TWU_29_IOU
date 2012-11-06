@@ -5,7 +5,6 @@ public class Bill {
     private Integer amount;
 
     public Bill(String description, int amount) {
-        //To change body of created methods use File | Settings | File Templates.
         this.description = description;
         this.amount = amount;
     }

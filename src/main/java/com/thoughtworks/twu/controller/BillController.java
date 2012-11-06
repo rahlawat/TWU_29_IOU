@@ -1,6 +1,7 @@
 package com.thoughtworks.twu.controller;
 
-import com.thoughtworks.twu.service.UserService;
+import com.thoughtworks.twu.domain.Bill;
+import com.thoughtworks.twu.service.BillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,16 +13,21 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 public class BillController {
 
-    public BillController() {
+    private BillService billService;
+    private DashboardController dashboard;
+
+    @Autowired
+    public BillController(BillService billService) {
+        this.billService = billService;
     }
 
-    @RequestMapping("/add-bill")
-    public ModelAndView billPage(@RequestParam(value = "Bill", defaultValue = "") String addBill) {
+
+    @RequestMapping(value = "/add-bill", method = RequestMethod.POST)
+    public ModelAndView billPage(@RequestParam(value = "descriptionItem") String description,
+                                         @RequestParam(value = "amountItem") String amount) {
+
         return new ModelAndView("/add-bill");
-    }
 
-    @RequestMapping(value = "/dashboard", method = RequestMethod.POST)
-    public ModelAndView backToDashboard() {
-        return new ModelAndView("/dashboard");
     }
 }
+

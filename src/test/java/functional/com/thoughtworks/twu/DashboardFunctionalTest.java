@@ -21,11 +21,10 @@ public class DashboardFunctionalTest {
     }
 
     @Test
-    public void shouldRedirectToDashBoardOnSaveClick() {
+    public void shouldRedirectToBillPageOnAddBillClick() {
         webDriver.get("http://localhost:9130/twu/dashboard");
-        webDriver.findElement(By.name("addBill")).click();
-        String url =  webDriver.getCurrentUrl();
-        assertThat(url, is("http://localhost:9130/twu/add-bill"));
+        WebElement link = webDriver.findElement(By.tagName("a"));
+        assertThat(link.getAttribute("href"),is("http://localhost:9130/twu/add-bill"));
     }
 
     @After

@@ -23,14 +23,9 @@ public class BillFunctionalTest {
     @Test
     public void shouldRedirectToDashBoardOnSaveClick() {
         webDriver.get("http://localhost:9130/twu/add-bill");
-        WebElement description = webDriver.findElement(By.name("descriptionItem"));
-        description.sendKeys("Dinner");
 
-        WebElement amount = webDriver.findElement(By.name("amountItem"));
-        amount.sendKeys("2000");
-        webDriver.findElement(By.name("backToDashboard")).click();
-       String url =  webDriver.getCurrentUrl();
-        assertThat(url, is("http://localhost:9130/twu/dashboard"));
+        WebElement link = webDriver.findElement(By.tagName("a"));
+        assertThat(link.getAttribute("href"), is("http://localhost:9130/twu/dashboard"));
     }
 
     @After

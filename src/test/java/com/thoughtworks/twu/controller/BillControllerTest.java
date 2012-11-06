@@ -1,6 +1,6 @@
 package com.thoughtworks.twu.controller;
 
-import com.thoughtworks.twu.service.UserService;
+import com.thoughtworks.twu.service.BillService;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
@@ -24,8 +24,14 @@ public class BillControllerTest {
 
     private ModelAndView billPageModelAndView() throws IOException {
 
-        com.thoughtworks.twu.controller.BillController billController = new BillController();
-        return billController.billPage("Bill");
+        BillService mockBillService = mock(BillService.class);
+
+        com.thoughtworks.twu.controller.BillController billController = new BillController(mockBillService);
+        return billController.billPage("Bill","98237");
     }
+
+
+
+
 
 }
