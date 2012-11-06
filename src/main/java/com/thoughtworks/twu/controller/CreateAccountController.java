@@ -42,10 +42,10 @@ public class CreateAccountController {
 
         User user = new User(email, username, password, phoneNumber);
 
-        if (saveAccount(user))
+        if ((userService.getUserByEmail(email) == null) && saveAccount(user))
             return "redirect:/dashboard";
 
-        return "redirect:/checkFields";
+        return "redirect:/createAccount";
     }
 
     public boolean saveAccount(User user){

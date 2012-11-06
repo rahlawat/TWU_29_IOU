@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class CreateAccountControllerTest {
 
@@ -42,20 +43,34 @@ public class CreateAccountControllerTest {
     }
 
     @Test
-     public void shouldNotRedirectToCreateAccountOnAllRequiredFieldsFilled() {
-        CreateAccountController createAccountController = new CreateAccountController();
-        Assert.assertNotSame(createAccountController.checkFields("yding@thoughtworks.com","Yue","yue123", ""),is("redirect:/createAccount"));
-    }
-
-    @Test
      public void shouldRedirectToDashBoardWhenSaveAccount() {
         CreateAccountController createAccountController = mockedCreateAccountController();
         Assert.assertThat(createAccountController.checkFields("yding@thoughtworks.com","Yue","yue123", ""),is("redirect:/dashboard"));
     }
 
+    @Test
+    public void shouldNotSaveAccountWhenEmailAlreadyExistInDatabase() {
+        CreateAccountController createAccountController = mockedCreateAccountController();
+        CreateAccountController createAccountControllerClone = mockedCreateAccountControllerClone();
+
+        createAccountController.checkFields("yding@thoughtworks.com","Yue","yue123", "");
+
+        Assert.assertThat(createAccountControllerClone.checkFields("yding@thoughtworks.com","YueClone","yueclone123", ""),is("redirect:/createAccount"));
+    }
+
 
     private CreateAccountController mockedCreateAccountController(){
         UserService mockUserService = mock(UserService.class);
+        when(mockUserService.getUserByEmail("yding@thoughtworks.com")).thenReturn(null);
+
+        return new CreateAccountController(mockUserService);
+    }
+
+    private CreateAccountController mockedCreateAccountControllerClone(){
+        User user= new User("yding@thoughtworks.com","YueClone","yueclone123", "");
+
+        UserService mockUserService = mock(UserService.class);
+        when(mockUserService.getUserByEmail(user.getEmail())).thenReturn(user);
 
         return new CreateAccountController(mockUserService);
     }

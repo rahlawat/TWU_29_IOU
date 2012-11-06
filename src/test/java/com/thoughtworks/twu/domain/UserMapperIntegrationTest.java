@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class UserMapperIntegrationTest extends IntegrationTest {
@@ -22,7 +23,6 @@ public class UserMapperIntegrationTest extends IntegrationTest {
     }
 
     @Test
-
     public  void shouldChooseUserByUserEmail() {
         String email = "yding@thoughtworks.com";
         User expectedUser = new User("yding@thoughtworks.com", "Yue", "yue123","13991871507");
@@ -32,6 +32,13 @@ public class UserMapperIntegrationTest extends IntegrationTest {
         User receivedUser = userMapper.getUserByEmail(email);
 
         assertThat(receivedUser, equalTo(expectedUser));
+    }
+
+    @Test
+    public  void shouldReturnNullIfGetUserByEmailDontFoundAnyUser() {
+        String expectedEmail = "rcoelho@thoughtworks.com";
+
+        assertThat( userMapper.getUserByEmail(expectedEmail), equalTo(null));
     }
     
 }
