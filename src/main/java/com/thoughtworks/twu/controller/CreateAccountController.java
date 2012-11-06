@@ -22,5 +22,15 @@ public class CreateAccountController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/checkCreateAccount", method = RequestMethod.POST)
+    public String checkFields(@RequestParam("email") String email,
+                              @RequestParam("name") String name,
+                              @RequestParam("password") String password,
+                              @RequestParam("phoneNumber") String phoneNumber) {
 
+        if (email.isEmpty() || name.isEmpty() || password.isEmpty())
+            return "redirect:/createAccount";
+
+        return "redirect:/dashboard";
+    }
 }

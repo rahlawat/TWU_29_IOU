@@ -4,6 +4,6 @@ TWU_29_IOU.ipr
 TWU_29_IOU.iws
 build/*
 chromedriver
-out/
+out/*
 .DI_Store
 

@@ -29,7 +29,7 @@ public class CreateAccountFunctionalTest {
     }
 
     @Test
-    public void shouldSubmit()
+    public void shouldCreateAccount()
     {
         WebElement submitButton = webDriver.findElement(By.name("create_account_button"));
         WebElement nameElement=webDriver.findElement(By.name("name_text"));

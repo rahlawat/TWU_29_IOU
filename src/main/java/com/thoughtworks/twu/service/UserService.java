@@ -15,9 +15,11 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public User getUser(String name){
+    public User getUserByEmail(String name){
         return userMapper.getUserByEmail(name);
     }
-
+    public void insertUser(User user){
+        userMapper.insertUser(user);
+    }
 
 }

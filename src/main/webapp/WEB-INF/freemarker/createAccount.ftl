@@ -7,14 +7,15 @@
         <form name="account_form" action="http://localhost:9130/twu/dashboard" method="POST">
 
         <table>
+
             <tr>
-                <td> <label for="name_text" id="name_label" name="name_label"> Name *: </label> </td>
-                <td> <input type="text" id="name_text" name="name_text"/> </td>
+            <td> <label for="email_text" id="email_label" name="email_label"> E-mail Address *: </td>
+            <td> </label><input type="text" id="email_text" name="email_text"/> </td>
             </tr>
 
             <tr>
-                <td> <label for="email_text" id="email_label" name="email_label"> E-mail Address *: </td>
-                <td> </label><input type="email" id="email_text" name="email_text"/> </td>
+                <td> <label for="name_text" id="name_label" name="name_label"> Name *: </label> </td>
+                <td> <input type="text" id="name_text" name="name_text"/> </td>
             </tr>
 
             <tr>
@@ -28,7 +29,8 @@
             </tr>
 
             <tr>
-                <td> <input type="submit" name="create_account_button" id="create_account_button" value="Create Account"/> </td>
+                <td> <input type="submit" name="create_account_button" id="create_account_button" value="Create Account"/></td>
+                <td> <input type="button" name="cancel_button" id="cancel_button" value="Cancel" onclick="javascript:window.location.href='http://localhost:9130/twu/login'"/> </td>
             </tr>
         </table>
 
