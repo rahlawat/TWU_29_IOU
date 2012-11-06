@@ -5,7 +5,7 @@
     </head>
     <body>
         <form>
-            <b>
+            <b id="title">
                 Enter The person's e-mail you want to add to your Friends List.<br> Enter 1 e-mail at the time.<br>
             </b>
             <label>E-mail: </label><input type="text" name="friendEmail">
