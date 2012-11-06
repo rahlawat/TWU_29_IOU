@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.controller;
 
+
 import com.thoughtworks.twu.service.BillService;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,11 +28,8 @@ public class BillControllerTest {
         BillService mockBillService = mock(BillService.class);
 
         com.thoughtworks.twu.controller.BillController billController = new BillController(mockBillService);
-        return billController.billPage("Bill","98237");
+        return billController.billPage("Bill", "98237");
     }
-
-
-
 
 
 }

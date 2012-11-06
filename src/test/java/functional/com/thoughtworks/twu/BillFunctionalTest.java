@@ -23,9 +23,9 @@ public class BillFunctionalTest {
     @Test
     public void shouldRedirectToDashBoardOnSaveClick() {
         webDriver.get("http://localhost:9130/twu/add-bill");
-
         WebElement link = webDriver.findElement(By.tagName("a"));
         assertThat(link.getAttribute("href"), is("http://localhost:9130/twu/dashboard"));
+
     }
 
     @After
@@ -34,3 +34,4 @@ public class BillFunctionalTest {
     }
 
 }
+

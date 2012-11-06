@@ -15,13 +15,13 @@ public class DashboardController {
     public DashboardController() {
     }
 
-    @RequestMapping(value = "/dashboard",method = RequestMethod.GET)
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public ModelAndView dashboardPage() {
 
         return new ModelAndView("/dashboard");
     }
 
-    @RequestMapping(value = "/add-bill",method = RequestMethod.GET)
+    @RequestMapping(value = "/add-bill", method = RequestMethod.GET)
     public ModelAndView responseWithBillPageOnGet() {
         return new ModelAndView("/add-bill");
     }
