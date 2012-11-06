@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -17,31 +18,19 @@ public class MyFriendsListFunctionalTest {
 
     @Before
     public void setUp() {
-        webDriver = new HtmlUnitDriver();
+        webDriver = new FirefoxDriver();
     }
 
     @Test
-    public void shouldDirectToFriendsListPageAndAddAFriendToTheList() throws Exception {
+    public void shouldDirectToFriendsListPageFromDashboard() throws Exception {
         webDriver.get("http://localhost:9130/twu/dashboard");
-        webDriver.findElement(By.name("myFriendList")).click();
+        webDriver.findElement(By.id("friendsListButton")).click();
+
         String currentUrl = webDriver.getCurrentUrl();
 
-        assertThat(currentUrl, is("http://localhost:9130/twu/my-friends-list.ftl"));
+        assertThat(currentUrl, is("http://localhost:9130/twu/my-friends-list"));
 
-        final String addedEmail = "abc@gmail.com";
 
-        webDriver.findElement(By.name("E-mail")).sendKeys(addedEmail);
-        webDriver.findElement(By.name("addToList")).click();
-
-        WebElement friendsTable = webDriver.findElement(By.tagName("table"));
-        String friendsAdded = friendsTable.getText();
-
-        assertThat(friendsAdded.contains(addedEmail), is(true));
-
-        webDriver.findElement(By.name("Save")).click();
-        String emptyTable = friendsTable.getText();
-
-        assertThat(emptyTable.isEmpty(), is(true));
 
     }
 

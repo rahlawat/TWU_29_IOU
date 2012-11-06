@@ -16,7 +16,7 @@
                     <th>Friends Added</th>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td> &nbsp; </td>
                 </tr>
             </table>
             <br>

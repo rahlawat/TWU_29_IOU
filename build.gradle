@@ -45,12 +45,14 @@ dependencies {
             'org.testng:testng:6.1.1',
             'org.seleniumhq.selenium:selenium-java:2.25.0',
             'org.seleniumhq.selenium:selenium-firefox-driver:2.25.0',
+
             'mysql:mysql-connector-java:5.1.6',
             'org.springframework.security:spring-security-web:3.1.3.RELEASE',
             'org.springframework.security:spring-security-config:3.1.3.RELEASE',
             'org.springframework.security:spring-security-core:3.1.3.RELEASE',
             'org.springframework.security:spring-security-taglibs:3.1.3.RELEASE',
             'org.springframework.security:spring-security-acl:3.1.3.RELEASE'
+
 
 
     sql 'mysql:mysql-connector-java:5.1.6'
@@ -64,7 +66,7 @@ task loadData {
 }
 
 jettyRun {
-    httpPort= 9130
+    httpPort = 9130
     contextPath = 'twu'
 }
 
