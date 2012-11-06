@@ -29,8 +29,8 @@
             </tr>
 
             <tr>
-                <td> <input type="submit" name="create_account_button" id="create_account_button" value="Create Account"/></td>
-                <td> <input type="button" name="cancel_button" id="cancel_button" value="Cancel" onclick="javascript:window.location.href='http://localhost:9130/twu/login'"/> </td>
+                <td> <input type="submit" name="createAccountButton" id="createAccountButton" value="Create Account"/></td>
+                <td> <input type="button" name="cancelButton" id="cancelButton" value="Cancel" onclick="javascript:window.location.href='http://localhost:9130/twu/login'"/> </td>
             </tr>
         </table>
 
