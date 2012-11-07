@@ -15,11 +15,13 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 
+@TestExecutionListeners({TransactionalTestExecutionListener.class})
 public class BillMapperTest extends IntegrationTest {
     @Autowired
     private BillMapper billMapper;
 
     @Test
+    @Transactional
     public void shouldSaveBillToTheDatabase() {
         String description = "Dinner";
         double amount = 2000;
