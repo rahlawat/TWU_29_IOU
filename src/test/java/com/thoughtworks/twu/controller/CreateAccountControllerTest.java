@@ -5,6 +5,7 @@ import com.thoughtworks.twu.persistence.UserMapper;
 import com.thoughtworks.twu.service.UserService;
 import org.h2.util.New;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,6 +18,8 @@ import static org.mockito.Mockito.when;
 
 public class CreateAccountControllerTest {
 
+    User user= new User("yding@thoughtworks.com","Yue","yue123", "");
+    
     @Test
     public void shouldReturnModelViewForLogin() {
         CreateAccountController createAccountController = new CreateAccountController();
@@ -27,51 +30,40 @@ public class CreateAccountControllerTest {
     @Test
     public void shouldRedirectToCreateAccountOnNoEmail() {
         CreateAccountController createAccountController = new CreateAccountController();
-        Assert.assertThat(createAccountController.checkFields("","Yue","yue123", ""),is("redirect:/createAccount"));
+        Assert.assertThat(createAccountController.checkFields("",user.getUsername(),user.getPassword(), ""),is("redirect:/createAccount"));
     }
 
     @Test
     public void shouldRedirectToCreateAccountOnNoName() {
         CreateAccountController createAccountController = new CreateAccountController();
-        Assert.assertThat(createAccountController.checkFields("yding@thoughtworks.com","","yue123", ""),is("redirect:/createAccount"));
+        Assert.assertThat(createAccountController.checkFields(user.getEmail(),"",user.getPassword(), ""),is("redirect:/createAccount"));
     }
 
     @Test
     public void shouldRedirectToCreateAccountOnNoPassword() {
         CreateAccountController createAccountController = new CreateAccountController();
-        Assert.assertThat(createAccountController.checkFields("yding@thoughtworks.com","Yue","", ""),is("redirect:/createAccount"));
+        Assert.assertThat(createAccountController.checkFields(user.getEmail(),user.getUsername(),"", ""),is("redirect:/createAccount"));
     }
 
     @Test
-     public void shouldRedirectToDashBoardWhenSaveAccount() {
-        CreateAccountController createAccountController = mockedCreateAccountController();
-        Assert.assertThat(createAccountController.checkFields("yding@thoughtworks.com","Yue","yue123", ""),is("redirect:/dashboard"));
+     public void shouldSaveAccountWhenEmailNotExistInDatabase() {
+        CreateAccountController createAccountController = mockedCreateAccountController(user, false);
+        Assert.assertThat(createAccountController.checkFields(user.getEmail(),user.getUsername(),user.getPassword(), ""),is("redirect:/dashboard"));
     }
 
     @Test
     public void shouldNotSaveAccountWhenEmailAlreadyExistInDatabase() {
-        CreateAccountController createAccountController = mockedCreateAccountController();
-        CreateAccountController createAccountControllerClone = mockedCreateAccountControllerClone();
-
-        createAccountController.checkFields("yding@thoughtworks.com","Yue","yue123", "");
-
-        Assert.assertThat(createAccountControllerClone.checkFields("yding@thoughtworks.com","YueClone","yueclone123", ""),is("redirect:/createAccount"));
+        CreateAccountController createAccountControllerForExistentUser = mockedCreateAccountController(user, true);
+        Assert.assertThat(createAccountControllerForExistentUser.checkFields(user.getEmail(),user.getUsername(),user.getPassword(), ""),is("redirect:/createAccount"));
     }
 
-
-    private CreateAccountController mockedCreateAccountController(){
+    private CreateAccountController mockedCreateAccountController(User user, boolean userAlreadyExist){
         UserService mockUserService = mock(UserService.class);
-        when(mockUserService.getUserByEmail("yding@thoughtworks.com")).thenReturn(null);
-
-        return new CreateAccountController(mockUserService);
-    }
-
-    private CreateAccountController mockedCreateAccountControllerClone(){
-        User user= new User("yding@thoughtworks.com","YueClone","yueclone123", "");
-
-        UserService mockUserService = mock(UserService.class);
-        when(mockUserService.getUserByEmail(user.getEmail())).thenReturn(user);
-
+        if (userAlreadyExist)
+            when(mockUserService.getUserByEmail(user.getEmail())).thenReturn(user);
+        else
+            when(mockUserService.getUserByEmail(user.getEmail())).thenReturn(null);
+        
         return new CreateAccountController(mockUserService);
     }
 

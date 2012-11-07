@@ -2,6 +2,7 @@ package functional.com.thoughtworks.twu;
 
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.thoughtworks.twu.domain.User;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,41 +21,43 @@ import static org.junit.Assert.assertThat;
 public class CreateAccountFunctionalTest {
 
     private static WebDriver webDriver;
-
+    private static User user;
     @BeforeClass
     public static void setUp()
     {
-        webDriver = new HtmlUnitDriver(BrowserVersion.FIREFOX_3_6);
-        //webDriver.get("http://localhost:9130/twu/login");
-        webDriver.get("http://localhost:9130/twu/createAccount");
+        webDriver = new FirefoxDriver();
+        webDriver.get("http://localhost:9130/twu/login");
+        user = new User("yding@thoughtworks.com","Yue","yue123","");
     }
 
     @Test
     public void shouldCreateAccount()
     {
-        //WebElement goToCreateAccountButton = webDriver.findElement(By.name("goToCreateAccountButton"));
+        WebElement goToCreateAccountButton = webDriver.findElement(By.name("goToCreateAccountButton"));
 
-        //goToCreateAccountButton.submit();
+        goToCreateAccountButton.click();
 
-        //assertThat(webDriver.getCurrentUrl(),is("http://localhost:9130/twu/createAccount"));
+        assertThat(webDriver.getCurrentUrl(),is("http://localhost:9130/twu/createAccount"));
 
         WebElement emailElement=webDriver.findElement(By.name("email"));
-        emailElement.sendKeys("Yue@gmail.com");
+        emailElement.sendKeys(user.getEmail());
 
         WebElement nameElement=webDriver.findElement(By.name("username"));
-        nameElement.sendKeys("Yue");
+        nameElement.sendKeys(user.getUsername());
 
         WebElement passwordElement=webDriver.findElement(By.name("password"));
-        passwordElement.sendKeys("yue123");
+        passwordElement.sendKeys(user.getPassword());
 
         WebElement phoneNumberElement=webDriver.findElement(By.name("phoneNumber"));
-        phoneNumberElement.sendKeys("");
+        phoneNumberElement.sendKeys(user.getPhoneNumber());
 
         WebElement createAccountButton = webDriver.findElement(By.name("createAccountButton"));
-
         createAccountButton.submit();
 
         assertThat(webDriver.getCurrentUrl(),is("http://localhost:9130/twu/dashboard"));
+
+//        WebElement welcomeMessage = webDriver.findElement(By.name("welcomeMessage"));
+//        assertThat(welcomeMessage.getText(), is("Hi " + user.getUsername()));
     }
 
     @AfterClass

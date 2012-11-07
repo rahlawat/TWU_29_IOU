@@ -45,10 +45,12 @@ public class CreateAccountController {
         if ((userService.getUserByEmail(email) == null) && saveAccount(user))
             return "redirect:/dashboard";
 
+
+
         return "redirect:/createAccount";
     }
 
-    public boolean saveAccount(User user){
+    private boolean saveAccount(User user){
         try{
             userService.insertUser(user);
             return true;
@@ -56,4 +58,9 @@ public class CreateAccountController {
             return false;
         }
     }
+
+//    private boolean login(User user){
+//        LoginController loginController = new LoginController();
+//        loginController.checkCredentials(user.getEmail(), user.getPassword());
+//    }
 }
