@@ -1,6 +1,7 @@
 package com.thoughtworks.twu.controller;
 
 
+import com.thoughtworks.twu.domain.User;
 import com.thoughtworks.twu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,12 +23,8 @@ public class DashboardController {
     public ModelAndView dashboardPage(HttpServletRequest request) {
 
         HttpSession session = request.getSession();
-        String email = (String) session.getAttribute("email");
-
-
-
-
-        return new ModelAndView("/dashboard").addObject("email",email);
+        User user = (User) session.getAttribute("user");
+        return new ModelAndView("/dashboard").addObject("user",user);
     }
 
     @RequestMapping(value = "/add-bill", method = RequestMethod.GET)

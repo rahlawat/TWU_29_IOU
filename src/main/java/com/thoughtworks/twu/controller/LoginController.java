@@ -2,7 +2,9 @@ package com.thoughtworks.twu.controller;
 
 
 import com.thoughtworks.twu.domain.LoginUser;
+import com.thoughtworks.twu.domain.User;
 import com.thoughtworks.twu.service.LoginService;
+import com.thoughtworks.twu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,11 +24,11 @@ import java.util.HashSet;
 
 @Controller
 public class LoginController {
-    private LoginService loginService;
+    private UserService userService;
 
     @Autowired
-    public LoginController(LoginService loginService) {
-        this.loginService = loginService;
+    public LoginController(UserService userService) {
+        this.userService = userService;
     }
 
     public LoginController() {
@@ -57,8 +59,8 @@ public class LoginController {
         if (validUser(email, password)) {
 
             HttpSession session = request.getSession(true);
-            session.setAttribute("email",email);
-            LoginUser user= loginService.getUserByEmail(email);
+            User user= userService.getUserByEmail(email);
+            session.setAttribute("user",user);
             return new ModelAndView("redirect:/dashboard");
        }
 
@@ -67,8 +69,8 @@ public class LoginController {
     }
 
     private boolean validUser(String email, String password) {
-        LoginUser loginUser = loginService.getUserByEmail(email);
-        return loginUser != null && loginUser.getPassword().equals(password);
+        User user = userService.getUserByEmail(email);
+        return user != null && user.getPassword().equals(password);
 
     }
 

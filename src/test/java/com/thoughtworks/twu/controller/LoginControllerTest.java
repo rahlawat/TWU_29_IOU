@@ -2,7 +2,9 @@ package com.thoughtworks.twu.controller;
 
 
 import com.thoughtworks.twu.domain.LoginUser;
+import com.thoughtworks.twu.domain.User;
 import com.thoughtworks.twu.service.LoginService;
+import com.thoughtworks.twu.service.UserService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -67,11 +69,11 @@ public class LoginControllerTest {
 //    }
 
     private ModelAndView loginModelAndView(String email, String username, String password, String phone, boolean validUser) throws IOException {
-        LoginService mockLoginService = mock(LoginService.class);
-        LoginUser user = (validUser) ? new LoginUser(email, username, password, phone) : null;
-        when(mockLoginService.getUserByEmail(email)).thenReturn(user);
+        UserService mockUserService = mock(UserService.class);
+        User user = (validUser) ? new User(email, username, password, phone) : null;
+        when(mockUserService.getUserByEmail(email)).thenReturn(user);
 
-        LoginController loginController = new LoginController(mockLoginService);
+        LoginController loginController = new LoginController(mockUserService);
         return loginController.checkCredentials(email, password, new MockHttpServletRequest());
     }
 }
