@@ -45,7 +45,7 @@ public class MyFriendsListFunctionalTest {
 
         WebElement friendsTable = webDriver.findElement(By.id("emailList"));
         assertThat(friendsTable.findElement(By.id("header")).getText(), is("Friends Added"));
-        assertThat(friendsTable.findElement(By.id("row1")).getText(), is("abc@gmail.com"));
+        assertThat(friendsTable.findElement(By.id("baseRow")).getText(), is("abc@gmail.com"));
 
 
         webDriver.findElement(By.id("saveButton")).click();
@@ -55,8 +55,8 @@ public class MyFriendsListFunctionalTest {
 
     }
 
-//    @After
-//    public void tearDown(){
-//        webDriver.close();
-//    }
+    @After
+    public void tearDown(){
+        webDriver.close();
+    }
 }
