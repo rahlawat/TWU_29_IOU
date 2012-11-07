@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 //job: understands the database operations of the receipt
 public interface BillMapper {
     @Select("SELECT description,amount FROM bill Where description = #{description}")
-    Bill getBill(String description);
+    Bill getBillByDescription(String description);
 
     @Insert("INSERT INTO bill (description, amount) VALUES(#{description}, #{amount})")
     void insertBill(Bill bill);

@@ -12,7 +12,7 @@
                 </tr>
                 <tr>
                     <td><label>Amount*: </label></td>
-                    <td><input type="text" name="amountItem"></td>
+                    <td><input type="number" name="amountItem"></td>
                     <td><label>  Rs</label></td>
                 </tr>
                 <tr>

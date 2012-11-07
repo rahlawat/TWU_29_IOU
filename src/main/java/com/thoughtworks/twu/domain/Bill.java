@@ -1,10 +1,17 @@
 package com.thoughtworks.twu.domain;
- //job: understands the receipt
+
+import java.math.BigDecimal;
+
+//job: understands the receipt
 public class Bill {
     private String description;
-    private Integer amount;
+    private double amount;
 
-    public Bill(String description, int amount) {
+    private Bill()
+    {
+
+    }
+    public Bill(String description, double amount) {
         this.description = description;
         this.amount = amount;
     }
@@ -13,7 +20,7 @@ public class Bill {
         return description;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 }

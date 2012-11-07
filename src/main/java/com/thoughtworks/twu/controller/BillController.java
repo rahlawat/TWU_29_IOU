@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.math.BigDecimal;
+
 @Controller
 public class BillController {
 
@@ -24,10 +26,26 @@ public class BillController {
 
     @RequestMapping(value = "/add-bill", method = RequestMethod.POST)
     public ModelAndView billPage(@RequestParam(value = "descriptionItem") String description,
-                                         @RequestParam(value = "amountItem") String amount) {
+                                 @RequestParam(value = "amountItem") double amount) {
+        ModelAndView modelAndView = new ModelAndView("/add-bill");
+        if (!(description.isEmpty() || amount != 0.0)) {
 
-        return new ModelAndView("/add-bill");
+          double billAmount =  amount;
+            Bill bill = new Bill(description, billAmount);
+            saveBill(bill);
 
+        }
+        return modelAndView;
     }
+
+    private boolean saveBill(Bill bill) {
+        try{
+            billService.insertBill(bill);
+            return true;
+        } catch (Exception ex){
+            return false;
+        }
+    }
+
 }
 

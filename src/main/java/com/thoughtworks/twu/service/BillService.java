@@ -17,4 +17,8 @@ public class BillService {
     public void insertBill(Bill bill){
         billMapper.insertBill(bill);
     }
+
+    public Bill getBill(String description) {
+        return billMapper.getBillByDescription(description);
+    }
 }
