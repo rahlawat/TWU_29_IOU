@@ -3,6 +3,8 @@ create database if not exists IOUdb;
 use IOUdb;
 
 drop table if exists UserTable;
+drop table if exists bill;
+
 
 create table if not exists UserTable(
   email varchar(25) primary key,
