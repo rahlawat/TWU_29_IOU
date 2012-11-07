@@ -31,7 +31,7 @@ public class CreateAccountController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/checkFields", method = RequestMethod.POST)
+    @RequestMapping(value = "/createAccount", method = RequestMethod.POST)
     public String checkFields(@RequestParam("email") String email,
                               @RequestParam("username") String username,
                               @RequestParam("password") String password,
@@ -45,8 +45,6 @@ public class CreateAccountController {
         if ((userService.getUserByEmail(email) == null) && saveAccount(user))
             return "redirect:/login";
 
-
-
         return "redirect:/createAccount";
     }
 
@@ -58,9 +56,4 @@ public class CreateAccountController {
             return false;
         }
     }
-
-//    private boolean login(User user){
-//        LoginController loginController = new LoginController();
-//        loginController.checkCredentials(user.getEmail(), user.getPassword(), new );
-//    }
 }

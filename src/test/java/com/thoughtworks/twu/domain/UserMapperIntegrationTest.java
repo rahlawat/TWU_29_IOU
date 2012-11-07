@@ -36,9 +36,9 @@ public class UserMapperIntegrationTest extends IntegrationTest {
 
     @Test
     public  void shouldReturnNullIfGetUserByEmailDontFoundAnyUser() {
-        String expectedEmail = "rcoelho@thoughtworks.com";
+        String email = "rcoelho@thoughtworks.com";
 
-        assertThat( userMapper.getUserByEmail(expectedEmail), equalTo(null));
+        assertThat( userMapper.getUserByEmail(email), equalTo(null));
     }
     
 }

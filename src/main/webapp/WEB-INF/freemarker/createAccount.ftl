@@ -4,7 +4,7 @@
     </head>
     <body>
 
-        <form name="account_form" action="checkFields" method="POST">
+        <form name="account_form" action="createAccount" method="POST">
 
         <table>
 

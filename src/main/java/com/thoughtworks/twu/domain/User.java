@@ -8,7 +8,6 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String phoneNumber;
-    private String access;
 
     public User() {
     }
@@ -62,10 +61,5 @@ public class User implements Serializable {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         return result;
-    }
-
-    public String getAccess()
-    {
-        return this.access;
     }
 }

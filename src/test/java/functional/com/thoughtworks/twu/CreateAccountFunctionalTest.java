@@ -23,6 +23,7 @@ public class CreateAccountFunctionalTest {
 
     private static WebDriver webDriver;
     private static User user;
+
     @BeforeClass
     public static void setUp()
     {
@@ -57,9 +58,6 @@ public class CreateAccountFunctionalTest {
         createAccountButton.submit();
 
         assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/twu/login"));
-
-//        WebElement welcomeMessage = webDriver.findElement(By.name("welcomeMessage"));
-//        assertThat(welcomeMessage.getText(), is("Hi " + user.getUsername()));
     }
 
     @AfterClass
