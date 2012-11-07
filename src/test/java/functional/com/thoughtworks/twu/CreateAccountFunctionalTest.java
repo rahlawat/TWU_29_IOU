@@ -16,6 +16,7 @@ import java.util.*;
 import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.internal.matchers.StringContains.containsString;
 
 
 public class CreateAccountFunctionalTest {
@@ -25,7 +26,7 @@ public class CreateAccountFunctionalTest {
     @BeforeClass
     public static void setUp()
     {
-        webDriver = new HtmlUnitDriver(true);
+        webDriver = new FirefoxDriver();
         webDriver.get("http://localhost:9130/twu/login");
 
         user = new User("yding@thoughtworks.com","Yue","yue123","");
@@ -55,7 +56,7 @@ public class CreateAccountFunctionalTest {
         WebElement createAccountButton = webDriver.findElement(By.name("createAccountButton"));
         createAccountButton.submit();
 
-        assertThat(webDriver.getCurrentUrl(),is("http://localhost:9130/twu/login"));
+        assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/twu/login"));
 
 //        WebElement welcomeMessage = webDriver.findElement(By.name("welcomeMessage"));
 //        assertThat(welcomeMessage.getText(), is("Hi " + user.getUsername()));

@@ -19,7 +19,7 @@ public class BillFunctionalTest {
 
     @Before
     public void setUp() {
-        webDriver = new HtmlUnitDriver();
+        webDriver = new FirefoxDriver();
         webDriver.get("http://localhost:9130/twu/login");
 
         webDriver.findElement(By.id("email")).sendKeys("sajacobs@thoughtworks.com");
