@@ -44,7 +44,7 @@ public class MyFriendsListFunctionalTest {
 
 
         WebElement friendsTable = webDriver.findElement(By.id("emailList"));
-        assertThat(friendsTable.findElement(By.id("row0")).getText(), is("Friends Added"));
+        assertThat(friendsTable.findElement(By.id("header")).getText(), is("Friends Added"));
         assertThat(friendsTable.findElement(By.id("row1")).getText(), is("abc@gmail.com"));
 
 
