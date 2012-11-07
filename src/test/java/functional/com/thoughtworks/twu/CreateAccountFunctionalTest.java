@@ -25,7 +25,7 @@ public class CreateAccountFunctionalTest {
     @BeforeClass
     public static void setUp()
     {
-        webDriver = new HtmlUnitDriver(true);
+        webDriver = new FirefoxDriver();
         webDriver.get("http://localhost:9130/twu/login");
 
         user = new User("yding@thoughtworks.com","Yue","yue123","");
