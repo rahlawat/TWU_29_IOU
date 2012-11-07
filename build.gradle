@@ -22,26 +22,37 @@ dependencies {
     compile 'org.mybatis:mybatis:3.1.1',
             'org.mybatis:mybatis-spring:1.1.1',
             'javax.servlet:servlet-api:2.5',
-            'org.springframework:spring-core:3.1.1.RELEASE',
-            'org.springframework:spring-webmvc:3.1.1.RELEASE',
-            'org.springframework:spring-web:3.1.1.RELEASE',
+            'org.springframework:spring-core:3.1.3.RELEASE',
+            'org.springframework:spring-webmvc:3.1.3.RELEASE',
+            'org.springframework:spring-web:3.1.3.RELEASE',
             'commons-dbcp:commons-dbcp:1.4',
-            'org.springframework:spring-orm:3.1.0.RELEASE',
+            'org.springframework:spring-orm:3.1.3.RELEASE',
             'com.h2database:h2:1.3.167',
             'org.freemarker:freemarker:2.3.19',
             'ch.qos.logback:logback-classic:1.0.0',
             'commons-lang:commons-lang:2.6',
             'hsqldb:hsqldb:1.8.0.10',
-            'mysql:mysql-connector-java:5.1.6'
+            'mysql:mysql-connector-java:5.1.6',
+            'org.springframework.security:spring-security-web:3.1.3.RELEASE',
+            'org.springframework.security:spring-security-config:3.1.3.RELEASE',
+            'org.springframework.security:spring-security-core:3.1.3.RELEASE',
+            'org.springframework.security:spring-security-taglibs:3.1.3.RELEASE',
+            'org.springframework.security:spring-security-acl:3.1.3.RELEASE'
 
 
     testCompile 'junit:junit:4.10',
-            'org.springframework:spring-test:3.1.1.RELEASE',
+            'org.springframework:spring-test:3.1.3.RELEASE',
             'org.mockito:mockito-all:1.9.0',
             'org.testng:testng:6.1.1',
             'org.seleniumhq.selenium:selenium-java:2.25.0',
             'org.seleniumhq.selenium:selenium-firefox-driver:2.25.0',
-            'mysql:mysql-connector-java:5.1.6'
+            'mysql:mysql-connector-java:5.1.6',
+            'org.springframework.security:spring-security-web:3.1.3.RELEASE',
+            'org.springframework.security:spring-security-config:3.1.3.RELEASE',
+            'org.springframework.security:spring-security-core:3.1.3.RELEASE',
+            'org.springframework.security:spring-security-taglibs:3.1.3.RELEASE',
+            'org.springframework.security:spring-security-acl:3.1.3.RELEASE'
+
 
     sql 'mysql:mysql-connector-java:5.1.6'
 }

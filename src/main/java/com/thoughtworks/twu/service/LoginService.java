@@ -2,6 +2,7 @@ package com.thoughtworks.twu.service;
 
 import com.thoughtworks.twu.domain.LoginUser;
 import com.thoughtworks.twu.persistence.LoginMapper;
+import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

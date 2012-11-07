@@ -12,9 +12,10 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import java.util.List;
 
 import static junit.framework.Assert.assertTrue;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.junit.internal.matchers.StringContains.containsString;
 import static org.mockito.Matchers.contains;
 
 public class LoginFunctionalTest {
@@ -29,14 +30,14 @@ public class LoginFunctionalTest {
     @Test
     public void shouldShowTheEmailInputBox() {
         webDriver.get("http://localhost:9130/twu/login");
-        List<WebElement> emailItems = webDriver.findElements(By.name("email"));
+        List<WebElement> emailItems = webDriver.findElements(By.id("email"));
         assertEquals(1, emailItems.size());
     }
 
     @Test
     public void shouldShowThePasswordInputBox() {
         webDriver.get("http://localhost:9130/twu/login");
-        List<WebElement> passwordItems = webDriver.findElements(By.name("password"));
+        List<WebElement> passwordItems = webDriver.findElements(By.id("password"));
         assertEquals(1, passwordItems.size());
     }
 
@@ -45,12 +46,12 @@ public class LoginFunctionalTest {
     public void shouldSendToDashBoardOnGoodCredentialsCheckerUponSubmit() {
         webDriver.get("http://localhost:9130/twu/login");
 
-        webDriver.findElement(By.name("email")).sendKeys("sajacobs@thoughtworks.com");
-        webDriver.findElement(By.name("password")).sendKeys("1234");
+        webDriver.findElement(By.id("email")).sendKeys("sajacobs@thoughtworks.com");
+        webDriver.findElement(By.id("password")).sendKeys("1234");
 
         webDriver.findElement(By.id("loginForm")).submit();
 
-       assertTrue(webDriver.getCurrentUrl().contains("http://localhost:9130/twu/dashboard"));
+       Assert.assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/twu/dashboard"));
 
     }
 
@@ -58,13 +59,22 @@ public class LoginFunctionalTest {
     public void shouldSendToLoginOnMissingEmail() {
         webDriver.get("http://localhost:9130/twu/login");
 
-        webDriver.findElement(By.name("email")).sendKeys("");
-        webDriver.findElement(By.name("password")).sendKeys("password");
+        webDriver.findElement(By.id("email")).sendKeys("");
+        webDriver.findElement(By.id("password")).sendKeys("password");
 
         webDriver.findElement(By.id("loginForm")).submit();
 
-        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/login"));
+        assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/twu/login"));
 
+
+    }
+
+    @Test
+    public void shouldRedirectToLoginPageIfNotLoggedIn()
+    {
+        webDriver.get("http://localhost:9130/twu/dashboard");
+        String redirectedUrl = webDriver.getCurrentUrl();
+        assertThat(redirectedUrl, containsString("http://localhost:9130/twu/login"));
 
     }
 
@@ -72,15 +82,17 @@ public class LoginFunctionalTest {
     public void shouldSendToLoginOnMissingPassword() {
         webDriver.get("http://localhost:9130/twu/login");
 
-        webDriver.findElement(By.name("email")).sendKeys("adsfsadfsadf");
-        webDriver.findElement(By.name("password")).sendKeys("");
+        webDriver.findElement(By.id("email")).sendKeys("adsfsadfsadf");
+        webDriver.findElement(By.id("password")).sendKeys("");
 
         webDriver.findElement(By.id("loginForm")).submit();
 
-        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/login"));
+        assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/twu/login"));
 
 
     }
+
+
 
 
     @After

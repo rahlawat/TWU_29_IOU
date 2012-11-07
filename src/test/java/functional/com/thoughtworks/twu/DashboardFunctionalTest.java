@@ -18,6 +18,13 @@ public class DashboardFunctionalTest {
     @Before
     public void setUp() {
         webDriver = new HtmlUnitDriver();
+        webDriver.get("http://localhost:9130/twu/login");
+
+        webDriver.findElement(By.id("email")).sendKeys("sajacobs@thoughtworks.com");
+        webDriver.findElement(By.id("password")).sendKeys("1234");
+
+        webDriver.findElement(By.id("loginForm")).submit();
+
     }
 
     @Test

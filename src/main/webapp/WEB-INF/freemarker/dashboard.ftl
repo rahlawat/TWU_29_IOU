@@ -3,6 +3,7 @@
     <title> IOU </title>
 </head>
 <body>
+Hi ${email} !!
 <button name="addBill"><a href="http://localhost:9130/twu/add-bill">Add Bill</a></button>
 
 <form action="my-friends-list" method=post  style='float:right'>

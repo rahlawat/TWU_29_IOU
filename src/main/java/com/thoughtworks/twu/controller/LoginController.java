@@ -4,6 +4,11 @@ package com.thoughtworks.twu.controller;
 import com.thoughtworks.twu.domain.LoginUser;
 import com.thoughtworks.twu.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashSet;
 
 
 @Controller
@@ -40,16 +46,21 @@ public class LoginController {
         if (email.isEmpty() || password.isEmpty())
             return new ModelAndView("redirect:/login");
 
+        HashSet<GrantedAuthority> grantedAuthority = new HashSet<GrantedAuthority>();
+
+
+
+        Authentication authentication = new UsernamePasswordAuthenticationToken(email,password,grantedAuthority);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+
         if (validUser(email, password)) {
+
             HttpSession session = request.getSession(true);
-            if (!session.isNew()) {
-                session.invalidate();
-                session = request.getSession(true);
-
-            }
-
-            return new ModelAndView("redirect:/dashboard").addObject("email", email).addObject("sessionID", session.getId());
-        }
+            session.setAttribute("email",email);
+            LoginUser user= loginService.getUserByEmail(email);
+            return new ModelAndView("redirect:/dashboard");
+       }
 
         return new ModelAndView("redirect:/login");
 

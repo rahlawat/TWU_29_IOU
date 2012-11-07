@@ -8,6 +8,12 @@ public class LoginUser implements Serializable {
     private String password;
     private String phoneNumber;
 
+    public String getAuthorities() {
+        return authorities;
+    }
+
+    private String authorities;
+
 
 
     public String getEmail() {
