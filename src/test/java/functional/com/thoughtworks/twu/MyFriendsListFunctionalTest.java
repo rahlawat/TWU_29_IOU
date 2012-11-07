@@ -30,7 +30,13 @@ public class MyFriendsListFunctionalTest {
 
     @Test
     public void shouldDirectToFriendsListPageAndAddAFriendToTheList() throws Exception {
-        webDriver.get("http://localhost:9130/twu/dashboard");
+        webDriver.get("http://localhost:9130/twu/login");
+
+        webDriver.findElement(By.id("email")).sendKeys("sajacobs@thoughtworks.com");
+        webDriver.findElement(By.id("password")).sendKeys("1234");
+
+        webDriver.findElement(By.id("loginForm")).submit();
+
         webDriver.findElement(By.id("friendsListButton")).click();
         String currentUrl = webDriver.getCurrentUrl();
 
@@ -50,13 +56,14 @@ public class MyFriendsListFunctionalTest {
 
         webDriver.findElement(By.id("saveButton")).click();
 
-        assertThat(friendsTable.getText(), is("Friends Added"));
+        friendsTable = webDriver.findElement(By.id("emailList"));
+        assertThat(friendsTable.getText().trim(), is("Friends Added"));
 
 
     }
 
-    @After
-    public void tearDown(){
-        webDriver.close();
-    }
+//    @After
+//    public void tearDown(){
+//        webDriver.close();
+//    }
 }
