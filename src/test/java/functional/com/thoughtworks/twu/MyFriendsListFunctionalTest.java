@@ -62,8 +62,8 @@ public class MyFriendsListFunctionalTest {
 
     }
 
-//    @After
-//    public void tearDown(){
-//        webDriver.close();
-//    }
+    @After
+    public void tearDown(){
+        webDriver.close();
+    }
 }
