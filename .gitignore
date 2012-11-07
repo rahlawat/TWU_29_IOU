@@ -1,12 +1,11 @@
-chromedriver.log
 .gradle/*
 TWU_29_IOU.iml
 TWU_29_IOU.ipr
 TWU_29_IOU.iws
 build/*
-chromedriver
+chromedriver*
 out/*
 .DS_Store
-	src/main/webapp/JasmineAdapter.js
-	src/main/webapp/jasmine-1.2.0/
-	src/main/webapp/javascript/
+src/main/webapp/JasmineAdapter.js
+src/main/webapp/jasmine-1.2.0/
+src/main/webapp/javascript/

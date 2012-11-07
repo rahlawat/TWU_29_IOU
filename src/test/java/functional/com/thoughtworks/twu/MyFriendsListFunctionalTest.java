@@ -25,7 +25,7 @@ public class MyFriendsListFunctionalTest {
 
     @Before
     public void setUp() {
-        webDriver = new ChromeDriver();
+        webDriver = new FirefoxDriver();
     }
 
     @Test
