@@ -1,6 +1,8 @@
+var rowCounter = 1;
+
 function addToList() {
-    var newEmail = document.getElementById('newEmail').value;
-    var emailList = document.getElementById('emailList');
-    var newRow = emailList.insertRow();
-    newRow.innerHTML = newEmail;
+    if(rowCounter == 1) {
+        document.getElementById("baseRow").innerText = document.getElementById('newEmail').value;
+    }
+
 }

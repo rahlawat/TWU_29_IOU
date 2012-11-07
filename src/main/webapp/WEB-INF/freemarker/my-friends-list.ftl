@@ -11,10 +11,10 @@
             <button id="addToListButton" onclick="addToList()">Add To Friends List</button>
 
             <table id="emailList" border="2">
-                <tr style="background-color: #87cefa;">
+                <tr id="header" style="background-color: #87cefa;">
                     <th>Friends Added</th>
                 </tr>
-                <tr>
+                <tr id="baseRow" >
                     <td> &nbsp; </td>
                 </tr>
             </table>

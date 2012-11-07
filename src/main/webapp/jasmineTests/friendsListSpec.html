@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Jasmine Spec Runner</title>
+
+    <link rel="shortcut icon" type="image/png" href="../jasmine-1.2.0/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="../jasmine-1.2.0/jasmine.css">
+    <script type="text/javascript" src="../jasmine-1.2.0/jasmine.js"></script>
+    <script type="text/javascript" src="../jasmine-1.2.0/jasmine-html.js"></script>
+    <script type="text/javascript" src="../javascript/jquery.js"></script>
+
+    <!-- include spec files here... -->
+    <script type="text/javascript" src="my-friends-listTest.js"></script>
+
+    <!-- include source files here... -->
+    <script type="text/javascript" src="../javascript/my-friends-list.js"></script>
+
+
+    <script type="text/javascript">
+        (function() {
+            var jasmineEnv = jasmine.getEnv();
+            jasmineEnv.updateInterval = 1000;
+            //Specifies or returns the time interval (in milliseconds) between screen updates.
+
+            var htmlReporter = new jasmine.HtmlReporter();
+            //创建HTMLReporter,jasmine用它为每个spec和suite提供结果。这个Reporter负责为用户呈现结果
+            jasmineEnv.addReporter(htmlReporter);
+
+            jasmineEnv.specFilter = function(spec) {
+                return htmlReporter.specFilter(spec);
+            };
+
+            var currentWindowOnload = window.onload;
+
+            window.onload = function() {
+                if (currentWindowOnload) {
+                    currentWindowOnload();
+                }
+                execJasmine();
+            };
+
+            function execJasmine() {
+                jasmineEnv.execute();
+            }
+
+        })();
+    </script>
+
+</head>
+
+<body>
+</body>
+</html>
