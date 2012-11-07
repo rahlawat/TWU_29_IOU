@@ -19,7 +19,6 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@TestExecutionListeners({TransactionalTestExecutionListener.class})
 public class BillControllerTest {
     @Autowired
     private BillMapper billMapper;
@@ -64,7 +63,6 @@ public class BillControllerTest {
     }
 
     @Test
-    @Transactional
     public void shouldSaveBillToTheDatabase() {
         String description = "Lunch";
         double amount = 2000.00;
