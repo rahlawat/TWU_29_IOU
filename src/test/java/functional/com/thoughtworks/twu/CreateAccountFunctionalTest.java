@@ -25,8 +25,9 @@ public class CreateAccountFunctionalTest {
     @BeforeClass
     public static void setUp()
     {
-        webDriver = new FirefoxDriver();
+        webDriver = new HtmlUnitDriver(true);
         webDriver.get("http://localhost:9130/twu/login");
+
         user = new User("yding@thoughtworks.com","Yue","yue123","");
     }
 
@@ -54,7 +55,7 @@ public class CreateAccountFunctionalTest {
         WebElement createAccountButton = webDriver.findElement(By.name("createAccountButton"));
         createAccountButton.submit();
 
-        assertThat(webDriver.getCurrentUrl(),is("http://localhost:9130/twu/dashboard"));
+        assertThat(webDriver.getCurrentUrl(),is("http://localhost:9130/twu/login"));
 
 //        WebElement welcomeMessage = webDriver.findElement(By.name("welcomeMessage"));
 //        assertThat(welcomeMessage.getText(), is("Hi " + user.getUsername()));

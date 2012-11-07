@@ -43,7 +43,7 @@ public class CreateAccountController {
         User user = new User(email, username, password, phoneNumber);
 
         if ((userService.getUserByEmail(email) == null) && saveAccount(user))
-            return "redirect:/dashboard";
+            return "redirect:/login";
 
 
 

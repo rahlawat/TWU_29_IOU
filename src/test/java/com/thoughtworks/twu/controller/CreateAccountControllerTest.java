@@ -48,7 +48,7 @@ public class CreateAccountControllerTest {
     @Test
      public void shouldSaveAccountWhenEmailNotExistInDatabase() {
         CreateAccountController createAccountController = mockedCreateAccountController(user, false);
-        Assert.assertThat(createAccountController.checkFields(user.getEmail(),user.getUsername(),user.getPassword(), ""),is("redirect:/dashboard"));
+        Assert.assertThat(createAccountController.checkFields(user.getEmail(),user.getUsername(),user.getPassword(), ""),is("redirect:/login"));
     }
 
     @Test
