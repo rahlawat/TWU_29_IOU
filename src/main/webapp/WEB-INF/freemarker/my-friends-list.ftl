@@ -4,12 +4,11 @@
 
     </head>
     <body>
-        <form>
-            <b id="title">
+            <b>
                 Enter The person's e-mail you want to add to your Friends List.<br> Enter 1 e-mail at the time.<br>
             </b>
-            <label>E-mail: </label><input type="text" name="friendEmail">
-            <input type="submit" value="Add To Friends List" name="addAFriend"> <br>
+            <label>E-mail: </label><input type="text" id="newEmail">
+            <button id="addToListButton" onclick="addToList()">Add To Friends List</button>
 
             <table id="emailList" border="2">
                 <tr style="background-color: #87cefa;">
@@ -23,8 +22,7 @@
 
 
 
-            <input type="submit" value="Save" name="saveFriendToDB">
-        </form>
-        <button onclick="location.href='dashboard'">Back to Dashboard</button>
+            <button id="saveButton" onclick="">Save</button>
+            <button onclick="location.href='dashboard'">Back to Dashboard</button>
     </body>
 </html>
