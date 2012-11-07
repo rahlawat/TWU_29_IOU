@@ -27,7 +27,7 @@ public class BillControllerTest {
     @Test
     public void shouldDisplayBillPage() {
         BillController billController = mockedBillController();
-        ModelAndView modelAndView = billController.billPage("Bill", 98237.00);
+        ModelAndView modelAndView = billController.billPage("Bill", "98237.00");
         View view = modelAndView.getView();
 
         ModelAndView modelAndViewTest = new ModelAndView("/add-bill");
@@ -47,14 +47,14 @@ public class BillControllerTest {
         Bill bill = new Bill("Dinner", 45.21);
         BillService mockBillService = mock(BillService.class);
         when(mockBillService.getBill(bill.getDescription())).thenReturn(bill);
-        return new  BillController(mockBillService);
+        return new BillController(mockBillService);
     }
 
 
     @Test
     public void shouldRedirectToAddBillOnNoDescription() {
         BillController billController = mockedBillController();
-        ModelAndView modelAndView = billController.billPage("", 0.0);
+        ModelAndView modelAndView = billController.billPage("", "0.0");
         View view = modelAndView.getView();
         ModelAndView modelAndViewTest = new ModelAndView("/add-bill");
 
@@ -65,14 +65,12 @@ public class BillControllerTest {
     @Test
     public void shouldSaveBillToTheDatabase() {
         String description = "Lunch";
-        double amount = 2000.00;
+        String amount = "2000.00";
         BillController billController = mockedBillController();
-        BillController billControllerClone =  mockedBillControllerClone();
-        billController.billPage(description, amount);
+        BillController billControllerClone = mockedBillControllerClone();
         billControllerClone.billPage(description, amount);
         assertThat(billControllerClone.billPage(description, amount).getView(), equalTo(new ModelAndView("/add-bill").getView()));
     }
-
 
 
 }
