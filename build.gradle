@@ -7,7 +7,6 @@ war {
     archiveName = "IOU.war"
 }
 
-
 repositories {
     mavenCentral()
 }
@@ -58,20 +57,13 @@ dependencies {
     sql 'mysql:mysql-connector-java:5.1.6'
 }
 
-task loadData {
-    runScript("src/main/resources/twu_database/schema.sql",
-            "jdbc:mysql://localhost:3306", "root", "1234")
-    runScript("src/main/resources/twu_database/import.sql",
-            "jdbc:mysql://localhost:3306", "root", "1234")
+test {
+    exclude '**/functional/com/thoughtworks/**/*.*'
 }
 
 jettyRun {
     httpPort = 9130
     contextPath = 'twu'
-}
-
-test {
-    exclude '**/functional/com/thoughtworks/**/*.*'
 }
 
 task functionalTest(type: Test, dependsOn: "test") {
@@ -89,6 +81,13 @@ functionalTest.doFirst {
 
 functionalTest.doLast {
     jettyStop.execute()
+}
+
+task loadData << {
+    runScript("src/main/resources/twu_database/schema.sql",
+            "jdbc:mysql://localhost:3306", "root", "1234")
+    runScript("src/main/resources/twu_database/import.sql",
+            "jdbc:mysql://localhost:3306", "root", "1234")
 }
 
 def runScript(scriptName, url, user, password) {
