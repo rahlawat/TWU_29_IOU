@@ -11,13 +11,14 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.internal.matchers.StringContains.containsString;
 
 public class DashboardFunctionalTest {
     private WebDriver webDriver;
 
     @Before
     public void setUp() {
-        webDriver = new HtmlUnitDriver();
+        webDriver = new HtmlUnitDriver(true);
         webDriver.get("http://localhost:9130/twu/login");
 
         webDriver.findElement(By.id("email")).sendKeys("sajacobs@thoughtworks.com");
@@ -30,8 +31,14 @@ public class DashboardFunctionalTest {
     @Test
     public void shouldRedirectToBillPageOnAddBillClick() {
         webDriver.get("http://localhost:9130/twu/dashboard");
-        WebElement link = webDriver.findElement(By.tagName("a"));
+        WebElement link = webDriver.findElement(By.name("addBillLink"));
         assertThat(link.getAttribute("href"),is("http://localhost:9130/twu/add-bill"));
+    }
+
+    @Test
+    public void shouldRedirectToLoginPageAfterLogout() {
+        webDriver.findElement(By.name("logoutButton")).click();
+        assertThat(webDriver.getCurrentUrl(), containsString("http://localhost:9130/twu/login"));
     }
 
     @After

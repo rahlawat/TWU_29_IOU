@@ -1,3 +1,4 @@
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html" charset="UTF-8">
 <html>
     <head>
         <title> IOU </title>

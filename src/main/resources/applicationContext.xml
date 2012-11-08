@@ -15,14 +15,21 @@
     <mvc:annotation-driven/>
     <context:component-scan base-package="com.thoughtworks.twu"/>
 
+    <mvc:interceptors>
+        <bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+            <property name="cacheSeconds" value="0"/>
+            <property name="useExpiresHeader" value="true"/>
+            <property name="useCacheControlHeader" value="true"/>
+            <property name="useCacheControlNoStore" value="true"/>
+        </bean>
+    </mvc:interceptors>
+
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="defaultAutoCommit" value="true"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/IOUdb"/>
         <property name="username" value="root"/>
         <property name="password" value="1234"/>
-
-
     </bean>
 
 
@@ -42,6 +49,10 @@
         <property name="basePackage" value="com.thoughtworks.twu.persistence"/>
     </bean>
 
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="cacheSecondsForSessionAttributeHandlers" value="0" />
+    </bean>
+
 
     <security:http auto-config="true" use-expressions="true" request-matcher="regex">
         <security:intercept-url pattern="/login"  access="permitAll"/>
@@ -51,6 +62,7 @@
         <security:intercept-url pattern="/**" access="isAuthenticated()"/>
         <security:http-basic/>
         <security:form-login login-page='/login' login-processing-url="/checkCredentials" default-target-url="/dashboard"/>
+        <security:logout logout-success-url="/login" logout-url="/j_spring_security_logout" invalidate-session="true"/>
     </security:http>
 
     <security:authentication-manager>

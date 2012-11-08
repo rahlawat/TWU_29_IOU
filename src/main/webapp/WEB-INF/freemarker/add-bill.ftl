@@ -1,8 +1,10 @@
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html" charset="UTF-8">
 <html>
     <head>
         <title> IOU </title>
     </head>
     <body>
+        <button name="logoutButton" onclick="location.href='http://localhost:9130/twu/j_spring_security_logout'"> Logout</button>
         <form action="add-bill" method=post>
             <h3>Bill</h3>
             <table>

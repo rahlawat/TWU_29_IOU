@@ -1,10 +1,11 @@
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html" charset="UTF-8">
 <html>
     <head>
         <script type="text/javascript" src="javascript/my-friends-list.js"></script>
         <script type="text/javascript" src="javascript/jquery.js"></script>
-
     </head>
     <body>
+    <button name="logoutButton" onclick="location.href='http://localhost:9130/twu/j_spring_security_logout'"> Logout</button>
             <b>
                 Enter The person's e-mail you want to add to your Friends List.<br> Enter 1 e-mail at the time.<br>
             </b>
