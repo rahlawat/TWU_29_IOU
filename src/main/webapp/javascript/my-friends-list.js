@@ -1,4 +1,4 @@
-var emailsToAdd = new Array();  //TODO: used to store added emails to put in DB
+var emailsToAdd = "";  //TODO: used to store added emails to put in DB
 var rowCounter = 1;
 
 function addToList() {
@@ -8,7 +8,10 @@ function addToList() {
         newRow.insertCell();
 
     }
-    document.getElementById("emailList").rows[1].cells[0].textContent = document.getElementById('newEmail').value;
+    var newEmail = document.getElementById('newEmail').value;
+
+    emailsToAdd +=  newEmail + ",";
+    document.getElementById("emailList").rows[1].cells[0].textContent = newEmail;
     rowCounter += 1;
     document.getElementById('newEmail').value = "";
 
@@ -16,6 +19,7 @@ function addToList() {
 }
 
 function save() {
+    sendEmailsToController();
     document.getElementById('newEmail').value = "";
     clearTable();
 }
@@ -23,13 +27,31 @@ function save() {
 
 function clearTable() {
     document.getElementById('emailListDiv').innerHTML =
-         '<table id="emailList" border="2">' +
-             '<tr style="background-color: #87cefa;">' +
-             '<th id="header">Friends Added</th>' +
-             '</tr>' +
-             '<tr>' +
-             '<td id="baseRow"> &nbsp; </td>' +
-             '</tr>' +
-             '</table>';
+        '<table id="emailList" border="2">' +
+            '<tr style="background-color: #87cefa;">' +
+            '<th id="header">Friends Added</th>' +
+            '</tr>' +
+            '<tr>' +
+            '<td id="baseRow"> &nbsp; </td>' +
+            '</tr>' +
+            '</table>';
     rowCounter = 1;
+    emailsToAdd = "";
+}
+
+function sendEmailsToController() {
+    var emailString = emailsToAdd.substring(0, emailsToAdd.length - 1);
+    console.log(emailString);
+    $.ajax({
+        type:"POST",
+        url:"storeConnections",
+        data:"emails=" + emailString,
+        success:function () {
+            console.log("success");
+        },
+        failure:function () {
+            console.log("failure");
+        }
+    });
+
 }

@@ -13,6 +13,10 @@ describe("Email list table", function () {
             '</table>' +
             '</div>');
 
+    var hiddenField = $(
+        '<input type="hidden" id="hiddenFriendList"/>'
+    );
+
     var row0;
     var row1;
     var row2;
@@ -20,12 +24,15 @@ describe("Email list table", function () {
     beforeEach(function () {
         $(document.body).append(input);
         $(document.body).append(emailTable);
+        $(document.body).append(hiddenField);
+
     });
 
     afterEach(function () {
         $('#emailListDiv').remove();
         $('#newEmail').remove();
         rowCounter = 1;
+        emailsToAdd = "";
     });
 
     it("should be updated below Header when table empty", function () {
@@ -115,15 +122,14 @@ describe("Email list table", function () {
 
     it("should not add to table if input empty", function () {
         document.getElementById('newEmail').value = "";
-        var tableBefore = document.getElementById('emailList')
+        var tableBefore = document.getElementById('emailList');
+
         addToList();
 
         var tableAfter = document.getElementById('emailList');
 
 
         expect(tableAfter).toEqual(tableBefore);
-
-
 
 
     });
@@ -135,6 +141,29 @@ describe("Email list table", function () {
         expect(rowCounter).toEqual(1);
 
 
+    });
+
+    it("should add the emails to the string", function () {
+        document.getElementById('newEmail').value = "abc@gmail.com";
+        addToList();
+        console.log(emailsToAdd);
+        document.getElementById('newEmail').value = "xyz@gmail.com";
+        addToList();
+        console.log(emailsToAdd);
+        expect(emailsToAdd).toEqual("abc@gmail.com,xyz@gmail.com,");
+    });
+
+    it("should clear the string on save", function () {
+        document.getElementById('newEmail').value = "abc@gmail.com";
+
+        addToList();
+
+        document.getElementById('newEmail').value = "xyz@gmail.com";
+
+        addToList();
+
+        save();
+        expect(emailsToAdd).toEqual("");
     });
 
 });

@@ -7,9 +7,9 @@ import org.springframework.web.servlet.View;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class FriendsControllerTest {
+public class ConnectionControllerTest {
 
-    private FriendsController friends = new FriendsController();
+    private ConnectionController friends = new ConnectionController();
 
     @Test
     public void shouldNavigateToFriendsListPage() throws Exception {
@@ -18,5 +18,9 @@ public class FriendsControllerTest {
 
         assertThat(actualView, is(expectedView));
     }
+
+
+//    @Test
+//    public void shouldWriteToDatabase;
 
 }

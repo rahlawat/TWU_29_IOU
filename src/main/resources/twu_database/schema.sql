@@ -19,3 +19,8 @@ create table if not exists bill(
    description varchar(80) not null,
    amount float not null
 );
+
+ create table if not exists connections(
+   user_email varchar(25) not null,
+   connection_email varchar(25) not null
+ );

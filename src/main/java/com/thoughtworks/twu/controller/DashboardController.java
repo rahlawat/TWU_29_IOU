@@ -16,15 +16,20 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class DashboardController {
 
-    public DashboardController() {
+    UserService userService;
+    @Autowired
+    public DashboardController(UserService userService) {
+        this.userService = userService;
     }
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public ModelAndView dashboardPage(HttpServletRequest request) {
 
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        return new ModelAndView("/dashboard").addObject("user",user);
+        String userEmail = (String) session.getAttribute("user");
+        User user = userService.getUserByEmail(userEmail);
+        String userName = user.getUsername();
+        return new ModelAndView("/dashboard").addObject("username",userName);
     }
 
     @RequestMapping(value = "/add-bill", method = RequestMethod.GET)

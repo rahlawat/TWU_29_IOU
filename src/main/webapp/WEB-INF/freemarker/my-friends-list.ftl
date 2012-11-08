@@ -22,6 +22,9 @@
                     </tr>
                 </table>
                </div>
+            <form id="hiddenForm" action="/test" method="POST">
+                <input type="hidden" name="hiddenFriendList" id="hiddenFriendList"/>
+            </form>
             <br>
 
 

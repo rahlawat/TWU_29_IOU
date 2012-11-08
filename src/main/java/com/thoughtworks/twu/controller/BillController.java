@@ -16,7 +16,6 @@ import java.math.BigDecimal;
 public class BillController {
 
     private BillService billService;
-    private DashboardController dashboard;
 
     @Autowired
     public BillController(BillService billService) {

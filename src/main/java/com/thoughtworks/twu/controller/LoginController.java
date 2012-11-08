@@ -59,8 +59,7 @@ public class LoginController {
         if (validUser(email, password)) {
 
             HttpSession session = request.getSession(true);
-            User user= userService.getUserByEmail(email);
-            session.setAttribute("user",user);
+            session.setAttribute("user", email);
             return new ModelAndView("redirect:/dashboard");
        }
 
