@@ -41,7 +41,6 @@ function clearTable() {
 
 function sendEmailsToController() {
     var emailString = emailsToAdd.substring(0, emailsToAdd.length - 1);
-    console.log(emailString);
     $.ajax({
         type:"POST",
         url:"storeConnections",
