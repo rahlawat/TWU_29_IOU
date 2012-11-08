@@ -43,14 +43,14 @@ public class ConnectionsFunctionalTest {
 
 
         WebElement friendsTable = webDriver.findElement(By.id("emailList"));
-        assertThat(friendsTable.findElement(By.id("header")).getText(), is("Friends Added"));
+        assertThat(friendsTable.findElement(By.id("header")).getText(), is("Friendship Added"));
         assertThat(friendsTable.findElement(By.id("baseRow")).getText(), is("abc@gmail.com"));
 
 
         webDriver.findElement(By.id("saveButton")).click();
 
         friendsTable = webDriver.findElement(By.id("emailList"));
-        assertThat(friendsTable.getText().trim(), is("Friends Added"));
+        assertThat(friendsTable.getText().trim(), is("Friendship Added"));
 
 
     }

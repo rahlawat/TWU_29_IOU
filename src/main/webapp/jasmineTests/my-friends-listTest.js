@@ -40,12 +40,12 @@ describe("Email list table", function () {
 
         var table = document.getElementById('emailList');
         row0 = table.rows[0].innerText;
-        expect(row0).toMatch("Friends Added");
+        expect(row0).toMatch("Friendship Added");
 
         addToList();
 
         row1 = table.rows[1].innerText;
-        expect(row0).toMatch("Friends Added");
+        expect(row0).toMatch("Friendship Added");
         expect(row1).toMatch("abc@gmail.com");
     });
 
@@ -64,7 +64,7 @@ describe("Email list table", function () {
         row2 = table.rows[1].innerText;
         row1 = table.rows[2].innerText;
 
-        expect(row0).toMatch("Friends Added");
+        expect(row0).toMatch("Friendship Added");
         expect(row2).toMatch("xyz@gmail.com");
         expect(row1).toMatch("abc@gmail.com");
 
@@ -86,9 +86,9 @@ describe("Email list table", function () {
         row1 = table.rows[1].innerText;
         //row1 = table.rows[2];
 
+
         expect(row0).toMatch("Friends Added");
         expect(row1).toMatch(String.fromCharCode(160));  //(&nbsp;)
-        //expect(row1).toMatch(null);
 
     });
 

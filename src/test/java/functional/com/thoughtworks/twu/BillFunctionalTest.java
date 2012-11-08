@@ -44,7 +44,7 @@ public class BillFunctionalTest {
 
         assertThat(currentUrl, is("http://localhost:9130/twu/add-bill"));
 
-        String friendsList = webDriver.findElement(By.id("friendsCheckList")).getText();
+        String friendsList = webDriver.findElement(By.name("MengqiuCheckBox")).getText();
 
         assertThat(friendsList, is("Abc@gmail.com"));
 

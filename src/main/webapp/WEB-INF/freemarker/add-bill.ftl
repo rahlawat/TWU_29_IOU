@@ -10,7 +10,7 @@
             <table>
                 <tr>
                     <td> <#if notification??>
-                        <h5>${notification}</a> </h5>
+                        <h5>${notification} </h5>
                     </#if> </td>
                 </tr>
                 <tr>
@@ -22,12 +22,9 @@
                     <td><input type="text" name="amountItem"></td>
                     <td><label>  Rs</label></td>
                 </tr>
-                <tr>
-                    <td><input type="submit" value="Save" name="savebill"></td>
-                    <td><button name="backToDashboard"><a href="http://localhost:9130/twu/dashboard">Go To Dashboard</a></button></td>
-                </tr>
-
             </table>
         </form>
+        <button id="backToDashboardButton" onclick="location.href='dashboard'">back To Dashboard</button>
+        <button id="saveBillButton" onclick="">Save</button>
     </body>
 </html>
