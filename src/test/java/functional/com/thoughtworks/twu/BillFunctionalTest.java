@@ -30,10 +30,31 @@ public class BillFunctionalTest {
     }
 
     @Test
-    public void shouldRedirectToDashBoardOnSaveClick() {
+    public void shouldRedirectToDashBoardOnBackToDashBoardClick() {
         webDriver.get("http://localhost:9130/twu/add-bill");
         WebElement link = webDriver.findElement(By.tagName("a"));
         assertThat(link.getAttribute("href"), is("http://localhost:9130/twu/dashboard"));
+
+    }
+
+    @Test
+    public void shouldChooseFriendsAndSaveThemToDBOnSaveClick() throws Exception {
+        webDriver.get("http://localhost:9130/twu/add-bill");
+        String currentUrl = webDriver.getCurrentUrl();
+
+        assertThat(currentUrl, is("http://localhost:9130/twu/add-bill"));
+
+        String friendsList = webDriver.findElement(By.id("friendsCheckList")).getText();
+
+        assertThat(friendsList, is("Abc@gmail.com"));
+
+        webDriver.findElement(By.id("friendsCheckList")).click();
+
+        webDriver.findElement(By.id("saveBill")).click();
+
+        String savedMsg = webDriver.findElement(By.id("savedSuccessfullyMsg")).getText();
+
+        assertThat(savedMsg, is("Saved Successfully"));
 
     }
 
