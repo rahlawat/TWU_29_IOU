@@ -3,6 +3,7 @@ package com.thoughtworks.twu.controller;
 import com.thoughtworks.twu.domain.User;
 import com.thoughtworks.twu.persistence.UserMapper;
 import com.thoughtworks.twu.service.UserService;
+import org.apache.commons.lang.RandomStringUtils;
 import org.h2.util.New;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,8 +18,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CreateAccountControllerTest {
+    String email = RandomStringUtils.random(10);
 
-    User user= new User("yding@thoughtworks.com","Yue","yue123", "");
+    User user= new User(email,"Yue","yue123", "456345634");
     
     @Test
     public void shouldReturnModelViewForLogin() {

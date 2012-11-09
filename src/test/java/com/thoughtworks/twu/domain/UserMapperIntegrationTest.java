@@ -5,11 +5,15 @@ import com.thoughtworks.twu.persistence.UserMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+@TestExecutionListeners({TransactionalTestExecutionListener.class})
 public class UserMapperIntegrationTest extends IntegrationTest {
 
     @Autowired
@@ -22,12 +26,11 @@ public class UserMapperIntegrationTest extends IntegrationTest {
 
     }
 
+    @Transactional
     @Test
     public  void shouldChooseUserByUserEmail() {
         String email = "yding@thoughtworks.com";
         User expectedUser = new User("yding@thoughtworks.com", "Yue", "yue123","13991871507");
-
-        userMapper.insertUser(expectedUser);
 
         User receivedUser = userMapper.getUserByEmail(email);
 
