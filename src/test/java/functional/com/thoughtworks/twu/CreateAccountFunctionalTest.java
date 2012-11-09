@@ -31,7 +31,7 @@ public class CreateAccountFunctionalTest {
 
         String email = RandomStringUtils.randomAscii(10);
 
-        user = new User("mqpeng@thoughtworks.com", "Mengqiu", "mq123", "");
+        user = new User("mqpeng@thoughtworks.com", "Mengqiu", "mq1234", "");
     }
 
     @Test
