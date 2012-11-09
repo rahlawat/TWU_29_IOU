@@ -30,7 +30,7 @@ public class CreateAccountFunctionalTest {
         webDriver = new FirefoxDriver();
         webDriver.get("http://localhost:9130/twu/login");
 
-        user = new User("yding@thoughtworks.com","Yue","yue123","");
+        user = new User("mqpeng@thoughtworks.com","MQ","mq123","");
     }
 
     @Test
