@@ -29,9 +29,9 @@ public class CreateAccountFunctionalTest {
     public static void setUp() {
         webDriver = new FirefoxDriver();
 
-        String email = RandomStringUtils.randomAscii(10);
+        String email = RandomStringUtils.randomAscii(10) + "@thoughtworks.com";
 
-        user = new User("mqpeng@thoughtworks.com", "Mengqiu", "mq1234", "");
+        user = new User(email, "Mengqiu", "mq1234", "");
     }
 
     @Test
@@ -57,7 +57,7 @@ public class CreateAccountFunctionalTest {
         phoneNumberElement.sendKeys(user.getPhoneNumber());
 
         WebElement createAccountButton = webDriver.findElement(By.id("createAccountButton"));
-        createAccountButton.click();
+        createAccountButton.submit();
 
         assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/login"));
     }

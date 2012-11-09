@@ -4,6 +4,7 @@ import com.thoughtworks.twu.domain.Friendship;
 import com.thoughtworks.twu.domain.IntegrationTest;
 import com.thoughtworks.twu.persistence.FriendshipMapper;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -28,16 +29,17 @@ public class FriendshipServiceTest {
 
     }
 
-//    @Test
-//    public void shouldReturnAllFriendsForOneUserEmail() throws Exception {
-//        String userEmail = "sajacobs@thoughtworks.com";
-//
-//        List<String> expectedFriends = new ArrayList<String>();
-//        expectedFriends.add("mengqiu@gmail.com");
-//        expectedFriends.add("faris@gmail.com");
-//
-//        List<String> actualFriendsFromDB = friendshipService.getAllFriendsForOneUserEmail(userEmail);
-//        System.out.println(actualFriendsFromDB);
-//        assertThat(actualFriendsFromDB, is(expectedFriends));
-//    }
+    @Test
+    @Ignore
+    public void shouldReturnAllFriendsForOneUserEmail() throws Exception {
+        String userEmail = "sajacobs@thoughtworks.com";
+
+        List<String> expectedFriends = new ArrayList<String>();
+        expectedFriends.add("mengqiu@gmail.com");
+        expectedFriends.add("faris@gmail.com");
+
+        List<String> actualFriendsFromDB = friendshipService.getAllFriendsForOneUserEmail(userEmail);
+        System.out.println(actualFriendsFromDB);
+        assertThat(actualFriendsFromDB, is(expectedFriends));
+    }
 }

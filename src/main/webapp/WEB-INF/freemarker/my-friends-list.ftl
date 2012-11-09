@@ -1,7 +1,7 @@
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html" charset="UTF-8">
 <html>
     <head>
-        <script type="text/javascript" src="javascript/my-friendship-list.js"></script>
+        <script type="text/javascript" src="javascript/my-friends-list.js"></script>
         <script type="text/javascript" src="javascript/jquery.js"></script>
     </head>
     <body>
@@ -22,9 +22,6 @@
                     </tr>
                 </table>
                </div>
-            <form id="hiddenForm" action="/test" method="POST">
-                <input type="hidden" name="hiddenFriendList" id="hiddenFriendList"/>
-            </form>
             <br>
 
 

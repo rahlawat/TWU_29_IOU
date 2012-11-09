@@ -10,8 +10,8 @@ drop table if exists connections;
 
 
 create table if not exists UserTable(
-  email varchar(25) primary key,
-  username varchar(25),
+  email varchar(50) primary key,
+  username varchar(50),
   password varchar(25),
   phoneNumber varchar(15)
 );

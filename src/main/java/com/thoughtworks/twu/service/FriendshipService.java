@@ -17,7 +17,7 @@ public class FriendshipService {
         this.friendshipMapper = friendshipMapper;
     }
 
-//    public List<String> getAllFriendsForOneUserEmail(String userEmail) {
-//        return friendshipMapper.getAllFriendsForOneUserEmail(userEmail);
-//    }
+    public List<String> getAllFriendsForOneUserEmail(String userEmail) {
+        return friendshipMapper.getAllFriendsForOneUserEmail(userEmail);
+    }
 }
