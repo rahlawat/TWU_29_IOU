@@ -9,7 +9,7 @@
             <b>
                 Enter The person's e-mail you want to add to your Friends List.<br> Enter 1 e-mail at the time.<br>
             </b>
-            <label>E-mail: </label><input type="text" id="newEmail">
+            <label>E-mail: <input type="text" id="newEmail"> </label>
             <button id="addToListButton" onclick="addToList()">Add To Friends List</button>
 
             <div id="emailListDiv">
