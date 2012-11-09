@@ -37,9 +37,6 @@ public class CreateAccountController {
                               @RequestParam("password") String password,
                               @RequestParam("phoneNumber") String phoneNumber) {
 
-        if (email.isEmpty() || username.isEmpty() || password.isEmpty())
-            return "redirect:/createAccount";
-
         User user = new User(email, username, password, phoneNumber);
 
         if ((userService.getUserByEmail(email) == null) && saveAccount(user))

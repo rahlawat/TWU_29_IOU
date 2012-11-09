@@ -11,22 +11,22 @@
 
             <tr>
             <td> <label for="email" id="email_label" name="email_label"> E-mail Address *: </label> </td>
-            <td> <input type="text" id="email" name="email"/> </td>
+            <td> <input type="email" id="email" name="email" required/> </td>
             </tr>
 
             <tr>
                 <td> <label for="username" id="name_label" name="name_label"> Name *: </label> </td>
-                <td> <input type="text" id="username" name="username"/> </td>
+                <td> <input type="text" id="username" name="username" required /> </td>
             </tr>
 
             <tr>
                 <td> <label for="password" id="password_label" name="password_label"> Password *: </label> </td>
-                <td> <input type="password" id="password" name="password"/>  </td>
+                <td> <input type="password" id="password" name="password" required />  </td>
             </tr>
 
             <tr>
                 <td> <label for="phoneNumber" id="phone_number_label" name="phone_number_label"> Phone Number: </label> </td>
-                <td> <input type="text" id="phoneNumber" name="phoneNumber"/> </td>
+                <td> <input type="tel" id="phoneNumber" name="phoneNumber"/> </td>
             </tr>
 
             <tr>

@@ -61,6 +61,28 @@ public class CreateAccountFunctionalTest {
         assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/login"));
     }
 
+    @Test
+    public void shouldNotSubmitWhenHaveBlankFields(){
+        webDriver.get("http://localhost:9130/twu/createAccount");
+
+        WebElement emailElement=webDriver.findElement(By.name("email"));
+        emailElement.sendKeys("");
+
+        WebElement nameElement=webDriver.findElement(By.name("username"));
+        nameElement.sendKeys("");
+
+        WebElement passwordElement=webDriver.findElement(By.name("password"));
+        passwordElement.sendKeys("");
+
+        WebElement phoneNumberElement=webDriver.findElement(By.name("phoneNumber"));
+        phoneNumberElement.sendKeys("");
+
+        WebElement createAccountButton = webDriver.findElement(By.name("createAccountButton"));
+        createAccountButton.submit();
+
+        assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/twu/createAccount"));
+    }
+
     @AfterClass
     public static void tearDown() {
 
