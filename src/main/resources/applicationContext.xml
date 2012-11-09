@@ -56,6 +56,7 @@
 
     <security:http auto-config="true" use-expressions="true" request-matcher="regex">
         <security:intercept-url pattern="/login"  access="permitAll"/>
+        <security:intercept-url pattern="/static/.*"  access="permitAll"/>
         <security:intercept-url pattern="/checkLogin"  access="permitAll"/>
         <security:intercept-url pattern="/createAccount"  access="permitAll"/>
 
