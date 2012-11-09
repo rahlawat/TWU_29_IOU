@@ -25,7 +25,7 @@ public class ConnectionController {
     public ModelAndView listPage(HttpServletRequest request) {
         String currentUser = (String) request.getSession().getAttribute("user");
 
-        return new ModelAndView("/my-friends-list").addObject("email", currentUser);
+        return new ModelAndView("/my-friends-list").addObject("user", currentUser);
     }
 
     @RequestMapping(value = "storeConnections", method = RequestMethod.POST)
