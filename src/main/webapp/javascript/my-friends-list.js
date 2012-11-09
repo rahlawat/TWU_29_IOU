@@ -19,9 +19,12 @@ function addToList() {
 }
 
 function save() {
+    if (rowCounter == 1) return;
+
     sendEmailsToController();
     document.getElementById('newEmail').value = "";
     clearTable();
+
 }
 
 

@@ -6,6 +6,7 @@ use IOUdb;
 
 drop table if exists bill;
 drop table if exists UserTable;
+drop table if exists connections;
 
 
 create table if not exists UserTable(
