@@ -72,5 +72,4 @@ public class BillControllerTest {
         assertThat(billControllerClone.billPage(description, amount).getView(), equalTo(new ModelAndView("/add-bill").getView()));
     }
 
-
 }

@@ -5,6 +5,9 @@ import com.thoughtworks.twu.domain.IntegrationTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -26,7 +29,7 @@ public class FriendshipMapperTest extends IntegrationTest {
     }
 
     @Test
-    public void shouldGetAFriendFromDBUsingEmail() throws Exception {
+     public void shouldGetAFriendFromDBUsingEmail() throws Exception {
         Friendship insertedFriend = new Friendship("sajacobs@thoughtworks.com", "mengqiu@gmail.com");
 
         String emailInDB = "mengqiu@gmail.com";
@@ -34,4 +37,5 @@ public class FriendshipMapperTest extends IntegrationTest {
 
         assertThat(friendInDB, equalTo(insertedFriend));
     }
+
 }

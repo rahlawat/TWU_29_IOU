@@ -1,12 +1,14 @@
 package com.thoughtworks.twu.domain;
 
+import java.util.ArrayList;
+
 // understands relationships between individuals
 public class Friendship {
 
     private String userEmail;
     private String friendEmail;
 
-    private Friendship() {
+    public Friendship() {
     }
 
     public Friendship(String userEmail, String friendEmail) {
@@ -33,4 +35,5 @@ public class Friendship {
         result = 31 * result + friendEmail.hashCode();
         return result;
     }
+
 }
