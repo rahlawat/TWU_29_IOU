@@ -28,15 +28,16 @@ public class CreateAccountFunctionalTest {
     @BeforeClass
     public static void setUp() {
         webDriver = new FirefoxDriver();
-        webDriver.get("http://localhost:9130/twu/login");
 
+        String email = RandomStringUtils.randomAscii(10);
 
-        user = new User(RandomStringUtils.randomAscii(10), "Yue", "yue123", "");
-
+        user = new User("mqpeng@thoughtworks.com", "Mengqiu", "mq123", "");
     }
 
     @Test
     public void shouldCreateAccount() {
+        webDriver.get("http://localhost:9130/twu/login");
+
         WebElement goToCreateAccountButton = webDriver.findElement(By.name("goToCreateAccountButton"));
 
         goToCreateAccountButton.click();
@@ -56,7 +57,7 @@ public class CreateAccountFunctionalTest {
         phoneNumberElement.sendKeys(user.getPhoneNumber());
 
         WebElement createAccountButton = webDriver.findElement(By.id("createAccountButton"));
-        createAccountButton.submit();
+        createAccountButton.click();
 
         assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/login"));
     }
@@ -78,7 +79,7 @@ public class CreateAccountFunctionalTest {
         phoneNumberElement.sendKeys("");
 
         WebElement createAccountButton = webDriver.findElement(By.name("createAccountButton"));
-        createAccountButton.submit();
+        createAccountButton.click();
 
         assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/twu/createAccount"));
     }
@@ -89,6 +90,7 @@ public class CreateAccountFunctionalTest {
         webDriver.close();
 
     }
+
 
 
 }
