@@ -10,7 +10,6 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class UserMapperIntegrationTest extends IntegrationTest {
@@ -30,6 +29,7 @@ public class UserMapperIntegrationTest extends IntegrationTest {
         String email = "yding@thoughtworks.com";
         User expectedUser = new User("yding@thoughtworks.com", "Yue", "yue123","13991871507");
 
+
         User receivedUser = userMapper.getUserByEmail(email);
 
         assertThat(receivedUser, equalTo(expectedUser));
@@ -39,7 +39,7 @@ public class UserMapperIntegrationTest extends IntegrationTest {
     public  void shouldReturnNullIfGetUserByEmailDontFoundAnyUser() {
         String email = "rcoelho@thoughtworks.com";
 
-        assertThat( userMapper.getUserByEmail(email), equalTo(null));
+        assertThat(userMapper.getUserByEmail(email), equalTo(null));
     }
     
 }

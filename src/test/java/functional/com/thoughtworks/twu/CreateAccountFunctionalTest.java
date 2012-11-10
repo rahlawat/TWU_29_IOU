@@ -1,23 +1,18 @@
 package functional.com.thoughtworks.twu;
 
 
-import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.thoughtworks.twu.domain.User;
 import org.apache.commons.lang.RandomStringUtils;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-import java.util.*;
-
-import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.internal.matchers.StringContains.containsString;
 
 
 public class CreateAccountFunctionalTest {
