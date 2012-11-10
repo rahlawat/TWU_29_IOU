@@ -1,9 +1,6 @@
 package functional.com.thoughtworks.twu;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,10 +27,35 @@ public class BillFunctionalTest {
     }
 
     @Test
-    public void shouldRedirectToDashBoardOnSaveClick() {
+    public void shouldRedirectToDashBoardOnBackToDashBoardClick() {
         webDriver.get("http://localhost:9130/twu/add-bill");
-        WebElement link = webDriver.findElement(By.tagName("a"));
-        assertThat(link.getAttribute("href"), is("http://localhost:9130/twu/dashboard"));
+        WebElement button = webDriver.findElement(By.id("backToDashboardButton"));
+
+        button.click();
+
+        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/dashboard"));
+
+    }
+
+    @Test
+    @Ignore
+    public void shouldChooseFriendsAndSaveThemToDBOnSaveClick() throws Exception {
+        webDriver.get("http://localhost:9130/twu/add-bill");
+        String currentUrl = webDriver.getCurrentUrl();
+
+        assertThat(currentUrl, is("http://localhost:9130/twu/add-bill"));
+
+        String friendsList = webDriver.findElement(By.name("MengqiuCheckBox")).getText();
+
+        assertThat(friendsList, is("Abc@gmail.com"));
+
+        webDriver.findElement(By.id("friendsCheckList")).click();
+
+        webDriver.findElement(By.id("saveBill")).click();
+
+        String savedMsg = webDriver.findElement(By.id("savedSuccessfullyMsg")).getText();
+
+        assertThat(savedMsg, is("Saved Successfully"));
 
     }
 

@@ -17,7 +17,6 @@
         .container {
             width: 500px;
         }
-
             /* The white background content wrapper */
         .container > .content {
             background-color: #fff;
@@ -60,7 +59,6 @@
                                 </td>
                                 <td><input type="text" id="email" name="email"/></td>
                             </tr>
-
                             <tr>
                                 <td><label for="username" id="name_label" name="name_label"> Name *: </label></td>
                                 <td><input type="text" id="username" name="username"/></td>

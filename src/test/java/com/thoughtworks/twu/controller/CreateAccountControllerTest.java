@@ -30,24 +30,6 @@ public class CreateAccountControllerTest {
     }
 
     @Test
-    public void shouldRedirectToCreateAccountOnNoEmail() {
-        CreateAccountController createAccountController = new CreateAccountController();
-        Assert.assertThat(createAccountController.checkFields("",user.getUsername(),user.getPassword(), ""),is("redirect:/createAccount"));
-    }
-
-    @Test
-    public void shouldRedirectToCreateAccountOnNoName() {
-        CreateAccountController createAccountController = new CreateAccountController();
-        Assert.assertThat(createAccountController.checkFields(user.getEmail(),"",user.getPassword(), ""),is("redirect:/createAccount"));
-    }
-
-    @Test
-    public void shouldRedirectToCreateAccountOnNoPassword() {
-        CreateAccountController createAccountController = new CreateAccountController();
-        Assert.assertThat(createAccountController.checkFields(user.getEmail(),user.getUsername(),"", ""),is("redirect:/createAccount"));
-    }
-
-    @Test
      public void shouldSaveAccountWhenEmailNotExistInDatabase() {
         CreateAccountController createAccountController = mockedCreateAccountController(user, false);
         Assert.assertThat(createAccountController.checkFields(user.getEmail(),user.getUsername(),user.getPassword(), ""),is("redirect:/login"));

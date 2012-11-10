@@ -1,0 +1,1 @@
+CREATE TABLE changelog ( change_number bigint(20) NOT NULL, delta_set varchar(10) NOT NULL, start_dt timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP, complete_dt timestamp NULL default NULL, applied_by varchar(100) NOT NULL, description varchar(500) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

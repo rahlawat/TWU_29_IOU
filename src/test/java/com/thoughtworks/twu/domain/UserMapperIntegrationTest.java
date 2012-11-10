@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-@TestExecutionListeners({TransactionalTestExecutionListener.class})
 public class UserMapperIntegrationTest extends IntegrationTest {
 
     @Autowired
@@ -25,7 +24,6 @@ public class UserMapperIntegrationTest extends IntegrationTest {
 
     }
 
-    @Transactional
     @Test
     public  void shouldChooseUserByUserEmail() {
         String email = "yding@thoughtworks.com";

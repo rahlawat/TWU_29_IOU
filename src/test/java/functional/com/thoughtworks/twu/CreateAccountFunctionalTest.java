@@ -23,15 +23,16 @@ public class CreateAccountFunctionalTest {
     @BeforeClass
     public static void setUp() {
         webDriver = new FirefoxDriver();
-        webDriver.get("http://localhost:9130/twu/login");
 
+        String email = RandomStringUtils.randomAscii(10) + "@thoughtworks.com";
 
-        user = new User(RandomStringUtils.randomAscii(10), "Yue", "yue123", "");
-
+        user = new User(email, "Mengqiu", "mq1234", "");
     }
 
     @Test
     public void shouldCreateAccount() {
+        webDriver.get("http://localhost:9130/twu/login");
+
         WebElement goToCreateAccountButton = webDriver.findElement(By.name("goToCreateAccountButton"));
 
         goToCreateAccountButton.click();
@@ -56,12 +57,35 @@ public class CreateAccountFunctionalTest {
         assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/login"));
     }
 
+    @Test
+    public void shouldNotSubmitWhenHaveBlankFields(){
+        webDriver.get("http://localhost:9130/twu/createAccount");
+
+        WebElement emailElement=webDriver.findElement(By.name("email"));
+        emailElement.sendKeys("");
+
+        WebElement nameElement=webDriver.findElement(By.name("username"));
+        nameElement.sendKeys("");
+
+        WebElement passwordElement=webDriver.findElement(By.name("password"));
+        passwordElement.sendKeys("");
+
+        WebElement phoneNumberElement=webDriver.findElement(By.name("phoneNumber"));
+        phoneNumberElement.sendKeys("");
+
+        WebElement createAccountButton = webDriver.findElement(By.name("createAccountButton"));
+        createAccountButton.click();
+
+        assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/twu/createAccount"));
+    }
+
     @AfterClass
     public static void tearDown() {
 
         webDriver.close();
 
     }
+
 
 
 }

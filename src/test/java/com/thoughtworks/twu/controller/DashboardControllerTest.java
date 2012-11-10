@@ -16,6 +16,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class DashboardControllerTest {
+
     @Test
     public void shouldDisplayDashboardPage() throws Exception {
         ModelAndView modelAndView = dashboardPageModelAndView();
