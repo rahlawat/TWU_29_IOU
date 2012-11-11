@@ -4,45 +4,7 @@
 <title> IOU </title>
 <head>
     <link href="static/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-            /* Override some defaults */
-        html, body {
-            background-color: #fdf5e6;
-        }
-
-        body {
-            padding-top: 40px;
-        }
-
-        .container {
-            width: 500px;
-        }
-
-            /* The white background content wrapper */
-        .container > .content {
-            background-color: #fff;
-            padding: 20px;
-            margin: 0 -20px;
-            -webkit-border-radius: 10px 10px 10px 10px;
-            -moz-border-radius: 10px 10px 10px 10px;
-            border-radius: 10px 10px 10px 10px;
-            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
-            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
-        }
-
-        .login-form {
-            margin-left: 65px;
-        }
-
-        legend {
-            margin-right: -50px;
-            font-weight: bold;
-            color: #404040;
-        }
-
-    </style>
-
+    <link href="static/css/default.css" rel="stylesheet">
     <script type="text/javascript" src="javascript/my-friends-list.js"></script>
     <script type="text/javascript" src="javascript/jquery.js"></script>
 
@@ -58,7 +20,7 @@
                 time.
                 <label>E-mail: </label>
 
-                <div>
+                <div id="addEmail">
                     <input type="text" id="newEmail">
 
                     <button class="btn btn-primary" id="addToListButton" onclick="addToList()">Add To Friends List
@@ -76,7 +38,6 @@
                         </tr>
                     </table>
                 </div>
-                <br>
 
                 <button class="btn btn-primary" id="saveButton" onclick="save()">Save</button>
                 <button class="btn btn-primary" onclick="location.href='dashboard'">Back to Dashboard</button>
