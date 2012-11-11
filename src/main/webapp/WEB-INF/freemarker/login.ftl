@@ -12,10 +12,21 @@
     </script>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
+<#--<link href="static/css/bootstrap.min.css" rel="stylesheet">-->
+<#--<link href="static/css/main.css" rel="stylesheet">-->
 
 </head>
 
 <body>
+<header class="topbar">
+    <h3 class="fill" align="middle">
+        <a>
+            Welcome to iOWEYOU! iOWEYOU is an innovative expenses sharing system,
+            originally designed for use in TWU.
+
+        </a>
+    </h3>
+</header>
 <div class="container">
     <div class="login-form">
         <h2>Login</h2>
@@ -32,7 +43,7 @@
                 <div class="clearfix">
                     <input class="btn btn-primary" type="submit" value="Login">
                 </div>
-                Not have an account yet?
+                New to iOWEYOU?
                 <div class="clearfix">
                     <input class="btn btn-primary" type="button" name="goToCreateAccountButton"
                            id="goToCreateAccountButton"

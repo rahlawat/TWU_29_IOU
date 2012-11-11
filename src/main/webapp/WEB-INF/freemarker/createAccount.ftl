@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html" charset="UTF-8">
 <html lang="en">
-<title> IOU </title>
 <head>
+    <title> IOU </title>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
 </head>
 
 <body>
+<header class="topbar">
+    <h3 class="fill" align="middle">
+        <a>
+            iOWEYOU--online calculator for expenses sharing.
+
+        </a>
+    </h3>
+</header>
 <div class="container">
     <div class="login-form">
         <h2>Create Account</h2>
+
         <form name="account_form" action="createAccount" method="POST">
             <fieldset>
                 <table>
-                    Please enter some registration details below so that we can set you up with an IOU account.
+                    Please enter some registration details below so that we can set you up with an iOWEYOU account.
                     Once you've registered you'll be able to log in and get started.
                     <tr>
                         <td><label for="email" id="email_label" name="email_label"> E-mail Address *: </label>
