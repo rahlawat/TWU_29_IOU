@@ -5,6 +5,9 @@ import com.thoughtworks.twu.domain.ConnectionDetails;
 import com.thoughtworks.twu.persistence.ConnectionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @Service
 public class ConnectionService {
 
@@ -19,4 +22,8 @@ public class ConnectionService {
         connectionMapper.insertConnection(connectionDetails);
     }
 
+    public List<String> getAllUserConnections(String userEmail) {
+
+        return null;
+    }
 }

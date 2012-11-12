@@ -22,7 +22,9 @@ create table if not exists bill(
 );
 
 create table if not exists connections(
-   user_email varchar(25) not null,
-   connection_email varchar(25) not null
+   user_email varchar(50) not null,
+   connection_email varchar(50) not null,
+   primary key(user_email, connection_email)
+
  );
 
