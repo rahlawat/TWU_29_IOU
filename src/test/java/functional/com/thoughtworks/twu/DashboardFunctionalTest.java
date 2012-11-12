@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -31,8 +30,9 @@ public class DashboardFunctionalTest {
     @Test
     public void shouldRedirectToBillPageOnAddBillClick() {
         webDriver.get("http://localhost:9130/twu/dashboard");
-        WebElement link = webDriver.findElement(By.name("addBillLink"));
-        assertThat(link.getAttribute("href"),is("http://localhost:9130/twu/add-bill"));
+        WebElement addBillButton = webDriver.findElement(By.name("addBill"));
+        addBillButton.click();
+        assertThat(webDriver.getCurrentUrl(),is("http://localhost:9130/twu/add-bill"));
     }
 
     @Test
