@@ -22,7 +22,7 @@
 <div class="container">
     <div class="login-form">
         <h2>My-Friends-List</h2>
-        Enter the person's e-mail who you want to add to your friends list.Make sure enter one e-mail at one
+        Enter the person's e-mail who you want to add to your friends list.Make sure enter one e-mail at a
         time.
         <label>E-mail: </label>
 

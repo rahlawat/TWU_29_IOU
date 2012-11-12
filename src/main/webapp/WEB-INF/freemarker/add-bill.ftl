@@ -9,7 +9,7 @@
 <header class="topbar">
     <h3 class="fill" align="right">
         <a>
-            Here you can add bill, and save the details in the database.
+            Here you can add bill, and save the details.
 
         </a>
         <button class="btn btn-primary" name="logoutButton"
@@ -40,9 +40,9 @@
                 </table>
             </fieldset>
         </form>
+        <button class="btn btn-primary" id="saveBillButton" onclick="">Save</button>
         <button class="btn btn-primary" id="backToDashboardButton" onclick="location.href='dashboard'">back To Dashboard
         </button>
-        <button class="btn btn-primary" id="saveBillButton" onclick="">Save</button>
     </div>
 </div>
 </body>

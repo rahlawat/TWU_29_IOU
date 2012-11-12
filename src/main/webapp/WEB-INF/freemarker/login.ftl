@@ -21,7 +21,7 @@
 <header class="topbar">
     <h3 class="fill" align="middle">
         <a>
-            Welcome to iOWEYOU! iOWEYOU is an innovative expenses sharing system,
+            Welcome to IOU! IOU is an innovative expenses sharing system,
             originally designed for use in TWU.
 
         </a>
@@ -43,7 +43,7 @@
                 <div class="clearfix">
                     <input class="btn btn-primary" type="submit" value="Login">
                 </div>
-                New to iOWEYOU?
+                New to IOU?
                 <div class="clearfix">
                     <input class="btn btn-primary" type="button" name="goToCreateAccountButton"
                            id="goToCreateAccountButton"

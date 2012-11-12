@@ -13,7 +13,7 @@
 <header class="topbar">
     <h4 class="fill" id="username" align="right">
         <a>
-            Hi ${username}, welcome to iOWEYOU.
+            Hi ${username}, welcome to IOU.
         </a>
         <a>
             <button class="btn btn-primary" name="logoutButton"

@@ -11,7 +11,7 @@
 <header class="topbar">
     <h3 class="fill" align="middle">
         <a>
-            iOWEYOU--online calculator for expenses sharing.
+            IOU--online calculator for expenses sharing.
 
         </a>
     </h3>
@@ -23,28 +23,28 @@
         <form name="account_form" action="createAccount" method="POST">
             <fieldset>
                 <table>
-                    Please enter some registration details below so that we can set you up with an iOWEYOU account.
+                    Please enter some registration details below so that we can set you up with an IOU account.
                     Once you've registered you'll be able to log in and get started.
                     <tr>
                         <td><label for="email" id="email_label" name="email_label"> E-mail Address *: </label>
                         </td>
-                        <td><input type="text" id="email" name="email"/></td>
+                        <td><input type="email" id="email" name="email" required/></td>
                     </tr>
                     <tr>
                         <td><label for="username" id="name_label" name="name_label"> Name *: </label></td>
-                        <td><input type="text" id="username" name="username"/></td>
+                        <td><input type="text" id="username" name="username" placeholder="Only characters and spaces." pattern="[a-zA-Z]+" required/></td>
                     </tr>
 
                     <tr>
                         <td><label for="password" id="password_label" name="password_label"> Password
                             *: </label></td>
-                        <td><input type="password" id="password" name="password"/></td>
+                        <td><input type="password" id="password" name="password" placeholder="Minimum of 6 characters." pattern="(?=^.{6,25}$).*$" required/></td>
                     </tr>
 
                     <tr>
                         <td><label for="phoneNumber" id="phone_number_label" name="phone_number_label"> Phone
                             Number: </label></td>
-                        <td><input type="text" id="phoneNumber" name="phoneNumber"/></td>
+                        <td><input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Only numbers." pattern="[0-9]+"/></td>
                     </tr>
 
                     <tr>
