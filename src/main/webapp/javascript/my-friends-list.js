@@ -19,10 +19,12 @@ function addToList() {
 }
 
 function save() {
+
+    document.getElementById('newEmail').value = "";
+
     if (rowCounter == 1) return;
 
     sendEmailsToController();
-    document.getElementById('newEmail').value = "";
     clearTable();
 
 }
@@ -57,4 +59,8 @@ function sendEmailsToController() {
         }
     });
 
+}
+
+function validateNewEmail() {
+    var email = document.getElementById("")
 }

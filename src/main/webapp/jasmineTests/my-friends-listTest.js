@@ -167,3 +167,11 @@ describe("Email list table", function () {
     });
 
 });
+
+describe("Email validation", function(){
+    it("should return true if email is valid", function () {
+        document.getElementById('newEmail').value = "test@gmail.com";
+
+        expect(validateNewEmail()).toBeTruthy();
+    });
+});
