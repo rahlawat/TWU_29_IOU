@@ -1,1 +1,1 @@
-scp IOU.war root@10.10.4.112:~/jetty-6.1.4/webapps
+scp package/IOU.war root@10.10.4.112:~/jetty-6.1.4/webapps
