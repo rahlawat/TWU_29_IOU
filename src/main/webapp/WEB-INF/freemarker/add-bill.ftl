@@ -30,19 +30,20 @@
                     </tr>
                     <tr>
                         <td><label>Description *: </label></td>
-                        <td><input type="text" name="descriptionItem"</td>
+                        <td><input type="text" name="descriptionItem" placeholder="What did you buy?"></td>
                     </tr>
                     <tr>
                         <td><label>Amount *: </label></td>
-                        <td><input type="text" name="amountItem"></td>
+                        <td><input type="text" name="amountItem" placeholder="Enter a decimal (2 places)." pattern="^\d*(\.\d{2}$)?" required/></td>
                         <td><label> Rs</label></td>
                     </tr>
                 </table>
             </fieldset>
-        </form>
-        <button class="btn btn-primary" id="saveBillButton" onclick="">Save</button>
+
+        <input type="submit" value="Save" class="btn btn-primary" id="saveBillButton"/>
         <button class="btn btn-primary" id="backToDashboardButton" onclick="location.href='dashboard'">back To Dashboard
         </button>
+        </form>
     </div>
 </div>
 </body>
