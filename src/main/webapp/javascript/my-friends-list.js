@@ -49,6 +49,7 @@ function save() {
 
     sendEmailsToController();
     clearTable();
+    document.getElementById('newEmail').value = "";
 
 }
 

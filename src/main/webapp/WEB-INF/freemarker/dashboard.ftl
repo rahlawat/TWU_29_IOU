@@ -25,13 +25,14 @@
 <div class="container">
     <div class="login-form">
         <h2>Dashboard</h2>
-        Here you can add bill and view your friends list.</br>
-        <button class="btn btn-primary" name="addBill"
+        <div class="friend-list-title">Here you can add bill and view your friends list.</div>
+
+        <button class="btn btn-primary button" name="addBill"
                 onclick="location.href='http://localhost:9130/twu/add-bill'">Add
             Bill
         </button>
 
-        <button class="btn btn-primary" id="friendsListButton"
+        <button class="btn btn-primary button" id="friendsListButton"
                 onclick="location.href='http://localhost:9130/twu/my-friends-list'">My Friends List
         </button>
     </div>
