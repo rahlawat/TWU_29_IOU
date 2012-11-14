@@ -22,15 +22,17 @@
         <form action="add-bill" method=post>
             <fieldset>
                 <h3>Bill</h3>
+                <#if descriptionMessage?? && amountMessage??>
+                    <div>${descriptionMessage}</div>
+                    <div>${amountMessage}</div>
+                </#if>
+            <#if notificationMessage??>
+                <div class="notification">${notificationMessage}</div>
+            </#if>
                 <table>
                     <tr>
-                        <td> <#if notification??>
-                            <h5>${notification} </h5>
-                        </#if> </td>
-                    </tr>
-                    <tr>
                         <td><label>Description *: </label></td>
-                        <td><input type="text" name="descriptionItem" placeholder="What did you buy?" pattern="[a-zA-Z]+" required></td>
+                        <td><input type="text" name="descriptionItem" placeholder="What did you buy?" pattern="^[a-zA-Z][a-zA-Z ]+" required></td>
                     </tr>
                     <tr>
                         <td><label>Amount *: </label></td>

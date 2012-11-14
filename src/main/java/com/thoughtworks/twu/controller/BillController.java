@@ -32,20 +32,24 @@ public class BillController {
     @RequestMapping(value = "/add-bill", method = RequestMethod.POST)
     public ModelAndView billPage(@RequestParam(value = "descriptionItem",required = false) String description,
                                  @RequestParam(value = "amountItem",required = false) String amount) {
-        String message;
+        String notificationMessage;
+        String descriptionMessage;
+        String amountMessage;
         ModelAndView modelAndView = new ModelAndView("/add-bill");
         if (!(description.isEmpty() || amount.isEmpty())) {
 
           double billAmount =  Double.parseDouble(amount);
             Bill bill = new Bill(description, billAmount);
             saveBill(bill);
-             message = "Bill Saved Successfully.";
-            modelAndView.addObject("notification",message);
+             descriptionMessage = "Description: "+description;
+            amountMessage = "Amount: "+amount;
+            notificationMessage = " Saved Successfully.";
+            modelAndView.addObject("descriptionMessage",descriptionMessage).addObject("amountMessage",amountMessage).addObject("notificationMessage",notificationMessage);
         }
         else
         {
-            message = "Incorrect Information";
-            modelAndView.addObject("notification",message);
+            notificationMessage = "Incorrect Information";
+            modelAndView.addObject("notificationMessage",notificationMessage);
         }
         return modelAndView;
     }
