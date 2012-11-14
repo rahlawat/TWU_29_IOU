@@ -6,7 +6,7 @@ import com.thoughtworks.twu.persistence.ConnectionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @Service
 public class ConnectionService {
@@ -18,12 +18,11 @@ public class ConnectionService {
         this.connectionMapper = connectionMapper;
     }
 
-    public void insertConnection(ConnectionDetails connectionDetails){
+    public void insertConnection(ConnectionDetails connectionDetails) {
         connectionMapper.insertConnection(connectionDetails);
     }
 
-    public List<String> getAllUserConnections(String userEmail) {
-
-        return null;
+    public ArrayList<String> getAllConnections(String userEmail) {
+        return connectionMapper.getAllConnections(userEmail);
     }
 }

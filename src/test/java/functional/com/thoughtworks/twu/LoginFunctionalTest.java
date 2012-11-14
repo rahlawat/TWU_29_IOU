@@ -11,12 +11,9 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.List;
 
-import static junit.framework.Assert.assertTrue;
-import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.internal.matchers.StringContains.containsString;
-import static org.mockito.Matchers.contains;
 
 public class LoginFunctionalTest {
 
