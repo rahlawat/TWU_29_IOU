@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class BillController {
@@ -63,10 +63,10 @@ public class BillController {
         }
     }
 
-    @RequestMapping(value = "/add-bill")
-    public ModelAndView listOfAllConnections(@RequestParam(value = "user") String userEmail) {
+    @RequestMapping(value = "/add-bill", method = RequestMethod.GET)
+    public ModelAndView listOfAllConnections(String userEmail) {
         ModelAndView modelAndView = new ModelAndView("/add-bill");
-        ArrayList<String> allConnections= connectionService.getAllConnections(userEmail);
+        List<String> allConnections= connectionService.getAllConnections(userEmail);
         modelAndView.addObject("allConnections", allConnections);
         return modelAndView;
     }

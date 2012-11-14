@@ -42,22 +42,19 @@
                 </table>
             </fieldset>
             Select friends who owe me.</br>
-            <div class="checkbox">
-                <input type="checkbox" id="" value="Car">Test1</br>
-                <input type="checkbox" id="" value="">Test2
 
-            </div>
 
-        <#--<#list allConnections as aConnection>-->
-            <#--<li class="allConnections">-->
-                <#--<a href="/IOU/add-bill" class="add-bill">-->
-                    <#--<div class="connections-checkboxes">-->
-                        <#--<h3 class="aConnection-checkbox">${aConnection}</h3>-->
-                    <#--</div>-->
-                <#--</a>-->
-            <#--</li>-->
-        <#--</#list>-->
-
+        <ul>
+        <#list allConnections as aConnection>
+            <li>
+                <a href="/twu/add-bill" class="add-bill">
+                    <div class="connections-checkboxes">
+                        <h3 class="aConnection-checkbox">${aConnection}</h3>
+                    </div>
+                </a>
+            </li>
+        </#list>
+        </ul>
 
 
         <input type="submit" value="Save" class="btn btn-primary" id="saveBillButton"/>
