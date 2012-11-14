@@ -13,7 +13,7 @@
 
         </a>
         <button class="btn btn-primary" name="logoutButton"
-                onclick="location.href='http://localhost:9130/twu/j_spring_security_logout'"> Logout
+                onclick="location.href='/twu/j_spring_security_logout'"> Logout
         </button>
     </h3>
 </header>
@@ -41,7 +41,7 @@
             </fieldset>
 
         <input type="submit" value="Save" class="btn btn-primary" id="saveBillButton"/>
-        <button class="btn btn-primary" id="backToDashboardButton" onclick="location.href='dashboard'">back To Dashboard
+        <button class="btn btn-primary" id="backToDashboardButton" onclick="location.href='dashboard'">Back To Dashboard
         </button>
         </form>
     </div>
