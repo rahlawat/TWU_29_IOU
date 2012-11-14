@@ -27,12 +27,12 @@
         <label>E-mail: </label>
 
         <div id="addEmail">
-            <input type="text" id="newEmail" type="email">
+            <input id="newEmail" type="email"/>
 
             <button class="btn btn-primary" id="addToListButton" onclick="addToList()">Add To Friends List
             </button>
         </div>
-        <div><p id="badEmailNotification" class="text-error">TEST</p></div>
+        <div><p id="badEmailNotification" class="text-error"></p></div>
 
 
         <div id="emailListDiv">

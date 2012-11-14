@@ -1,5 +1,5 @@
 describe("Email list table", function () {
-    var input = $('<input type"text" id="newEmail">');
+    var input = $('<input type="email" id="newEmail">');
     var emailTable = $(
 
         '<div id="emailListDiv">' +
@@ -13,9 +13,12 @@ describe("Email list table", function () {
             '</table>' +
             '</div>');
 
-    var hiddenField = $(
-        '<input type="hidden" id="hiddenFriendList"/>'
-    );
+    var ErrorMessage = $('<div>' +
+        '<p id="badEmailNotification" class="text-error">TEST</p>' +
+        '</div>');
+
+
+
 
     var row0;
     var row1;
@@ -24,7 +27,7 @@ describe("Email list table", function () {
     beforeEach(function () {
         $(document.body).append(input);
         $(document.body).append(emailTable);
-        $(document.body).append(hiddenField);
+        $(document.body).append(ErrorMessage);
 
     });
 
@@ -169,9 +172,82 @@ describe("Email list table", function () {
 });
 
 describe("Email validation", function(){
+
+    var input = $('<input type="email" id="newEmail">');
+    var emailTable = $(
+
+        '<div id="emailListDiv">' +
+            '<table id="emailList" border="2">' +
+            '<tr style="background-color: #87cefa;">' +
+            '<th id="header">Friends Added</th>' +
+            '</tr>' +
+            '<tr>' +
+            '<td id="baseRow"> &nbsp; </td>' +
+            '</tr>' +
+            '</table>' +
+            '</div>');
+
+    var ErrorMessage = $('<div>' +
+        '<p id="badEmailNotification" class="text-error">TEST</p>' +
+        '</div>');
+
+
+
+    var row0;
+    var row1;
+    var row2;
+
+    beforeEach(function () {
+        $(document.body).append(input);
+        $(document.body).append(emailTable);
+        $(document.body).append(ErrorMessage);
+
+    });
+
+    afterEach(function () {
+        $('#emailListDiv').remove();
+        $('#newEmail').remove();
+        $('#badEmailNotification').remove();
+        rowCounter = 1;
+        emailsToAdd = "";
+    });
+
     it("should return true if email is valid", function () {
         document.getElementById('newEmail').value = "test@gmail.com";
 
         expect(validateNewEmail()).toBeTruthy();
+    });
+
+
+    it("should return false if email has no @", function () {
+        document.getElementById('newEmail').value = "testgmail.com";
+
+        expect(validateNewEmail()).toBeFalsy();
+    });
+
+
+    it("should return false if email has no .", function () {
+        document.getElementById('newEmail').value = "test@gmailcom";
+
+        expect(validateNewEmail()).toBeFalsy();
+    });
+
+    it("should return false if @ comes after .", function () {
+        document.getElementById('newEmail').value = "test.gmail@com";
+
+        expect(validateNewEmail()).toBeFalsy();
+    });
+
+
+    it("should return false if email has no text before @", function () {
+        document.getElementById('newEmail').value = "@gmail.com";
+
+        expect(validateNewEmail()).toBeFalsy();
+    });
+
+    it("should return false if email has no text adter @", function () {
+        document.getElementById('newEmail').value = "dog@";
+
+        expect(validateNewEmail()).toBeFalsy();
     });
 });

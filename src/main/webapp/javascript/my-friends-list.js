@@ -2,18 +2,29 @@ var emailsToAdd = "";  //TODO: used to store added emails to put in DB
 var rowCounter = 1;
 
 function addToList() {
+    var badEmail = false;
     if (document.getElementById('newEmail').value == "") return;
+
+    if (!validateNewEmail()) {
+        document.getElementById('badEmailNotification').innerText = "Please enter a valid email address.";
+        return;
+
+    }
+
+
     if (rowCounter > 1) {
         var newRow = document.getElementById('emailList').insertRow(1);
         newRow.insertCell();
 
     }
+
     var newEmail = document.getElementById('newEmail').value;
 
     emailsToAdd +=  newEmail + ",";
     document.getElementById("emailList").rows[1].cells[0].textContent = newEmail;
     rowCounter += 1;
     document.getElementById('newEmail').value = "";
+    document.getElementById('badEmailNotification').innerText = "";
 
 
 }
@@ -62,5 +73,7 @@ function sendEmailsToController() {
 }
 
 function validateNewEmail() {
-    var email = document.getElementById("")
+    var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    var email = document.getElementById('newEmail').value;
+    return email.match(pattern);
 }
