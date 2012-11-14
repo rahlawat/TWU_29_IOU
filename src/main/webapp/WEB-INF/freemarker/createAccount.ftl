@@ -5,6 +5,7 @@
     <title> IOU </title>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -32,7 +33,7 @@
                     </tr>
                     <tr>
                         <td><label for="username" id="name_label" name="name_label"> Name *: </label></td>
-                        <td><input type="text" id="username" name="username" title="Only characters and spaces." pattern="[a-zA-Z]+" required/></td>
+                        <td><input type="text" id="username" name="username" title="Only characters and spaces." pattern="[a-zA-Z ]+" required/></td>
                     </tr>
 
                     <tr>

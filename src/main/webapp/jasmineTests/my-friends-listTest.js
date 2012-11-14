@@ -17,7 +17,9 @@ describe("Email list table", function () {
         '<p id="badEmailNotification" class="text-error">TEST</p>' +
         '</div>');
 
-
+    var script = $('<script type="text/javascript">' +
+        'var user = "sajacobs@thoughtworks.com";' +
+        '</script>');
 
 
     var row0;
@@ -28,13 +30,14 @@ describe("Email list table", function () {
         $(document.body).append(input);
         $(document.body).append(emailTable);
         $(document.body).append(ErrorMessage);
+        $(document.body).append(script);
 
     });
 
     afterEach(function () {
         $('#emailListDiv').remove();
         $('#newEmail').remove();
-        $('#badEmailNotification').innerText=="";
+        $('#badEmailNotification').innerText == "";
         rowCounter = 1;
         emailsToAdd = "";
     });
@@ -149,10 +152,8 @@ describe("Email list table", function () {
     it("should add the emails to the string", function () {
         document.getElementById('newEmail').value = "abc@gmail.com";
         addToList();
-        console.log(emailsToAdd);
         document.getElementById('newEmail').value = "xyz@gmail.com";
         addToList();
-        console.log(emailsToAdd);
         expect(emailsToAdd).toEqual("abc@gmail.com,xyz@gmail.com,");
     });
 
@@ -169,7 +170,7 @@ describe("Email list table", function () {
         expect(emailsToAdd).toEqual("");
     });
 
-    it("should not Add email to emailsToAdd if email already in list", function () {
+    it("should display error if email already in list", function () {
         document.getElementById('newEmail').value = "abc@gmail.com";
 
         addToList();
@@ -181,6 +182,7 @@ describe("Email list table", function () {
         expect(document.getElementById('badEmailNotification').innerText).toBe("Email already in the list.");
 
     });
+
 
     it("should not Add email to emailsToAdd if email already in list in different case", function () {
         document.getElementById('newEmail').value = "abc@gmail.com";
@@ -209,11 +211,36 @@ describe("Email list table", function () {
 
     });
 
+    it("should display error if try to add self", function () {
+        document.getElementById('newEmail').value = "sajacobs@thoughtworks.com";    //hardcoding self :\
+        addToList();
+
+        expect(document.getElementById('badEmailNotification').innerText).toBe("You cannot add yourself.")
+
+    });
+
+    it("should not increment rowCounter if try to add self", function () {
+        expect(rowCounter).toEqual(1);
+        document.getElementById('newEmail').value = "sajacobs@thoughtworks.com";
+        addToList();
+
+        expect(rowCounter).toEqual(1);
+    });
+
+    it("should not Add email to emailsToAdd if try to add self", function () {
+        document.getElementById('newEmail').value = "sajacobs@thoughtworks.com";
+
+        addToList();
+
+
+        expect(emailsToAdd.indexOf("sajacobs@thoughtworks.com")).toBe(-1);
+
+    });
 
 
 });
 
-describe("Email validation", function(){
+describe("Email validation", function () {
 
     var input = $('<input type="email" id="newEmail">');
     var emailTable = $(

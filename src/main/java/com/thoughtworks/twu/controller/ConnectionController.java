@@ -32,8 +32,8 @@ public class ConnectionController {
     public void insertToDB(HttpServletRequest request,
                            @RequestParam("emails") String emails) {
         String[] emailTokens = emails.split(",");
+        String currentUser = (String) request.getSession().getAttribute("user");
         for(String email : emailTokens) {
-            String currentUser = (String) request.getSession().getAttribute("user");
 
             ConnectionDetails connectionDetails = new ConnectionDetails(currentUser , email);
             connectionService.insertConnection(connectionDetails);

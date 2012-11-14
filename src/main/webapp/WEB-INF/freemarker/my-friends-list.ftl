@@ -7,6 +7,9 @@
     <link href="static/css/default.css" rel="stylesheet">
     <script type="text/javascript" src="javascript/my-friends-list.js"></script>
     <script type="text/javascript" src="javascript/jquery.js"></script>
+    <script type="text/javascript">
+        var user = "${user}";
+    </script>
 
 </head>
 

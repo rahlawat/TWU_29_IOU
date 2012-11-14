@@ -13,6 +13,11 @@ function addToList() {
 
     }
 
+    if(newEmail == user){
+        document.getElementById('badEmailNotification').innerText = "You cannot add yourself.";
+        return;
+    }
+
     if(emailsToAdd.indexOf(newEmail) != -1){
         document.getElementById('badEmailNotification').innerText = "Email already in the list.";
         return;
