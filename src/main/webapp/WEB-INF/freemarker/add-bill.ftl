@@ -30,7 +30,7 @@
                     </tr>
                     <tr>
                         <td><label>Description *: </label></td>
-                        <td><input type="text" name="descriptionItem" placeholder="What did you buy?"></td>
+                        <td><input type="text" name="descriptionItem" placeholder="What did you buy?" pattern="[a-zA-Z]+" required></td>
                     </tr>
                     <tr>
                         <td><label>Amount *: </label></td>
