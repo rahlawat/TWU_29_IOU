@@ -10,6 +10,11 @@ war {
 repositories {
     mavenCentral()
 }
+
+project.ext {
+    testToBeRun = rootProject.hasProperty('file') ? file : '*'
+}
+
 configurations
         {
             sql
@@ -67,8 +72,7 @@ jettyRun {
 }
 
 task functionalTest(type: Test, dependsOn: "test") {
-    include '**/functional/com/thoughtworks/**/*.*'
-}
+    include '**/functional/com/thoughtworks/**/'+testToBeRun +".class"}
 
 functionalTest.doFirst {
     jettyRun.httpPort = 9130
