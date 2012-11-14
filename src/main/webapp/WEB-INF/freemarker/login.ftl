@@ -6,8 +6,8 @@
     <script type="text/javascript" language="JavaScript">
         window.onload = initReload;
         function initReload() {
-            if (window.history.forward() == "http://localhost:9130/twu/dashboard")
-                window.location.href = "http://localhost:9130/twu/dashboard";
+            if (window.history.forward() == "/twu/dashboard")
+                window.location.href = "/twu/dashboard";
         }
     </script>
     <link href="static/css/bootstrap.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                     <input class="btn btn-primary" type="button" name="goToCreateAccountButton"
                            id="goToCreateAccountButton"
                            value="Create Account"
-                           onclick="javascript:window.location.href='http://localhost:9130/twu/createAccount'"/>
+                           onclick="javascript:window.location.href='/twu/createAccount'"/>
                 </div>
             </fieldset>
         </form>

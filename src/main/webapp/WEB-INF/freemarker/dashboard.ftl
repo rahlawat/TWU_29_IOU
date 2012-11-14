@@ -17,7 +17,7 @@
         </a>
         <a>
             <button class="btn btn-primary" name="logoutButton"
-                    onclick="location.href='http://localhost:9130/twu/j_spring_security_logout'">Logout
+                    onclick="location.href='/twu/j_spring_security_logout'">Logout
             </button>
         </a>
     </h4>
@@ -27,12 +27,12 @@
         <h2>Dashboard</h2>
         Here you can add bill and view your friends list.</br>
         <button class="btn btn-primary" name="addBill"
-                onclick="location.href='http://localhost:9130/twu/add-bill'">Add
+                onclick="location.href='/twu/add-bill'">Add
             Bill
         </button>
 
         <button class="btn btn-primary" id="friendsListButton"
-                onclick="location.href='http://localhost:9130/twu/my-friends-list'">My Friends List
+                onclick="location.href='/twu/my-friends-list'">My Friends List
         </button>
     </div>
 </div>

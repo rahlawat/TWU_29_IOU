@@ -13,7 +13,7 @@
 
         </a>
         <button class="btn btn-primary" name="logoutButton"
-                onclick="location.href='http://localhost:9130/twu/j_spring_security_logout'"> Logout
+                onclick="location.href='/twu/j_spring_security_logout'"> Logout
         </button>
     </h3>
 </header>

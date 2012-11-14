@@ -53,7 +53,7 @@
                                    id="createAccountButton" value="Create Account"/></td>
                         <td><input class="btn btn-primary" type="button" name="cancelButton" id="cancelButton"
                                    value="Cancel"
-                                   onclick="javascript:window.location.href='http://localhost:9130/twu/login'"/>
+                                   onclick="javascript:window.location.href='/twu/login'"/>
                         </td>
                     </tr>
                 </table>
