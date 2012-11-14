@@ -7,9 +7,11 @@
     <link href="static/css/default.css" rel="stylesheet">
 <#--<link href="static/css/bootstrap.min.css" rel="stylesheet">-->
 <#--<link href="static/css/main.css" rel="stylesheet">-->
+    <script type="text/javascript" src="javascript/who-owe-me.js"></script>
+    <script type="text/javascript" src="javascript/jquery.js"></script>
 
 </head>
-<body>
+<body >
 <header class="topbar">
     <h4 class="fill" id="username" align="right">
         <a>
@@ -34,6 +36,26 @@
         <button class="btn btn-primary" id="friendsListButton"
                 onclick="location.href='/IOU/my-friends-list'">My Friends List
         </button>
+    </div>
+    <div id="peopleWhoOweMeDiv">
+        <div class="owe-me-title">Friends Who Owe Me</div>
+        <table border="1" class="computers zebra-striped" id="peopleWhoOweMeList" border="2">
+            <tr id="header" style="background-color: #87cefa;">
+                <th>Friends</th>   <th>Amount(Rs)</th>
+            </tr>
+            <#if peopleWhoOweMe?? && peopleWhoOweMe?size != 0>
+            <#list peopleWhoOweMe as friend>
+            <tr id="baseRow">
+                <td id="friends">
+                   ${friend}
+                </td>
+                <td id="amount">
+                    &nbsp;
+                </td>
+            </tr>
+            </#list>
+            </#if>
+        </table>
     </div>
 </div>
 </body>

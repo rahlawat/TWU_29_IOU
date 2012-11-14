@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class DashboardController {
@@ -29,7 +30,9 @@ public class DashboardController {
         String userEmail = (String) session.getAttribute("user");
         User user = userService.getUserByEmail(userEmail);
         String userName = user.getUsername();
-        return new ModelAndView("/dashboard").addObject("username",userName);
+        ModelAndView modelAndView =  new ModelAndView("/dashboard").addObject("username",userName);
+        List<String> peopleWhoOweMe=  userService.getPeopleWhoOweMe();
+        modelAndView.addObject("peopleWhoOweMe",peopleWhoOweMe);
+        return modelAndView;
     }
-
 }

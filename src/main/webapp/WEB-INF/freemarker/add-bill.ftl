@@ -56,7 +56,7 @@
         </#list>
         </ul>
 
-
+         <input type="text" name="people" placeholder="add people"/>
         <input type="submit" value="Save" class="btn btn-primary" id="saveBillButton"/>
         <button class="btn btn-primary" id="backToDashboardButton" onclick="location.href='dashboard'">Back To Dashboard
         </button>

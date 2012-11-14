@@ -54,6 +54,7 @@ public class BillController {
         return modelAndView;
     }
 
+
     private boolean saveBill(Bill bill) {
         try{
             billService.insertBill(bill);
@@ -63,6 +64,7 @@ public class BillController {
         }
     }
 
+
     @RequestMapping(value = "/add-bill", method = RequestMethod.GET)
     public ModelAndView listOfAllConnections(String userEmail) {
         ModelAndView modelAndView = new ModelAndView("/add-bill");
@@ -70,5 +72,14 @@ public class BillController {
         modelAndView.addObject("allConnections", allConnections);
         return modelAndView;
     }
+
+//    @RequestMapping(value = "/add-bill")
+//    public ModelAndView listOfAllConnections(@RequestParam(value = "user") String userEmail) {
+//        ModelAndView modelAndView = new ModelAndView("/add-bill");
+//        ArrayList<String> allConnections= connectionService.getAllConnections(userEmail);
+//        modelAndView.addObject("allConnections", allConnections);
+//        return modelAndView;
+//    }
+
 }
 

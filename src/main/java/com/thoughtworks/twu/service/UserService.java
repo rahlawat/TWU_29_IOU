@@ -5,6 +5,9 @@ import com.thoughtworks.twu.persistence.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
 public class UserService {
@@ -22,4 +25,9 @@ public class UserService {
         userMapper.insertUser(user);
     }
 
+    public List<String> getPeopleWhoOweMe() {
+        List<String> friendList= new ArrayList<String>();
+        friendList.add("Renu");
+        return friendList;
+    }
 }
