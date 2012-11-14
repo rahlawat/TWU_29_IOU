@@ -1,6 +1,7 @@
 package com.thoughtworks.twu.controller;
 
 
+import com.thoughtworks.twu.domain.OweMe;
 import com.thoughtworks.twu.domain.User;
 import com.thoughtworks.twu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class DashboardController {
         User user = userService.getUserByEmail(userEmail);
         String userName = user.getUsername();
         ModelAndView modelAndView =  new ModelAndView("/dashboard").addObject("username",userName);
-        List<String> peopleWhoOweMe=  userService.getPeopleWhoOweMe();
+        List<OweMe> peopleWhoOweMe=  userService.getPeopleWhoOweMe();
         modelAndView.addObject("peopleWhoOweMe",peopleWhoOweMe);
         return modelAndView;
     }

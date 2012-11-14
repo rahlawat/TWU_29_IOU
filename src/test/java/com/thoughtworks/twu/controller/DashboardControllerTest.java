@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.controller;
 
+import com.thoughtworks.twu.domain.OweMe;
 import com.thoughtworks.twu.domain.User;
 import com.thoughtworks.twu.service.UserService;
 import org.junit.Test;
@@ -20,9 +21,9 @@ public class DashboardControllerTest {
     public void shouldDisplayDashboardPage() throws Exception {
         ModelAndView modelAndView = dashboardPageModelAndView();
 
-        List<String> whoOweMe = new ArrayList<String>();
-        whoOweMe.add("Mengqiu");
-        whoOweMe.add("Renu");
+        List<OweMe> whoOweMe = new ArrayList<OweMe>();
+        whoOweMe.add(new OweMe("Mengqiu",200));
+        whoOweMe.add(new OweMe("Renu",300));
         ModelAndView modelAndViewTest = new ModelAndView("/dashboard").addObject("username", "Sam Jacobs").addObject("peopleWhoOweMe",whoOweMe);
 
         assertTrue(modelAndView.getViewName().equals(modelAndViewTest.getViewName()) && modelAndView.getModel().equals(modelAndViewTest.getModel()));
@@ -31,9 +32,9 @@ public class DashboardControllerTest {
     private ModelAndView dashboardPageModelAndView() throws IOException {
         UserService mockService = mock(UserService.class);
         when(mockService.getUserByEmail("sajacobs@thoughtworks.com")).thenReturn(new User("sajacobs@thoughtworks.com", "Sam Jacobs", "1234", "999-9999"));
-        List<String> whoOweMe = new ArrayList<String>();
-        whoOweMe.add("Mengqiu");
-        whoOweMe.add("Renu");
+        List<OweMe> whoOweMe = new ArrayList<OweMe>();
+        whoOweMe.add(new OweMe("Mengqiu",200));
+        whoOweMe.add(new OweMe("Renu",300));
         when(mockService.getPeopleWhoOweMe()).thenReturn(whoOweMe);
         com.thoughtworks.twu.controller.DashboardController dashboardController = new DashboardController(mockService);
         MockHttpServletRequest servletRequest = new MockHttpServletRequest();

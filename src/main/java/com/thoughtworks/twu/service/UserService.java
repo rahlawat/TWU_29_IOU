@@ -1,5 +1,6 @@
 package com.thoughtworks.twu.service;
 
+import com.thoughtworks.twu.domain.OweMe;
 import com.thoughtworks.twu.domain.User;
 import com.thoughtworks.twu.persistence.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,9 @@ public class UserService {
         userMapper.insertUser(user);
     }
 
-    public List<String> getPeopleWhoOweMe() {
-        List<String> friendList= new ArrayList<String>();
-        friendList.add("Renu");
-        return friendList;
+    public List<OweMe> getPeopleWhoOweMe() {
+        List<OweMe> oweMeList= new ArrayList<OweMe>();
+        oweMeList.add(new OweMe("Renu",100));
+        return oweMeList;
     }
 }

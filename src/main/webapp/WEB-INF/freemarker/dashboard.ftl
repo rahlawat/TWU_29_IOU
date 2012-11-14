@@ -44,13 +44,13 @@
                 <th>Friends</th>   <th>Amount(Rs)</th>
             </tr>
             <#if peopleWhoOweMe?? && peopleWhoOweMe?size != 0>
-            <#list peopleWhoOweMe as friend>
+            <#list peopleWhoOweMe as oweMe>
             <tr id="baseRow">
                 <td id="friends">
-                   ${friend}
+                   ${oweMe.getPersonName()}
                 </td>
                 <td id="amount">
-                    &nbsp;
+                ${oweMe.getAmount()}
                 </td>
             </tr>
             </#list>
