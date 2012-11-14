@@ -22,7 +22,7 @@ public class ConnectionsFunctionalTest {
 
     @Test
     public void shouldDirectToFriendsListPageAndAddAFriendToTheList() throws Exception {
-        webDriver.get("http://localhost:9130/twu/login");
+        webDriver.get("http://localhost:9130/IOU/login");
 
         webDriver.findElement(By.id("email")).sendKeys("sajacobs@thoughtworks.com");
         webDriver.findElement(By.id("password")).sendKeys("1234");
@@ -32,7 +32,7 @@ public class ConnectionsFunctionalTest {
         webDriver.findElement(By.id("friendsListButton")).click();
         String currentUrl = webDriver.getCurrentUrl();
 
-        assertThat(currentUrl, is("http://localhost:9130/twu/my-friends-list"));
+        assertThat(currentUrl, is("http://localhost:9130/IOU/my-friends-list"));
 
         final String addedEmail = "abc@gmail.com";
 

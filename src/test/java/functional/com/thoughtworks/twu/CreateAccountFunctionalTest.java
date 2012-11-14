@@ -32,13 +32,13 @@ public class CreateAccountFunctionalTest {
 
     @Test
     public void shouldCreateAccount() {
-        webDriver.get("http://localhost:9130/twu/login");
+        webDriver.get("http://localhost:9130/IOU/login");
 
         WebElement goToCreateAccountButton = webDriver.findElement(By.name("goToCreateAccountButton"));
 
         goToCreateAccountButton.click();
 
-        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/createAccount"));
+        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/IOU/createAccount"));
 
         WebElement emailElement = webDriver.findElement(By.id("email"));
         emailElement.sendKeys(user.getEmail());
@@ -55,12 +55,12 @@ public class CreateAccountFunctionalTest {
         WebElement createAccountButton = webDriver.findElement(By.id("createAccountButton"));
         createAccountButton.submit();
 
-        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/login"));
+        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/IOU/login"));
     }
 
     @Test
     public void shouldNotSubmitWhenHaveBlankFields(){
-        webDriver.get("http://localhost:9130/twu/createAccount");
+        webDriver.get("http://localhost:9130/IOU/createAccount");
 
         WebElement emailElement=webDriver.findElement(By.name("email"));
         emailElement.sendKeys("");
@@ -77,7 +77,7 @@ public class CreateAccountFunctionalTest {
         WebElement createAccountButton = webDriver.findElement(By.name("createAccountButton"));
         createAccountButton.click();
 
-        assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/twu/createAccount"));
+        assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/IOU/createAccount"));
     }
 
     @AfterClass

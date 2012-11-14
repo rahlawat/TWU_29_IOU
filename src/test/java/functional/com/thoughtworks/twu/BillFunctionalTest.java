@@ -18,7 +18,7 @@ public class BillFunctionalTest {
     @Before
     public void setUp() {
         webDriver = new FirefoxDriver();
-        webDriver.get("http://localhost:9130/twu/login");
+        webDriver.get("http://localhost:9130/IOU/login");
 
         webDriver.findElement(By.id("email")).sendKeys("sajacobs@thoughtworks.com");
         webDriver.findElement(By.id("password")).sendKeys("1234");
@@ -29,22 +29,22 @@ public class BillFunctionalTest {
 
     @Test
     public void shouldRedirectToDashBoardOnBackToDashBoardClick() {
-        webDriver.get("http://localhost:9130/twu/add-bill");
+        webDriver.get("http://localhost:9130/IOU/add-bill");
         WebElement button = webDriver.findElement(By.id("backToDashboardButton"));
 
         button.click();
 
-        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/twu/dashboard"));
+        assertThat(webDriver.getCurrentUrl(), is("http://localhost:9130/IOU/dashboard"));
 
     }
 
     @Test
     @Ignore
     public void shouldChooseFriendsAndSaveThemToDBOnSaveClick() throws Exception {
-        webDriver.get("http://localhost:9130/twu/add-bill");
+        webDriver.get("http://localhost:9130/IOU/add-bill");
         String currentUrl = webDriver.getCurrentUrl();
 
-        assertThat(currentUrl, is("http://localhost:9130/twu/add-bill"));
+        assertThat(currentUrl, is("http://localhost:9130/IOU/add-bill"));
 
         String friendsList = webDriver.findElement(By.name("MengqiuCheckBox")).getText();
 

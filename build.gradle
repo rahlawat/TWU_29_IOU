@@ -68,7 +68,7 @@ test {
 
 jettyRun {
     httpPort = 9130
-    contextPath = 'twu'
+    contextPath = 'IOU'
 }
 
 task functionalTest(type: Test, dependsOn: "test") {

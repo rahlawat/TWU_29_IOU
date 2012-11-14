@@ -21,7 +21,7 @@
     <div class="login-form">
         <h2>Create Account</h2>
 
-        <form name="account_form" action="/twu/createAccount" method="POST">
+        <form name="account_form" action="/IOU/createAccount" method="POST">
             <fieldset>
                 <table>
                     Please enter some registration details below so that we can set you up with an IOU account.
@@ -53,7 +53,7 @@
                                    id="createAccountButton" value="Create Account"/></td>
                         <td><input class="btn btn-primary" type="button" name="cancelButton" id="cancelButton"
                                    value="Cancel"
-                                   onclick="javascript:window.location.href='/twu/login'"/>
+                                   onclick="javascript:window.location.href='/IOU/login'"/>
                         </td>
                     </tr>
                 </table>

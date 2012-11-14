@@ -13,7 +13,7 @@
 
         </a>
         <button class="btn btn-primary" name="logoutButton"
-                onclick="location.href='/twu/j_spring_security_logout'"> Logout
+                onclick="location.href='/IOU/j_spring_security_logout'"> Logout
         </button>
     </h3>
 </header>
@@ -48,7 +48,7 @@
 
         <#--<#list allConnections as aConnection>-->
             <#--<li class="allConnections">-->
-                <#--<a href="/twu/add-bill" class="add-bill">-->
+                <#--<a href="/IOU/add-bill" class="add-bill">-->
                     <#--<div class="connections-checkboxes">-->
                         <#--<h3 class="aConnection-checkbox">${aConnection}</h3>-->
                     <#--</div>-->

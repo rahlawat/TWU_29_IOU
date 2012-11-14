@@ -31,7 +31,7 @@
     <div class="login-form">
         <h2>Login</h2>
 
-        <form action="/twu/checkLogin" method="post" id="loginForm">
+        <form action="/IOU/checkLogin" method="post" id="loginForm">
             <fieldset>
                 Please fill out the following form with your login credentials:
                 <label for="email"></label>
@@ -48,7 +48,7 @@
                     <input class="btn btn-primary" type="button" name="goToCreateAccountButton"
                            id="goToCreateAccountButton"
                            value="Create Account"
-                           onclick="javascript:window.location.href='/twu/createAccount'"/>
+                           onclick="javascript:window.location.href='/IOU/createAccount'"/>
                 </div>
             </fieldset>
         </form>
