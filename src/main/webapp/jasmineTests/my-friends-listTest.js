@@ -34,6 +34,7 @@ describe("Email list table", function () {
     afterEach(function () {
         $('#emailListDiv').remove();
         $('#newEmail').remove();
+        $('#badEmailNotification').innerText=="";
         rowCounter = 1;
         emailsToAdd = "";
     });
@@ -87,7 +88,6 @@ describe("Email list table", function () {
         var table = document.getElementById('emailList');
         row0 = table.rows[0].innerText;
         row1 = table.rows[1].innerText;
-        //row1 = table.rows[2];
 
 
         expect(row0).toMatch("Friends Added");
@@ -169,6 +169,48 @@ describe("Email list table", function () {
         expect(emailsToAdd).toEqual("");
     });
 
+    it("should not Add email to emailsToAdd if email already in list", function () {
+        document.getElementById('newEmail').value = "abc@gmail.com";
+
+        addToList();
+
+        document.getElementById('newEmail').value = "abc@gmail.com";
+        addToList();
+
+
+        expect(document.getElementById('badEmailNotification').innerText).toBe("Email already in the list.");
+
+    });
+
+    it("should not Add email to emailsToAdd if email already in list in different case", function () {
+        document.getElementById('newEmail').value = "abc@gmail.com";
+
+        addToList();
+
+        document.getElementById('newEmail').value = "ABC@gmail.com";
+        addToList();
+
+
+        expect(document.getElementById('badEmailNotification').innerText).toBe("Email already in the list.");
+
+    });
+
+    it("should not incremenet rowCounter if email already in list", function () {
+        expect(rowCounter).toEqual(1);
+        document.getElementById('newEmail').value = "abc@gmail.com";
+        addToList();
+
+        expect(rowCounter).toEqual(2);
+        document.getElementById('newEmail').value = "abc@gmail.com";
+
+        addToList();
+
+        expect(rowCounter).toEqual(2);
+
+    });
+
+
+
 });
 
 describe("Email validation", function(){
@@ -191,11 +233,6 @@ describe("Email validation", function(){
         '<p id="badEmailNotification" class="text-error">TEST</p>' +
         '</div>');
 
-
-
-    var row0;
-    var row1;
-    var row2;
 
     beforeEach(function () {
         $(document.body).append(input);

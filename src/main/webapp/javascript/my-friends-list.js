@@ -2,13 +2,20 @@ var emailsToAdd = "";  //TODO: used to store added emails to put in DB
 var rowCounter = 1;
 
 function addToList() {
-    var badEmail = false;
-    if (document.getElementById('newEmail').value == "") return;
+
+    var newEmail = document.getElementById('newEmail').value.toLowerCase();
+
+    if (newEmail == "") return;
 
     if (!validateNewEmail()) {
         document.getElementById('badEmailNotification').innerText = "Please enter a valid email address.";
         return;
 
+    }
+
+    if(emailsToAdd.indexOf(newEmail) != -1){
+        document.getElementById('badEmailNotification').innerText = "Email already in the list.";
+        return;
     }
 
 
@@ -18,7 +25,7 @@ function addToList() {
 
     }
 
-    var newEmail = document.getElementById('newEmail').value;
+
 
     emailsToAdd +=  newEmail + ",";
     document.getElementById("emailList").rows[1].cells[0].textContent = newEmail;
