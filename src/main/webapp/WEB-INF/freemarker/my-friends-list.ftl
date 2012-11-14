@@ -19,7 +19,11 @@
         <a>
             Here is your friends list.
         </a>
-
+        <a>
+            <button class="btn btn-primary" name="logoutButton"
+                    onclick="location.href='/IOU/j_spring_security_logout'">Logout
+            </button>
+        </a>
     </h3>
 </header>
 <div class="container">
