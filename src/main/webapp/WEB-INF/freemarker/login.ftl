@@ -8,7 +8,6 @@
         function initReload() {
             if (window.history.forward() == "/dashboard" )
                 window.location.href = "/twu/dashboard";
-
         }
     </script>
     <link href="static/css/bootstrap.css" rel="stylesheet">

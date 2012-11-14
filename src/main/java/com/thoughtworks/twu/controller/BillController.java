@@ -2,24 +2,30 @@ package com.thoughtworks.twu.controller;
 
 import com.thoughtworks.twu.domain.Bill;
 import com.thoughtworks.twu.service.BillService;
+import com.thoughtworks.twu.service.ConnectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
 
 @Controller
 public class BillController {
 
     private BillService billService;
 
+    ConnectionService connectionService;
+
     @Autowired
-    public BillController(BillService billService) {
+    public BillController(BillService billService, ConnectionService connectionService) {
         this.billService = billService;
+        this.connectionService = connectionService;
+    }
+
+    public BillController() {
     }
 
 
@@ -53,5 +59,12 @@ public class BillController {
         }
     }
 
+    @RequestMapping(value = "/add-bill")
+    public ModelAndView listOfAllConnections(@RequestParam(value = "user") String userEmail) {
+        ModelAndView modelAndView = new ModelAndView("/add-bill");
+        ArrayList<String> allConnections= connectionService.getAllConnections(userEmail);
+        modelAndView.addObject("allConnections", allConnections);
+        return modelAndView;
+    }
 }
 
