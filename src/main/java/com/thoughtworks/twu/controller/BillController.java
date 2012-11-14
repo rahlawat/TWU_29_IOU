@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -31,7 +32,7 @@ public class BillController {
 
     @RequestMapping(value = "/add-bill", method = RequestMethod.POST)
     public ModelAndView billPage(@RequestParam(value = "descriptionItem",required = false) String description,
-                                 @RequestParam(value = "amountItem",required = false) String amount) {
+                                 @RequestParam(value = "amountItem",required = false) String amount,String userEmail) {
         String notificationMessage;
         String descriptionMessage;
         String amountMessage;
@@ -51,6 +52,8 @@ public class BillController {
             notificationMessage = "Incorrect Information";
             modelAndView.addObject("notificationMessage",notificationMessage);
         }
+        List<String> allConnections= connectionService.getAllConnections(userEmail);
+        modelAndView.addObject("allConnections", allConnections);
         return modelAndView;
     }
 
@@ -64,7 +67,6 @@ public class BillController {
         }
     }
 
-
     @RequestMapping(value = "/add-bill", method = RequestMethod.GET)
     public ModelAndView listOfAllConnections(String userEmail) {
         ModelAndView modelAndView = new ModelAndView("/add-bill");
@@ -72,14 +74,6 @@ public class BillController {
         modelAndView.addObject("allConnections", allConnections);
         return modelAndView;
     }
-
-//    @RequestMapping(value = "/add-bill")
-//    public ModelAndView listOfAllConnections(@RequestParam(value = "user") String userEmail) {
-//        ModelAndView modelAndView = new ModelAndView("/add-bill");
-//        ArrayList<String> allConnections= connectionService.getAllConnections(userEmail);
-//        modelAndView.addObject("allConnections", allConnections);
-//        return modelAndView;
-//    }
 
 }
 

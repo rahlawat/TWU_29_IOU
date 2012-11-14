@@ -20,13 +20,11 @@ import static org.mockito.Mockito.when;
 public class BillControllerTest {
     private static final String USER_EMAIL = "yding@thoughtworks.com";
 
-    @Autowired
-    private BillMapper billMapper;
 
     @Test
     public void shouldDisplayBillPage() {
         BillController billController = mockedBillController();
-        ModelAndView modelAndView = billController.billPage("Bill", "98237.00");
+        ModelAndView modelAndView = billController.billPage("Bill", "98237.00",USER_EMAIL);
         View view = modelAndView.getView();
 
         ModelAndView modelAndViewTest = new ModelAndView("/add-bill");
@@ -65,7 +63,7 @@ public class BillControllerTest {
     @Test
     public void shouldRedirectToAddBillOnNoDescription() {
         BillController billController = mockedBillController();
-        ModelAndView modelAndView = billController.billPage("", "0.0");
+        ModelAndView modelAndView = billController.billPage("", "0.0",USER_EMAIL);
         View view = modelAndView.getView();
         ModelAndView modelAndViewTest = new ModelAndView("/add-bill");
 
@@ -78,20 +76,20 @@ public class BillControllerTest {
         String description = "Lunch";
         String amount = "2000.00";
         BillController billControllerClone = mockedBillControllerClone();
-        billControllerClone.billPage(description, amount);
-        assertThat(billControllerClone.billPage(description, amount).getView(), equalTo(new ModelAndView("/add-bill").getView()));
+        billControllerClone.billPage(description, amount,USER_EMAIL);
+        assertThat(billControllerClone.billPage(description, amount,USER_EMAIL).getView(), equalTo(new ModelAndView("/add-bill").getView()));
     }
 
-//    @Test
-//    public void shouldAddListOfAllConnectionsToTheView() throws Exception {
-//        ArrayList<String> expectedObject = new ArrayList<String>();
-//        expectedObject.add("faris@thoughtworks.com");
-//        expectedObject.add("renu@thoughtworks.com");
-//        expectedObject.add("sam@thoughtworks.com");
-//
-//        BillController billController = mockedBillController();
-//        ArrayList<String> actualObject = (ArrayList<String>) billController.listOfAllConnections(USER_EMAIL).getModel().get("allConnections");
-//
-//        assertThat(actualObject, is(expectedObject));
-//    }
+    @Test
+    public void shouldAddListOfAllConnectionsToTheView() throws Exception {
+        ArrayList<String> expectedObject = new ArrayList<String>();
+        expectedObject.add("faris@thoughtworks.com");
+        expectedObject.add("renu@thoughtworks.com");
+        expectedObject.add("sam@thoughtworks.com");
+
+        BillController billController = mockedBillController();
+        ArrayList<String> actualObject = (ArrayList<String>) billController.listOfAllConnections(USER_EMAIL).getModel().get("allConnections");
+
+        assertThat(actualObject, is(expectedObject));
+    }
 }

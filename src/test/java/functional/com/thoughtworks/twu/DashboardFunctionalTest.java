@@ -50,7 +50,6 @@ public class DashboardFunctionalTest {
         webDriver.findElement(By.name("descriptionItem")).sendKeys("breakfast");
         webDriver.findElement(By.name("amountItem")).sendKeys("100");
 
-        webDriver.findElement(By.name("people")).sendKeys("Renu");
         WebElement saveBillButton = webDriver.findElement(By.id("saveBillButton"));
         saveBillButton.click();
 
@@ -72,7 +71,7 @@ public class DashboardFunctionalTest {
 
     @After
     public void tearDown() {
-       // webDriver.close();
+        webDriver.close();
     }
 
 }
