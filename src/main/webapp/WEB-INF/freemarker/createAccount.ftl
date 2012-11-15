@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html" charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=2, maximum-scale=2">
+
 <html lang="en">
 <head>
     <title> IOU </title>
