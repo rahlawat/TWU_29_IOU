@@ -1,11 +1,10 @@
 package com.thoughtworks.twu.controller;
 
 import com.thoughtworks.twu.domain.Bill;
-import com.thoughtworks.twu.persistence.BillMapper;
 import com.thoughtworks.twu.service.BillService;
 import com.thoughtworks.twu.service.ConnectionService;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mock.web.MockHttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
@@ -88,7 +87,10 @@ public class BillControllerTest {
         expectedObject.add("sam@thoughtworks.com");
 
         BillController billController = mockedBillController();
-        ArrayList<String> actualObject = (ArrayList<String>) billController.listOfAllConnections(USER_EMAIL).getModel().get("allConnections");
+
+        MockHttpSession mockedSession = new MockHttpSession();
+        mockedSession.setAttribute("user", "yding@thoughtworks.com");
+        ArrayList<String> actualObject = (ArrayList<String>) billController.listOfAllConnections(mockedSession).getModel().get("userConnections");
 
         assertThat(actualObject, is(expectedObject));
     }
