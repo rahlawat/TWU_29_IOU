@@ -5,7 +5,7 @@
     <title> IOU </title>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
-    <link href="static/css/resizeHeader.css" media="screen and (max-width : 500px)" rel="stylesheet">
+    <link href="static/css/resizeHeader.css" media="screen and (max-width : 800px)" rel="stylesheet">
 
 <#--<link href="static/css/bootstrap.min.css" rel="stylesheet">-->
 <#--<link href="static/css/main.css" rel="stylesheet">-->

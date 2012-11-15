@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" >
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html" charset="UTF-8">
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
     </script>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
-    <link href="static/css/resize.css" media="screen and (max-device-width : 800px)" rel="stylesheet">
+    <link href="static/css/resize.css" media="screen and (max-width : 800px)" rel="stylesheet">
 
 <#--<link href="static/css/bootstrap.min.css" rel="stylesheet">-->
 <#--<link href="static/css/main.css" rel="stylesheet">-->
