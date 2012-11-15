@@ -3,6 +3,7 @@ package com.thoughtworks.twu.domain;
 //job: understands the people that a user owes money and is owed money by
 public class ConnectionDetails {
     private String userEmail;
+
     private String connectionEmail;
 
     private ConnectionDetails() {
@@ -14,6 +15,10 @@ public class ConnectionDetails {
         this.connectionEmail = connectionEmail;
     }
 
+    public String getConnectionEmail() {
+        return connectionEmail;
+    }
+
     @Override
     public boolean equals(Object connection) {
         if (this == connection) return true;
@@ -22,9 +27,8 @@ public class ConnectionDetails {
         ConnectionDetails that = (ConnectionDetails) connection;
 
         if (!connectionEmail.equals(that.connectionEmail)) return false;
-        if (!userEmail.equals(that.userEmail)) return false;
+        return userEmail.equals(that.userEmail);
 
-        return true;
     }
 
     @Override

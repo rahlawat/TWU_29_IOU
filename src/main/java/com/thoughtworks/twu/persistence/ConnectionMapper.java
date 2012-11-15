@@ -6,15 +6,19 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @Transactional
 public interface ConnectionMapper {
-    @Select("SELECT connection_email FROM connections Where user_email = #{userEmail}")
-    List<String> getAllConnections(String userEmail);
 
 
-    @Insert("INSERT INTO connections (user_email, connection_email) VALUES(#{userEmail}, #{connectionEmail})")
+    @Select("SELECT userEmail, connectionEmail FROM connections Where userEmail = #{userEmail} AND connectionEmail = #{connectionEmail}")
+    ConnectionDetails getConnection(ConnectionDetails connectionDetails);
+
+    @Select("SELECT connectionEmail FROM connections Where userEmail = #{userEmail}")
+    ArrayList<String> getAllConnections(String userEmail);
+
+    @Insert("INSERT INTO connections (userEmail, connectionEmail) VALUES(#{userEmail}, #{connectionEmail})")
     void insertConnection(ConnectionDetails connectionDetails);
 
 
