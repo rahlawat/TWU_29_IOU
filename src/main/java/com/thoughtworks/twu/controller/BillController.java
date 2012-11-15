@@ -39,7 +39,7 @@ public class BillController {
 
     @RequestMapping(value = "/add-bill", method = RequestMethod.POST)
     public ModelAndView billPage(@RequestParam(value = "descriptionItem",required = false) String description,
-                                 @RequestParam(value = "amountItem",required = false) String amount,String userEmail) {
+                                 @RequestParam(value = "amountItem",required = false) String amount,HttpSession session) {
         String notificationMessage;
         String descriptionMessage;
         String amountMessage;
@@ -59,8 +59,9 @@ public class BillController {
             notificationMessage = "Incorrect Information";
             modelAndView.addObject("notificationMessage",notificationMessage);
         }
+        String userEmail = (String) session.getAttribute("user");
         List<String> allConnections= connectionService.getAllConnections(userEmail);
-        modelAndView.addObject("allConnections", allConnections);
+        modelAndView.addObject("userConnections", allConnections);
         return modelAndView;
     }
 

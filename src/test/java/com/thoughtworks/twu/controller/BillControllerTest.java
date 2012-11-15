@@ -23,7 +23,9 @@ public class BillControllerTest {
     @Test
     public void shouldDisplayBillPage() {
         BillController billController = mockedBillController();
-        ModelAndView modelAndView = billController.billPage("Bill", "98237.00",USER_EMAIL);
+        MockHttpSession mockedSession = new MockHttpSession();
+        mockedSession.setAttribute("user", "yding@thoughtworks.com");
+        ModelAndView modelAndView = billController.billPage("Bill", "98237.00",mockedSession);
         View view = modelAndView.getView();
 
         ModelAndView modelAndViewTest = new ModelAndView("/add-bill");
@@ -62,7 +64,9 @@ public class BillControllerTest {
     @Test
     public void shouldRedirectToAddBillOnNoDescription() {
         BillController billController = mockedBillController();
-        ModelAndView modelAndView = billController.billPage("", "0.0",USER_EMAIL);
+        MockHttpSession mockedSession = new MockHttpSession();
+        mockedSession.setAttribute("user", "yding@thoughtworks.com");
+        ModelAndView modelAndView = billController.billPage("", "0.0",mockedSession);
         View view = modelAndView.getView();
         ModelAndView modelAndViewTest = new ModelAndView("/add-bill");
 
@@ -75,8 +79,10 @@ public class BillControllerTest {
         String description = "Lunch";
         String amount = "2000.00";
         BillController billControllerClone = mockedBillControllerClone();
-        billControllerClone.billPage(description, amount,USER_EMAIL);
-        assertThat(billControllerClone.billPage(description, amount,USER_EMAIL).getView(), equalTo(new ModelAndView("/add-bill").getView()));
+        MockHttpSession mockedSession = new MockHttpSession();
+        mockedSession.setAttribute("user", "yding@thoughtworks.com");
+        billControllerClone.billPage(description, amount,mockedSession);
+        assertThat(billControllerClone.billPage(description, amount,mockedSession).getView(), equalTo(new ModelAndView("/add-bill").getView()));
     }
 
     @Test
