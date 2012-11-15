@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
-=======
+
 import javax.servlet.http.HttpSession;
->>>>>>> Story 143# (Faris/Yue)
 import java.util.ArrayList;
 import java.util.List;
 
