@@ -27,7 +27,7 @@ public class DashboardControllerTest {
 //        List<String> whoOweMe = new ArrayList<String>();
 //        whoOweMe.add("Mengqiu");
 //        whoOweMe.add("Renu");
-        ModelAndView modelAndViewTest = new ModelAndView("/dashboard").addObject("username", "Sam Jacobs").addObject("peopleWhoOweMe",whoOweMe).addObject("flag",true);
+        ModelAndView modelAndViewTest = new ModelAndView("/dashboard").addObject("username", "Sam Jacobs").addObject("peopleWhoOweMe",whoOweMe);
 
         assertTrue(modelAndView.getViewName().equals(modelAndViewTest.getViewName()) && modelAndView.getModel().equals(modelAndViewTest.getModel()));
     }
