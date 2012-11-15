@@ -56,7 +56,7 @@ public class DashboardFunctionalTest {
         assertThat(webDriver.getCurrentUrl(),is("http://localhost:9130/IOU/dashboard"));
 
        WebElement peopleWhoOwnMe = webDriver.findElement(By.id("peopleWhoOweMeList"));
-        assertThat(peopleWhoOwnMe.findElement(By.id("friends")).getText(), is("Renu"));
+   assertThat(peopleWhoOwnMe.findElement(By.id("rahlawat@thoughtworks.com")).getText(), is("rahlawat@thoughtworks.com"));
 
     }
 
@@ -68,7 +68,7 @@ public class DashboardFunctionalTest {
 
     @After
     public void tearDown() {
-        webDriver.close();
+       // webDriver.close();
     }
 
 }

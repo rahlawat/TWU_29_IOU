@@ -1,7 +1,7 @@
 package com.thoughtworks.twu.controller;
 
 
-import com.thoughtworks.twu.domain.OweMe;
+import com.thoughtworks.twu.domain.DebtorDetails;
 import com.thoughtworks.twu.domain.User;
 import com.thoughtworks.twu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +26,14 @@ public class DashboardController {
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public ModelAndView dashboardPage(HttpServletRequest request) {
-
         HttpSession session = request.getSession();
         String userEmail = (String) session.getAttribute("user");
         User user = userService.getUserByEmail(userEmail);
         String userName = user.getUsername();
         ModelAndView modelAndView =  new ModelAndView("/dashboard").addObject("username",userName);
-        List<OweMe> peopleWhoOweMe=  userService.getPeopleWhoOweMe();
+        List<DebtorDetails> peopleWhoOweMe =  userService.getPeopleWhoOweMe(userEmail);
         modelAndView.addObject("peopleWhoOweMe",peopleWhoOweMe);
+
         return modelAndView;
     }
 }
