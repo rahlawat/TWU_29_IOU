@@ -8,3 +8,9 @@ insert into UserTable(email,username,password,phoneNumber) values('yding@thought
 insert into connections(userEmail,connectionEmail) values ('yding@thoughtworks.com','faris@thoughtworks.com');
 insert into connections(userEmail,connectionEmail) values ('yding@thoughtworks.com','sam@thoughtworks.com');
 insert into connections(userEmail,connectionEmail) values ('yding@thoughtworks.com','renu@thoughtworks.com');
+
+insert into peopleWhoOweMe(user_email, bill_number, debtor, amount) values ('sajacobs@thoughtworks.com',1,'rahlawat@thoughtworks.com',100);
+insert into peopleWhoOweMe(user_email, bill_number, debtor, amount) values ('sajacobs@thoughtworks.com',1,'yding@thoughtworks.com',100);
+insert into peopleWhoOweMe(user_email, bill_number, debtor, amount) values ('sajacobs@thoughtworks.com',1,'mqpeng@thoughtworks.com',100);
+
+

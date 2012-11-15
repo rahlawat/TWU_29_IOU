@@ -32,7 +32,7 @@
                 <div>${amountMessage}</div>
             </#if>
             <#if notificationMessage??>
-                <div class="notification">${notificationMessage}</div>
+                <div class="notification" id="notification">${notificationMessage}</div>
             </#if>
                 <table>
                     <tr>

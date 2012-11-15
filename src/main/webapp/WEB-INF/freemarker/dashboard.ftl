@@ -29,7 +29,7 @@
 <div class="container">
     <div class="login-form">
         <h2>Dashboard</h2>
-        Here you can add bill and view your friends list.</br>
+    Here you can add bill and view your friends list.</br>
         <button class="btn btn-primary" name="addBill"
                 onclick="location.href='/IOU/add-bill'">Add
             Bill
@@ -45,18 +45,18 @@
             <tr id="header" style="background-color: #87cefa;">
                 <th>Friends</th>   <th>Amount(Rs)</th>
             </tr>
-            <#if peopleWhoOweMe?? && peopleWhoOweMe?size != 0>
-            <#list peopleWhoOweMe as oweMe>
-            <tr id="baseRow">
-                <td id="friends">
-                   ${oweMe.getPersonName()}
-                </td>
-                <td id="amount">
-                ${oweMe.getAmount()}
-                </td>
-            </tr>
+        <#if peopleWhoOweMe?? && peopleWhoOweMe?size != 0>
+            <#list peopleWhoOweMe as debtorDetails>
+                <tr id="baseRow">
+                    <td class="friends" id=${debtorDetails.getDebtor()}>
+                    ${debtorDetails.getDebtor()}
+                    </td>
+                    <td id="amount">
+                    ${debtorDetails.getAmount()}
+                    </td>
+                </tr>
             </#list>
-            </#if>
+        </#if>
         </table>
     </div>
 </div>
