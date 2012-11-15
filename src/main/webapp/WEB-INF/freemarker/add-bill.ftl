@@ -31,9 +31,11 @@
                 <div>${descriptionMessage}</div>
                 <div>${amountMessage}</div>
             </#if>
+            <div class="notification" id="notification">
             <#if notificationMessage??>
-                <div class="notification" id="notification">${notificationMessage}</div>
+                ${notificationMessage}
             </#if>
+            </div>
                 <table>
                     <tr>
                         <td><label>Description *: </label></td>
