@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" >
+<meta name="viewport" content="width=device-width; initial-scale=0.75; maximum-scale=1.0;" >
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html" charset="UTF-8">
 <html lang="en">
 <head>
