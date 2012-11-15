@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ConnectionService {
@@ -20,6 +21,10 @@ public class ConnectionService {
 
     public void insertConnection(ConnectionDetails connectionDetails) {
         connectionMapper.insertConnection(connectionDetails);
+    }
+
+    public ConnectionDetails getConnection(ConnectionDetails connectionDetails) {
+        return connectionMapper.getConnection(connectionDetails);
     }
 
     public ArrayList<String> getAllConnections(String userEmail) {

@@ -1,11 +1,10 @@
 package com.thoughtworks.twu.controller;
 
 import com.thoughtworks.twu.domain.Bill;
-import com.thoughtworks.twu.persistence.BillMapper;
 import com.thoughtworks.twu.service.BillService;
 import com.thoughtworks.twu.service.ConnectionService;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mock.web.MockHttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
@@ -24,7 +23,9 @@ public class BillControllerTest {
     @Test
     public void shouldDisplayBillPage() {
         BillController billController = mockedBillController();
-        ModelAndView modelAndView = billController.billPage("Bill", "98237.00",USER_EMAIL);
+        MockHttpSession mockedSession = new MockHttpSession();
+        mockedSession.setAttribute("user", "yding@thoughtworks.com");
+        ModelAndView modelAndView = billController.billPage("Bill", "98237.00",mockedSession);
         View view = modelAndView.getView();
 
         ModelAndView modelAndViewTest = new ModelAndView("/add-bill");
@@ -63,7 +64,9 @@ public class BillControllerTest {
     @Test
     public void shouldRedirectToAddBillOnNoDescription() {
         BillController billController = mockedBillController();
-        ModelAndView modelAndView = billController.billPage("", "0.0",USER_EMAIL);
+        MockHttpSession mockedSession = new MockHttpSession();
+        mockedSession.setAttribute("user", "yding@thoughtworks.com");
+        ModelAndView modelAndView = billController.billPage("", "0.0",mockedSession);
         View view = modelAndView.getView();
         ModelAndView modelAndViewTest = new ModelAndView("/add-bill");
 
@@ -76,8 +79,10 @@ public class BillControllerTest {
         String description = "Lunch";
         String amount = "2000.00";
         BillController billControllerClone = mockedBillControllerClone();
-        billControllerClone.billPage(description, amount,USER_EMAIL);
-        assertThat(billControllerClone.billPage(description, amount,USER_EMAIL).getView(), equalTo(new ModelAndView("/add-bill").getView()));
+        MockHttpSession mockedSession = new MockHttpSession();
+        mockedSession.setAttribute("user", "yding@thoughtworks.com");
+        billControllerClone.billPage(description, amount,mockedSession);
+        assertThat(billControllerClone.billPage(description, amount,mockedSession).getView(), equalTo(new ModelAndView("/add-bill").getView()));
     }
 
     @Test
@@ -88,7 +93,10 @@ public class BillControllerTest {
         expectedObject.add("sam@thoughtworks.com");
 
         BillController billController = mockedBillController();
-        ArrayList<String> actualObject = (ArrayList<String>) billController.listOfAllConnections(USER_EMAIL).getModel().get("allConnections");
+
+        MockHttpSession mockedSession = new MockHttpSession();
+        mockedSession.setAttribute("user", "yding@thoughtworks.com");
+        ArrayList<String> actualObject = (ArrayList<String>) billController.listOfAllConnections(mockedSession).getModel().get("userConnections");
 
         assertThat(actualObject, is(expectedObject));
     }

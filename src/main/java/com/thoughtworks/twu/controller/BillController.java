@@ -1,6 +1,7 @@
 package com.thoughtworks.twu.controller;
 
 import com.thoughtworks.twu.domain.Bill;
+import com.thoughtworks.twu.persistence.ConnectionMapper;
 import com.thoughtworks.twu.service.BillService;
 import com.thoughtworks.twu.service.ConnectionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +22,10 @@ public class BillController {
     private BillService billService;
 
     ConnectionService connectionService;
+    public List<String> allConnections = new ArrayList<String>();
+
+    @Autowired
+    ConnectionMapper connectionMapper;
 
     @Autowired
     public BillController(BillService billService, ConnectionService connectionService) {
@@ -27,12 +34,12 @@ public class BillController {
     }
 
     public BillController() {
-    }
 
+    }
 
     @RequestMapping(value = "/add-bill", method = RequestMethod.POST)
     public ModelAndView billPage(@RequestParam(value = "descriptionItem",required = false) String description,
-                                 @RequestParam(value = "amountItem",required = false) String amount,String userEmail) {
+                                 @RequestParam(value = "amountItem",required = false) String amount,HttpSession session) {
         String notificationMessage;
         String descriptionMessage;
         String amountMessage;
@@ -45,15 +52,16 @@ public class BillController {
              descriptionMessage = "Description: "+description;
             amountMessage = "Amount: "+amount;
             notificationMessage = " Saved Successfully.";
-            modelAndView.addObject("descriptionMessage",descriptionMessage).addObject("amountMessage",amountMessage).addObject("notificationMessage",notificationMessage);
+            modelAndView.addObject("descriptionMessage",descriptionMessage).addObject("amountMessage",amountMessage).addObject("notificationMessage", notificationMessage);
         }
         else
         {
             notificationMessage = "Incorrect Information";
             modelAndView.addObject("notificationMessage",notificationMessage);
         }
+        String userEmail = (String) session.getAttribute("user");
         List<String> allConnections= connectionService.getAllConnections(userEmail);
-        modelAndView.addObject("allConnections", allConnections);
+        modelAndView.addObject("userConnections", allConnections);
         return modelAndView;
     }
 
@@ -68,10 +76,11 @@ public class BillController {
     }
 
     @RequestMapping(value = "/add-bill", method = RequestMethod.GET)
-    public ModelAndView listOfAllConnections(String userEmail) {
+    public ModelAndView listOfAllConnections(HttpSession session) {
+        String userEmail = (String) session.getAttribute("user");
         ModelAndView modelAndView = new ModelAndView("/add-bill");
-        List<String> allConnections= connectionService.getAllConnections(userEmail);
-        modelAndView.addObject("allConnections", allConnections);
+        allConnections = connectionService.getAllConnections(userEmail);
+        modelAndView.addObject("userConnections", allConnections);
         return modelAndView;
     }
 

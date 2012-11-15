@@ -36,7 +36,11 @@ public class ConnectionController {
         for(String email : emailTokens) {
 
             ConnectionDetails connectionDetails = new ConnectionDetails(currentUser , email);
-            connectionService.insertConnection(connectionDetails);
+            if (connectionService.getConnection(connectionDetails) == null) {
+
+                connectionService.insertConnection(connectionDetails);
+
+            }
 
         }
     }
