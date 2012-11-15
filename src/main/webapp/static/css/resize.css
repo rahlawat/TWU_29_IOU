@@ -1,0 +1,51 @@
+@media screen and (max-width : 500px) {
+
+    .fill {
+        background-color: #222;
+        background-color: #222222;
+        font-size: 0px;
+        height: 0px;
+        width: 0px;
+
+
+    }
+
+    .topbar
+    {
+        height: 0px;
+    }
+
+    table {
+        width: 100%;
+        border: 2;
+    }
+
+    .container
+    {
+        width: 100%;
+    }
+
+
+    input[type="text"] , input[type="email"], input[type="password"], input[type="tel"]
+    {
+        height: 10%;
+        width : 75%
+    }
+
+    /*input[type="password"]*/
+    /*{*/
+        /*height: 10%;*/
+        /*width : 50%*/
+    /*}*/
+
+
+
+
+
+
+
+
+
+
+
+}

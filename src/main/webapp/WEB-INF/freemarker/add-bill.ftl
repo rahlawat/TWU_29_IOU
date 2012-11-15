@@ -4,19 +4,23 @@
     <title> IOU </title>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
+    <link href="static/css/resizeHeader.css" media="screen and (max-width : 500px)" rel="stylesheet">
+
 </head>
 <body>
 <header class="topbar">
-    <h3 class="fill" align="right">
+    <h4 class="fill" align="right">
         <a>
-            Here you can add bill, and save the details.
-
+            Here you can add a bill.
         </a>
-        <button class="btn btn-primary" name="logoutButton"
-                onclick="location.href='/IOU/j_spring_security_logout'"> Logout
-        </button>
-    </h3>
+        <a>
+            <button class="btn btn-primary" name="logoutButton"
+                    onclick="location.href='/IOU/j_spring_security_logout'">Logout
+            </button>
+        </a>
+    </h4>
 </header>
+
 <div class="container">
     <div class="login-form">
         <form action="add-bill" method=post>
@@ -56,7 +60,7 @@
         </#list>
         </ul>
 
-        <input type="submit" value="Save" class="btn btn-primary" id="saveBillButton"/>
+        <input type="submit" value="Save" class="btn btn-primary" id="saveBillButton"/> <br/> <br/>
         <button class="btn btn-primary" id="backToDashboardButton" onclick="location.href='dashboard'">Back To Dashboard
         </button>
         </form>

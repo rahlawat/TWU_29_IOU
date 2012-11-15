@@ -5,6 +5,7 @@
     <title> IOU </title>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
+    <link href="static/css/resize.css" media="screen and (max-width : 500px)" rel="stylesheet">
 
 </head>
 
@@ -23,7 +24,7 @@
 
         <form name="account_form" action="/IOU/createAccount" method="POST">
             <fieldset>
-                <table>
+                <table id="createAcc">
                     Please enter some registration details below so that we can set you up with an IOU account.
                     Once you've registered you'll be able to log in and get started.
                     <tr>

@@ -5,6 +5,7 @@
     <title> IOU </title>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
+    <link href="static/css/resizeHeader.css" media="screen and (max-width : 500px)" rel="stylesheet">
     <script type="text/javascript" src="javascript/my-friends-list.js"></script>
     <script type="text/javascript" src="javascript/jquery.js"></script>
     <script type="text/javascript">
@@ -15,7 +16,7 @@
 
 <body>
 <header class="topbar">
-    <h3 class="fill" align="middle">
+    <h4 class="fill" align="right">
         <a>
             Here is your friends list.
         </a>
@@ -24,7 +25,7 @@
                     onclick="location.href='/IOU/j_spring_security_logout'">Logout
             </button>
         </a>
-    </h3>
+    </h4>
 </header>
 <div class="container">
     <div class="login-form">

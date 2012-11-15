@@ -12,6 +12,8 @@
     </script>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
+    <link href="static/css/resize.css" media="screen and (max-width : 500px)" rel="stylesheet">
+
 <#--<link href="static/css/bootstrap.min.css" rel="stylesheet">-->
 <#--<link href="static/css/main.css" rel="stylesheet">-->
 
@@ -35,7 +37,7 @@
             <fieldset>
                 Please fill out the following form with your login credentials:
                 <label for="email"></label>
-                <input type="text" placeholder="Email" id="email" name="email"/>
+                <input type="email" placeholder="Email" id="email" name="email"/>
                 <label for="password"></label>
                 <input type="password" placeholder="Password" id="password"
                        name="password"/>

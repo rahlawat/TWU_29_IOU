@@ -5,6 +5,8 @@
     <title> IOU </title>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/default.css" rel="stylesheet">
+    <link href="static/css/resizeHeader.css" media="screen and (max-width : 500px)" rel="stylesheet">
+
 <#--<link href="static/css/bootstrap.min.css" rel="stylesheet">-->
 <#--<link href="static/css/main.css" rel="stylesheet">-->
     <script type="text/javascript" src="javascript/who-owe-me.js"></script>
@@ -35,11 +37,11 @@
 
         <button class="btn btn-primary" id="friendsListButton"
                 onclick="location.href='/IOU/my-friends-list'">My Friends List
-        </button>
+        </button>  <br/>
     </div>
     <div id="peopleWhoOweMeDiv">
-        <div class="owe-me-title">Friends Who Owe Me</div>
-        <table border="1" class="computers zebra-striped" id="peopleWhoOweMeList" border="2">
+        <div class="owe-me-title"> <h5 align="center"> Friends Who Owe Me </h5> </div>
+        <table border="1" class="computers zebra-striped" id="peopleWhoOweMeList" border="2" align="center">
             <tr id="header" style="background-color: #87cefa;">
                 <th>Friends</th>   <th>Amount(Rs)</th>
             </tr>
