@@ -103,7 +103,9 @@ input[type="password"], input[type="email"], input[type="tel"],input[type="text"
 
 }
 
-
+ #errorLabel{
+      color:red;
+ }
 #peopleWhoOweMe{
     margin: 6% 0 0 13%;
 }

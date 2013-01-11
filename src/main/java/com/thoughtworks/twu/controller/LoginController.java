@@ -37,6 +37,8 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
+//        HttpSession session = request.getSession();
+//        String userEmail = (String) session.getAttribute("user");
         return new ModelAndView("login");
     }
 
@@ -46,7 +48,7 @@ public class LoginController {
                                          @RequestParam("password") String password, HttpServletRequest request) {
 
         if (email.isEmpty() || password.isEmpty())
-            return new ModelAndView("redirect:/login");
+            return new ModelAndView("redirect:/login").addObject("userEmail",email);
 
         HashSet<GrantedAuthority> grantedAuthority = new HashSet<GrantedAuthority>();
 
@@ -55,15 +57,17 @@ public class LoginController {
         Authentication authentication = new UsernamePasswordAuthenticationToken(email,password,grantedAuthority);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-
+        HttpSession session = request.getSession(true);
+        session.setAttribute("user", email);
         if (validUser(email, password)) {
 
-            HttpSession session = request.getSession(true);
-            session.setAttribute("user", email);
+//            HttpSession session = request.getSession(true);
+//            session.setAttribute("user", email);
             return new ModelAndView("redirect:/dashboard");
        }
-
-        return new ModelAndView("redirect:/login");
+        ModelAndView redirectedView = new ModelAndView("login");
+        redirectedView.addObject("userEmail", email);
+        return redirectedView;
 
     }
 

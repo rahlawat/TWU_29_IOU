@@ -73,6 +73,7 @@ public class LoginControllerTest {
         User user = (validUser) ? new User(email, username, password, phone) : null;
         when(mockUserService.getUserByEmail(email)).thenReturn(user);
 
+
         LoginController loginController = new LoginController(mockUserService);
         return loginController.checkCredentials(email, password, new MockHttpServletRequest());
     }

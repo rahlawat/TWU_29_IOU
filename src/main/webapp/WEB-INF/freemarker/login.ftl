@@ -45,6 +45,10 @@
                        name="password"/>
 
                 <div class="clearfix">
+
+                      <#if userEmail??>
+                         <label class="errormsg" id="errorLabel">The username or password you entered is incorrect!</label>
+                         </#if>
                     <input class="btn btn-primary" type="submit" value="Login">
                 </div>
                 New to IOU?
@@ -57,6 +61,7 @@
             </fieldset>
         </form>
     </div>
+
 </div>
 <!-- /container -->
 </body>

@@ -12,6 +12,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.internal.matchers.StringContains.containsString;
 
@@ -85,8 +86,9 @@ public class LoginFunctionalTest {
         webDriver.findElement(By.id("loginForm")).submit();
 
         assertThat(webDriver.getCurrentUrl(),containsString("http://localhost:9130/IOU/login"));
-
-
+        webDriver.getCurrentUrl();
+       WebElement label =  webDriver.findElement(By.id("errorLabel")) ;
+        assertNotNull(label);
     }
 
 
